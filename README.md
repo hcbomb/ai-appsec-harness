@@ -24,6 +24,8 @@ This repository turns community AI security references into an operational AppSe
 
 This repo intentionally does not fork entire upstream standards. It keeps canonical links, seed mappings, and import-ready data shapes so future harnesses can ingest authoritative upstream controls.
 
+See [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) for credited standards, frameworks, threat modeling resources, and community discovery feeds.
+
 ## Quick Start
 
 Run the seed harness against the example AI client intake:

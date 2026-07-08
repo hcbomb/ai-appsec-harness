@@ -1,0 +1,68 @@
+version: 0.1.0
+retrieved_on: "2026-07-08"
+primary_frameworks:
+  - id: owasp-aisvs
+    name: OWASP Artificial Intelligence Security Verification Standard
+    url: https://github.com/OWASP/AISVS
+    use: Primary AI security verification backbone.
+  - id: owasp-aisvs-docs
+    name: OWASP AISVS Docs
+    url: https://owasp.org/www-project-artificial-intelligence-security-verification-standard-aisvs-docs/
+    use: Human-readable standard reference.
+  - id: owasp-genai-security
+    name: OWASP GenAI Security Project
+    url: https://genai.owasp.org/
+    use: GenAI risk taxonomy and practitioner guidance.
+  - id: owasp-llm-top-10
+    name: OWASP Top 10 for LLM and GenAI Applications
+    url: https://genai.owasp.org/llm-top-10/
+    use: Risk language for threat models and review reports.
+  - id: csa-ai-controls-matrix
+    name: CSA AI Controls Matrix
+    url: https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1
+    use: Governance and control mapping for AI systems.
+  - id: csa-ai-safety
+    name: CSA AI Safety Initiative
+    url: https://cloudsecurityalliance.org/ai-safety-initiative
+    use: CSA AI safety and agentic AI working-group context.
+  - id: csa-star-ai
+    name: CSA STAR for AI
+    url: https://cloudsecurityalliance.org/star/ai
+    use: Assurance and trust program context.
+  - id: nist-ai-rmf
+    name: NIST AI Risk Management Framework
+    url: https://www.nist.gov/itl/ai-risk-management-framework
+    use: Risk management framing.
+  - id: nist-ai-600-1
+    name: NIST AI 600-1 Generative AI Profile
+    url: https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence
+    use: GenAI-specific risk framing.
+  - id: mitre-atlas
+    name: MITRE ATLAS
+    url: https://atlas.mitre.org/
+    use: AI adversary tactics and techniques.
+awesome_feeds:
+  - id: awesome-artificial-intelligence
+    name: Awesome Artificial Intelligence
+    url: https://github.com/owainlewis/awesome-artificial-intelligence
+  - id: awesome-llm
+    name: Awesome LLM
+    url: https://github.com/hannibal046/awesome-llm
+  - id: awesome-generative-ai
+    name: Awesome Generative AI
+    url: https://github.com/steven2358/awesome-generative-ai
+  - id: awesome-llm-apps
+    name: Awesome LLM Apps
+    url: https://github.com/Shubhamsaboo/awesome-llm-apps
+  - id: awesome-ai-security-ottosulin
+    name: Awesome AI Security
+    url: https://github.com/ottosulin/awesome-ai-security
+  - id: awesome-ai-security-taleliyahu
+    name: Awesome AI Security by Tal Eliyahu
+    url: https://github.com/TalEliyahu/Awesome-AI-Security
+  - id: github-topic-awesome-ai
+    name: GitHub awesome-ai topic
+    url: https://github.com/topics/awesome-ai
+  - id: github-topic-ai-security
+    name: GitHub ai-security topic
+    url: https://github.com/topics/ai-security

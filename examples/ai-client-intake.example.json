@@ -1,0 +1,61 @@
+{
+  "system": {
+    "name": "Example Engineering Assistant",
+    "owner": "Platform Engineering",
+    "system_type": "agent",
+    "lifecycle_stage": "design",
+    "description": "Internal assistant that answers engineering questions, searches documentation, and drafts pull request summaries."
+  },
+  "capabilities": [
+    "chat",
+    "rag",
+    "tool_use",
+    "document_analysis",
+    "workflow_automation"
+  ],
+  "data": {
+    "classifications": [
+      "internal",
+      "confidential"
+    ],
+    "sensitive_data_notes": "May process internal design docs, source snippets, ticket metadata, and deployment notes."
+  },
+  "integrations": {
+    "model_providers": [
+      "example-llm-provider"
+    ],
+    "tools": [
+      "github_search",
+      "jira_lookup",
+      "docs_search"
+    ],
+    "retrieval_sources": [
+      "engineering-wiki",
+      "service-catalog",
+      "runbooks"
+    ],
+    "external_actions": false
+  },
+  "deployment": {
+    "environment": "internal",
+    "internet_exposed": false,
+    "cloud_provider": "example-cloud"
+  },
+  "evidence": [
+    {
+      "id": "architecture_diagram",
+      "status": "available",
+      "path": "docs/architecture/current-ai-assistant-architecture.md"
+    },
+    {
+      "id": "data_classification",
+      "status": "partial",
+      "path": "docs/data-classification.md"
+    },
+    {
+      "id": "retrieval_source_inventory",
+      "status": "available",
+      "path": "docs/retrieval-sources.md"
+    }
+  ]
+}

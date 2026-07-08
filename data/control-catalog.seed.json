@@ -1,0 +1,226 @@
+{
+  "version": "0.1.0",
+  "catalog_note": "Seed controls for harness development. These are local operational controls aligned to upstream frameworks; they are not authoritative AISVS requirement IDs.",
+  "controls": [
+    {
+      "id": "AIH-001",
+      "title": "Inventory AI system boundaries and trust decisions",
+      "summary": "The system has a documented architecture, trust boundaries, data flows, model/provider dependencies, and explicit AI-mediated decisions.",
+      "applies_when": {
+        "system_types": ["ai_client", "agent", "rag", "llm_app", "model_service"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Architecture and lifecycle verification"},
+        {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Governance, inventory, and risk management"},
+        {"framework": "NIST AI RMF", "status": "candidate", "note": "Govern and Map functions"}
+      ],
+      "evidence": [
+        {"id": "architecture_diagram", "required": true, "prompt": "Attach a current architecture diagram showing users, services, models, tools, data stores, and external providers."},
+        {"id": "data_flow", "required": true, "prompt": "Describe prompt, context, retrieval, model output, tool-call, and logging data flows."},
+        {"id": "decision_inventory", "required": true, "prompt": "List decisions or recommendations made or mediated by the AI system."}
+      ],
+      "tests": [
+        {"id": "boundary_review", "prompt": "Review whether every trust boundary has an owner, input validation strategy, and monitoring expectation."}
+      ],
+      "hardening_actions": [
+        "Create a living AI system inventory entry.",
+        "Document where user-controlled content can influence prompts, context, tools, and outputs.",
+        "Identify which decisions require human approval."
+      ]
+    },
+    {
+      "id": "AIH-002",
+      "title": "Constrain prompt and instruction boundaries",
+      "summary": "System, developer, user, retrieved, and tool-supplied content are separated and protected against cross-boundary instruction injection.",
+      "applies_when": {
+        "system_types": ["ai_client", "agent", "rag", "llm_app"],
+        "capabilities_any": ["chat", "summarization", "rag", "tool_use", "code_generation"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Prompt and input/output handling verification"},
+        {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "Prompt injection and sensitive information disclosure"},
+        {"framework": "MITRE ATLAS", "status": "candidate", "note": "Adversarial prompt and input manipulation scenarios"}
+      ],
+      "evidence": [
+        {"id": "prompt_contract", "required": true, "prompt": "Attach the system/developer prompt contract or instruction hierarchy."},
+        {"id": "prompt_injection_tests", "required": true, "prompt": "Attach prompt injection, indirect prompt injection, and context confusion test results."},
+        {"id": "content_boundary_policy", "required": false, "prompt": "Describe how retrieved or user-controlled content is labeled and isolated from trusted instructions."}
+      ],
+      "tests": [
+        {"id": "indirect_prompt_injection", "prompt": "Inject malicious instructions into a retrieval source and verify they cannot override trusted instructions."},
+        {"id": "role_confusion", "prompt": "Attempt to make user content appear as system/developer instructions."}
+      ],
+      "hardening_actions": [
+        "Label untrusted content in prompts and tool responses.",
+        "Use structured prompt templates with explicit instruction hierarchy.",
+        "Regression-test known jailbreak and indirect injection patterns."
+      ]
+    },
+    {
+      "id": "AIH-003",
+      "title": "Authorize and audit agent tool use",
+      "summary": "Tools available to AI agents are inventoried, scoped, authorized, logged, and constrained by least privilege.",
+      "applies_when": {
+        "system_types": ["agent", "ai_client", "llm_app"],
+        "capabilities_any": ["tool_use", "mcp", "workflow_automation", "external_actions"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Agentic action security and authorization"},
+        {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Identity, access, logging, and change control"},
+        {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "Excessive agency and supply chain risks"}
+      ],
+      "evidence": [
+        {"id": "tool_inventory", "required": true, "prompt": "List all tools, plugins, MCP servers, APIs, and external actions available to the agent."},
+        {"id": "tool_authorization_model", "required": true, "prompt": "Describe scopes, approval requirements, policy checks, and deny conditions for each tool."},
+        {"id": "tool_audit_logs", "required": true, "prompt": "Attach sample logs that show tool request, approval, execution, output, and actor context."}
+      ],
+      "tests": [
+        {"id": "unauthorized_tool_call", "prompt": "Attempt to trigger a tool outside the user's role, tenant, environment, or approval boundary."},
+        {"id": "tool_replay", "prompt": "Attempt replay or tampering of a prior tool invocation."}
+      ],
+      "hardening_actions": [
+        "Use an allowlist for agent tools and permissions.",
+        "Require human approval for destructive, financial, privileged, or external side-effect actions.",
+        "Log tool calls with correlation IDs and user/session context."
+      ]
+    },
+    {
+      "id": "AIH-004",
+      "title": "Protect sensitive data in prompts, retrieval, and outputs",
+      "summary": "Sensitive data exposure is minimized across prompt construction, context retrieval, model responses, logs, and evaluation datasets.",
+      "applies_when": {
+        "system_types": ["ai_client", "agent", "rag", "llm_app", "model_service"],
+        "data_classifications_any": ["confidential", "regulated", "internal", "customer", "secrets"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Data protection and privacy verification"},
+        {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "Sensitive information disclosure"},
+        {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Data security, privacy, and governance"}
+      ],
+      "evidence": [
+        {"id": "data_classification", "required": true, "prompt": "List data classifications processed by prompts, embeddings, retrieval sources, model providers, and logs."},
+        {"id": "data_minimization_controls", "required": true, "prompt": "Describe filtering, redaction, tokenization, masking, or policy controls before data reaches the model."},
+        {"id": "retention_policy", "required": true, "prompt": "Document retention and deletion behavior for prompts, completions, embeddings, and logs."}
+      ],
+      "tests": [
+        {"id": "secret_leakage", "prompt": "Seed canary secrets and verify they are not retrieved, emitted, logged, or sent to unauthorized providers."},
+        {"id": "cross_tenant_retrieval", "prompt": "Verify tenant or role boundaries cannot be bypassed through semantic retrieval."}
+      ],
+      "hardening_actions": [
+        "Block secrets and high-risk regulated data from prompts unless explicitly approved.",
+        "Apply retrieval filters before context assembly.",
+        "Review provider retention and training-use settings."
+      ]
+    },
+    {
+      "id": "AIH-005",
+      "title": "Govern retrieval sources and knowledge freshness",
+      "summary": "RAG and context sources are authorized, access-controlled, freshness-scored, and resistant to poisoning.",
+      "applies_when": {
+        "system_types": ["rag", "agent", "llm_app"],
+        "capabilities_any": ["rag", "search", "document_analysis"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Knowledge base and data lifecycle verification"},
+        {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "RAG poisoning and supply chain considerations"},
+        {"framework": "MITRE ATLAS", "status": "candidate", "note": "Data poisoning and input manipulation scenarios"}
+      ],
+      "evidence": [
+        {"id": "retrieval_source_inventory", "required": true, "prompt": "List retrieval sources, owners, indexes, update cadence, access model, and freshness expectations."},
+        {"id": "indexing_pipeline_controls", "required": true, "prompt": "Describe ingestion validation, provenance, malware scanning, and poisoning detection."},
+        {"id": "retrieval_authz_tests", "required": true, "prompt": "Attach tests proving retrieval respects user, tenant, and document-level authorization."}
+      ],
+      "tests": [
+        {"id": "poisoned_document", "prompt": "Insert hostile instructions into an authorized document and verify context handling prevents instruction takeover."},
+        {"id": "stale_source", "prompt": "Verify stale or revoked content is excluded or labeled in generated answers."}
+      ],
+      "hardening_actions": [
+        "Track source provenance and freshness metadata.",
+        "Apply authorization before retrieval and before prompt assembly.",
+        "Quarantine newly ingested high-risk content until validated."
+      ]
+    },
+    {
+      "id": "AIH-006",
+      "title": "Validate output before privileged or external action",
+      "summary": "Model output is treated as untrusted until validated, especially before code execution, ticket changes, emails, transactions, deployments, or cloud actions.",
+      "applies_when": {
+        "system_types": ["agent", "ai_client", "llm_app"],
+        "capabilities_any": ["tool_use", "code_generation", "workflow_automation", "external_actions"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Output handling and agent action verification"},
+        {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "Excessive agency and insecure output handling"},
+        {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Change control, logging, and human oversight"}
+      ],
+      "evidence": [
+        {"id": "output_validation_policy", "required": true, "prompt": "Document validators, schemas, policy checks, and approval gates used before action."},
+        {"id": "human_approval_matrix", "required": true, "prompt": "List actions that require human approval and the identity/role required to approve."},
+        {"id": "unsafe_output_tests", "required": true, "prompt": "Attach tests for command injection, unsafe code, unauthorized data changes, and malformed tool arguments."}
+      ],
+      "tests": [
+        {"id": "malformed_tool_args", "prompt": "Attempt to cause malformed or policy-violating tool arguments and verify the call is blocked."},
+        {"id": "destructive_action_approval", "prompt": "Verify destructive actions require explicit human approval and are fully logged."}
+      ],
+      "hardening_actions": [
+        "Use schemas and policy checks for all tool arguments.",
+        "Treat generated code and commands as untrusted input.",
+        "Require approval for destructive or externally visible actions."
+      ]
+    },
+    {
+      "id": "AIH-007",
+      "title": "Monitor abuse, drift, and security-relevant behavior",
+      "summary": "The system emits security telemetry for prompts, retrieval, tool use, denials, policy decisions, model/provider failures, and anomalous behavior.",
+      "applies_when": {
+        "system_types": ["ai_client", "agent", "rag", "llm_app", "model_service"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Monitoring, logging, and operations verification"},
+        {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Logging, monitoring, incident response, and assurance"},
+        {"framework": "NIST AI RMF", "status": "candidate", "note": "Measure and Manage functions"}
+      ],
+      "evidence": [
+        {"id": "telemetry_plan", "required": true, "prompt": "Document security events, metrics, traces, and alerts emitted by the AI system."},
+        {"id": "abuse_detection_rules", "required": false, "prompt": "Attach prompt abuse, tool abuse, leakage, and anomalous usage detections."},
+        {"id": "incident_response_playbook", "required": true, "prompt": "Attach AI-specific incident response, rollback, kill-switch, or provider failover procedures."}
+      ],
+      "tests": [
+        {"id": "blocked_prompt_logging", "prompt": "Verify blocked prompt/tool events are logged without leaking sensitive content."},
+        {"id": "kill_switch", "prompt": "Exercise feature disablement or provider isolation for an AI safety/security incident."}
+      ],
+      "hardening_actions": [
+        "Add correlation IDs across prompt, retrieval, model, and tool-call events.",
+        "Create detections for repeated prompt injection, blocked tools, leakage attempts, and policy bypasses.",
+        "Define rollback and disablement paths before production launch."
+      ]
+    },
+    {
+      "id": "AIH-008",
+      "title": "Manage AI supply chain and provider risk",
+      "summary": "Models, providers, SDKs, plugins, prompts, evaluation datasets, and agent dependencies are tracked and reviewed for supply chain risk.",
+      "applies_when": {
+        "system_types": ["ai_client", "agent", "rag", "llm_app", "model_service", "model_pipeline"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Supply chain and third-party component verification"},
+        {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "Supply chain vulnerabilities"},
+        {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Third-party risk, change management, and assurance"}
+      ],
+      "evidence": [
+        {"id": "model_provider_inventory", "required": true, "prompt": "List model providers, model IDs, regions, retention settings, and contractual/security assumptions."},
+        {"id": "dependency_inventory", "required": true, "prompt": "Attach SDK, plugin, MCP server, prompt package, and agent dependency inventory."},
+        {"id": "provider_risk_review", "required": false, "prompt": "Attach provider security review, DPA, terms review, or vendor risk assessment."}
+      ],
+      "tests": [
+        {"id": "provider_config_review", "prompt": "Verify production model/provider configuration matches approved retention, region, and data-use settings."},
+        {"id": "plugin_integrity", "prompt": "Verify plugins, MCP servers, and agent tools are pinned, reviewed, and monitored for change."}
+      ],
+      "hardening_actions": [
+        "Pin model and SDK versions where feasible.",
+        "Track prompt templates and tool definitions as versioned artifacts.",
+        "Review provider data-use, retention, logging, and incident notification terms."
+      ]
+    }
+  ]
+}

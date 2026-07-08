@@ -1,0 +1,23 @@
+[project]
+name = "ai-appsec-harness"
+version = "0.1.0"
+description = "AppSec harness resources for threat modeling and attesting AI clients, agents, and LLM applications."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Henry Canivel" }
+]
+
+[project.scripts]
+ai-appsec-harness = "ai_appsec_harness.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "harness" }
+
+[tool.setuptools.packages.find]
+where = ["harness"]

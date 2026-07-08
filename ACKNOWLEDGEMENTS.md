@@ -62,11 +62,11 @@ The reference catalog was seeded from community-maintained "awesome" lists and G
 - GitHub ai-security topic
   - https://github.com/topics/ai-security
 
-## Internal Operating Guidance
+## Practitioner Operating Patterns
 
-The baseline review workflow also reflects generalized internal AppSec operating practices for request intake, architecture evidence, STRIDE review, control-gap tracking, exception support, and remediation follow-up.
+The baseline review workflow also reflects generalized AppSec operating practices for request intake, architecture evidence, STRIDE review, control-gap tracking, exception support, and remediation follow-up.
 
-Private internal wiki pages, ticketing content, and non-public process details are intentionally not copied, linked, or redistributed in this public repository. Where internal practices were useful, they were converted into generic practitioner patterns.
+Private wiki pages, ticketing content, organization-specific material, and non-public process details are intentionally not copied, linked, or redistributed in this public repository. Where practitioner workflows were useful, they were converted into generic patterns.
 
 ## Attribution Model
 

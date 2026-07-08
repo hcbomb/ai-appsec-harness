@@ -8,6 +8,9 @@
 - Business purpose:
 - User population:
 - Deployment environment:
+- Related ticket / epic:
+- Requested output:
+- Target review date:
 
 ## AI Capabilities
 
@@ -35,6 +38,14 @@
 - Embedding storage:
 - Retention:
 
+## Current And Target State
+
+- Current state:
+- Target state:
+- Transitional / interim state:
+- Known manual controls:
+- Known control gaps:
+
 ## Tools And External Actions
 
 | Tool | Purpose | Scope | Approval required | Logs | Owner |
@@ -52,6 +63,7 @@
 - Architecture diagram:
 - Data flow:
 - Threat model:
+- STRIDE analysis:
 - Tool inventory:
 - Prompt contract:
 - Tests:

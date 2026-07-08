@@ -221,6 +221,39 @@
         "Track prompt templates and tool definitions as versioned artifacts.",
         "Review provider data-use, retention, logging, and incident notification terms."
       ]
+    },
+    {
+      "id": "AIH-009",
+      "title": "Perform STRIDE threat modeling with AI-specific abuse cases",
+      "summary": "The system has a documented STRIDE threat model that captures business context, current and target state, trust boundaries, AI-specific abuse cases, control gaps, compensating controls, residual risk, and remediation decisions.",
+      "applies_when": {
+        "system_types": ["ai_client", "agent", "rag", "llm_app", "model_service", "model_pipeline"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Threat modeling, architecture, and security requirement verification"},
+        {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "Risk mapping for LLM and GenAI applications"},
+        {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Risk management, governance, and assurance evidence"},
+        {"framework": "MITRE ATLAS", "status": "candidate", "note": "Adversary scenario and abuse-case development"},
+        {"framework": "Shostack Four Question Frame", "status": "practice", "note": "What are we working on, what can go wrong, what are we going to do about it, and did we do a good job"}
+      ],
+      "evidence": [
+        {"id": "threat_model", "required": true, "prompt": "Attach the AI threat model with scope, owners, business context, assets, trust boundaries, current/target state, and review tier."},
+        {"id": "stride_analysis", "required": true, "prompt": "Attach STRIDE analysis covering spoofing, tampering, repudiation, information disclosure, denial of service, and elevation of privilege."},
+        {"id": "architecture_views", "required": true, "prompt": "Attach or link system context, trust-zone/environment, IAM/access flow, data flow, and AI tool/retrieval flow views."},
+        {"id": "remediation_plan", "required": true, "prompt": "Attach mitigation decisions, owners, due dates, compensating controls, accepted risks, and residual risk."},
+        {"id": "review_quality_check", "required": false, "prompt": "Document whether the review answered the four-question frame and included the right engineering, product, security, data, and operations stakeholders."}
+      ],
+      "tests": [
+        {"id": "stride_completeness", "prompt": "Verify every STRIDE category was considered and irrelevant categories have rationale rather than being silently skipped."},
+        {"id": "ai_abuse_case_coverage", "prompt": "Verify prompt injection, indirect prompt injection, retrieval poisoning, data leakage, unauthorized tool use, excessive agency, and unsafe output handling were considered where applicable."},
+        {"id": "mitigation_traceability", "prompt": "Verify each high or medium risk maps to a remediation, compensating control, accepted risk, or explicit release-blocking decision."}
+      ],
+      "hardening_actions": [
+        "Run the baseline assisted STRIDE flow during design review.",
+        "Use the advanced Shostack-style four-question frame for high-impact, sensitive, production-facing, or agentic systems.",
+        "Track unresolved risks in the implementation ticket, risk register, or exception workflow.",
+        "Define revalidation triggers for design changes, new tools, new retrieval sources, new data classes, incidents, and exception renewals."
+      ]
     }
   ]
 }

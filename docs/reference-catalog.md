@@ -16,6 +16,10 @@ This catalog separates discovery feeds from operating standards. Awesome lists h
 | NIST AI RMF | Risk management vocabulary for governance, mapping, measurement, and management. | https://www.nist.gov/itl/ai-risk-management-framework |
 | NIST AI 600-1 GenAI Profile | GenAI-specific companion profile for AI RMF risk management. | https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence |
 | MITRE ATLAS | Adversary tactics and techniques for AI threat modeling and red-team scenario design. | https://atlas.mitre.org/ |
+| Shostack Four Question Frame | Practical threat modeling frame: what are we working on, what can go wrong, what are we going to do about it, and did we do a good job. | https://github.com/adamshostack/4QuestionFrame |
+| Shostack Threat Modeling Guide | Practitioner guidance from Adam Shostack on structured, repeatable threat modeling. | https://shostack.org/resources/threat-modeling.html |
+| Threat Modeling Manifesto | Values, principles, patterns, and anti-patterns for productive threat modeling programs. | https://www.threatmodelingmanifesto.org/ |
+| OWASP Threat Modeling Project | Current OWASP entry point for threat modeling techniques, community references, tools, and examples. | https://owasp.org/www-project-threat-modeling/ |
 
 ## Awesome AI Discovery Feeds
 
@@ -48,3 +52,4 @@ These are useful candidates for later categorization, especially when the harnes
 - Preserve upstream URLs and retrieval dates in machine-readable records.
 - Do not claim AISVS, CSA, NIST, or OWASP conformance until exact upstream controls and evidence are mapped.
 - Track tool recommendations separately from hardening requirements.
+- Do not publish internal wiki content into public artifacts. Synthesize reusable operating patterns without copying private source text or links.

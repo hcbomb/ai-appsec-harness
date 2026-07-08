@@ -21,7 +21,8 @@ Given an AI system intake, the harness produces:
 2. Classify
    - Identify whether the system is an AI client, agent, RAG app, model-hosting service, model-training pipeline, evaluation harness, or internal productivity tool.
 3. Threat Model
-   - Model trust boundaries, prompt boundaries, data flows, tool calls, delegated authority, identity transitions, external actions, and abuse cases.
+   - Use the baseline assisted STRIDE flow for normal reviews and the advanced Shostack-style flow for high-impact or agentic systems.
+   - Model trust boundaries, prompt boundaries, data flows, tool calls, delegated authority, identity transitions, external actions, current/target state, compensating controls, and abuse cases.
 4. Map Controls
    - Select applicable controls from AISVS, OWASP GenAI, CSA AICM, and local AppSec requirements.
 5. Collect Evidence
@@ -32,6 +33,26 @@ Given an AI system intake, the harness produces:
    - Produce engineering actions that reduce risk and can be regression-tested.
 8. Attest
    - Generate an attestation package that states scope, evidence, gaps, exceptions, compensating controls, and residual risk.
+
+## Threat Modeling Depth
+
+Baseline reviews must answer:
+
+- what is changing;
+- why the business needs it;
+- who owns it;
+- what systems, environments, identities, and data are involved;
+- what STRIDE threats matter;
+- what controls, gaps, compensating controls, and decisions exist.
+
+Advanced reviews must also answer Adam Shostack's four-question frame:
+
+- what are we working on;
+- what can go wrong;
+- what are we going to do about it;
+- did we do a good job.
+
+For AI clients and agents, advanced reviews must include prompt/context boundaries, model/provider boundaries, retrieval poisoning, tool authorization, delegated authority, output validation, logging/auditability, rollback, and monitoring.
 
 ## Agent Roles
 

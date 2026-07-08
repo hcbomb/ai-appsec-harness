@@ -41,6 +41,7 @@ The generated report is not a compliance certificate. It is an evidence gap anal
 
 - `docs/reference-catalog.md` - curated sources and how each should feed AppSec work.
 - `docs/harness-design.md` - target architecture for agents, harnesses, and review gates.
+- `docs/threat-modeling-stride.md` - two-tier threat modeling method: assisted STRIDE baseline and advanced Shostack-style practice.
 - `docs/aisvs-operationalization.md` - how to turn AISVS into engineering-ready evidence checks.
 - `data/reference-catalog.yml` - machine-readable reference catalog.
 - `data/control-catalog.seed.json` - starter harness controls for AI clients and agents.
@@ -52,10 +53,16 @@ The generated report is not a compliance certificate. It is an evidence gap anal
 ## Operating Principles
 
 - Evidence before assertion.
+- Model the system before debating controls.
 - Human approval for agentic actions, sensitive data access, and production changes.
 - Clear source-to-control mapping.
 - Reproducible reports from versioned inputs.
 - Engineering-readable output with AppSec-grade traceability.
+
+## Threat Modeling Tiers
+
+- Baseline: perform an assisted STRIDE assessment with minimum viable architecture inputs, business context, current/target state, control gaps, remediation decisions, and a documented review outcome.
+- Advanced: use Adam Shostack's four-question frame and deeper STRIDE analysis across diagrams, trust boundaries, data flows, agent tools, retrieval sources, identity paths, and operational workflows.
 
 ## Current Status
 

@@ -8,3 +8,5 @@ venv/
 build/
 dist/
 *.egg-info/
+.private/
+source-chats/

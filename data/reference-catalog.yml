@@ -41,6 +41,22 @@ primary_frameworks:
     name: MITRE ATLAS
     url: https://atlas.mitre.org/
     use: AI adversary tactics and techniques.
+  - id: shostack-four-question-frame
+    name: Shostack Four Question Frame
+    url: https://github.com/adamshostack/4QuestionFrame
+    use: Practical threat modeling workflow.
+  - id: shostack-threat-modeling-guide
+    name: Shostack Threat Modeling Guide
+    url: https://shostack.org/resources/threat-modeling.html
+    use: Structured, repeatable threat modeling guidance.
+  - id: threat-modeling-manifesto
+    name: Threat Modeling Manifesto
+    url: https://www.threatmodelingmanifesto.org/
+    use: Values, principles, patterns, and anti-patterns for threat modeling.
+  - id: owasp-threat-modeling
+    name: OWASP Threat Modeling Project
+    url: https://owasp.org/www-project-threat-modeling/
+    use: Threat modeling methods, tools, examples, and community guidance.
 awesome_feeds:
   - id: awesome-artificial-intelligence
     name: Awesome Artificial Intelligence

@@ -64,10 +64,36 @@ The reference catalog was seeded from community-maintained "awesome" lists and G
 
 ## Ongoing Monitoring Sources
 
-- Unsupervised Learning by Daniel Miessler
-  - https://newsletter.danielmiessler.com/
 - tl;dr sec Newsletter
   - https://tldrsec.com/t/Newsletter
+- Unsupervised Learning by Daniel Miessler
+  - https://newsletter.danielmiessler.com/
+- OWASP GenAI Security Project News and Resources
+  - https://genai.owasp.org/news/
+  - https://genai.owasp.org/resources/
+- AVID: AI Vulnerability Database
+  - https://avidml.org/
+
+Secondary strategic sweep sources include:
+
+- Microsoft Security Blog: AI and agents
+  - https://www.microsoft.com/en-us/security/blog/topic/ai-and-machine-learning/
+- Google Threat Intelligence Group / Mandiant AI threat coverage
+  - https://cloud.google.com/blog/topics/threat-intelligence
+- Anthropic Frontier Red Team
+  - https://www.anthropic.com/research/team/frontier-red-team
+- Frontier Model Forum AI-Cyber and AI Security workstreams
+  - https://www.frontiermodelforum.org/workstreams/ai-cyber-workstream/
+  - https://www.frontiermodelforum.org/workstreams/ai-security-workstream/
+- Trail of Bits AI/ML security
+  - https://blog.trailofbits.com/categories/machine-learning/
+  - https://blog.trailofbits.com/categories/prompt-injection/
+- Lakera Blog
+  - https://www.lakera.ai/blog
+- HiddenLayer Innovation Hub / AI Threat Landscape
+  - https://www.hiddenlayer.com/innovation-hub
+- NCSC secure AI system development and frontier AI cyber guidance
+  - https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development
 
 ## Practitioner Operating Patterns
 

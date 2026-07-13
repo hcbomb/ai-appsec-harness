@@ -1,5 +1,5 @@
 version: 0.1.0
-retrieved_on: "2026-07-08"
+retrieved_on: "2026-07-13"
 primary_frameworks:
   - id: owasp-aisvs
     name: OWASP Artificial Intelligence Security Verification Standard
@@ -83,18 +83,6 @@ awesome_feeds:
     name: GitHub ai-security topic
     url: https://github.com/topics/ai-security
 monitoring_feeds:
-  - id: unsupervised-learning
-    name: Unsupervised Learning by Daniel Miessler
-    url: https://newsletter.danielmiessler.com/
-    cadence: weekly
-    use: AI security trend spotting, emerging tool discovery, cyber/AI context, and practitioner signal.
-    promote_when_additive_to:
-      - threat_modeling
-      - ai_client_hardening
-      - agent_harnesses
-      - appsec_workflows
-      - governance_mapping
-      - detection_or_testing
   - id: tldr-sec-newsletter
     name: tl;dr sec Newsletter
     url: https://tldrsec.com/t/Newsletter
@@ -107,3 +95,94 @@ monitoring_feeds:
       - appsec_workflows
       - governance_mapping
       - detection_or_testing
+  - id: unsupervised-learning
+    name: Unsupervised Learning by Daniel Miessler
+    url: https://newsletter.danielmiessler.com/
+    cadence: weekly
+    use: AI security trend spotting, emerging tool discovery, cyber/AI context, and practitioner signal.
+    promote_when_additive_to:
+      - threat_modeling
+      - ai_client_hardening
+      - agent_harnesses
+      - appsec_workflows
+      - governance_mapping
+      - detection_or_testing
+  - id: owasp-genai-news-resources
+    name: OWASP GenAI Security Project News / Resources
+    url: https://genai.owasp.org/news/
+    additional_urls:
+      - https://genai.owasp.org/resources/
+    cadence: weekly
+    use: Standards-community updates, new OWASP GenAI resources, agentic security guidance, MCP guidance, red-team guidance, and mapping inputs.
+    promote_when_additive_to:
+      - threat_modeling
+      - ai_client_hardening
+      - agent_harnesses
+      - appsec_workflows
+      - governance_mapping
+      - detection_or_testing
+  - id: avid-ai-vulnerability-database
+    name: "AVID: AI Vulnerability Database"
+    url: https://avidml.org/
+    cadence: weekly
+    use: Evidence-backed AI vulnerability and failure records for abuse cases, test/evidence ideas, and threat-model examples.
+    promote_when_additive_to:
+      - threat_modeling
+      - ai_client_hardening
+      - agent_harnesses
+      - appsec_workflows
+      - governance_mapping
+      - detection_or_testing
+strategic_sweep_feeds:
+  - id: microsoft-security-blog-ai-agents
+    name: "Microsoft Security Blog: AI and agents"
+    url: https://www.microsoft.com/en-us/security/blog/topic/ai-and-machine-learning/
+    cadence: monthly_or_signal_driven
+    use: AI security, agent hardening, AI threat research, and security engineering practices.
+    promote_to_weekly_when: Repeated high-signal AppSec or AI-client/agent hardening items appear across multiple runs.
+  - id: google-gtig-mandiant-ai-threat-coverage
+    name: Google Threat Intelligence Group / Mandiant AI threat coverage
+    url: https://cloud.google.com/blog/topics/threat-intelligence
+    cadence: monthly_or_signal_driven
+    use: Adversary use of AI, AI-enabled threat intelligence, detection, and incident-response implications.
+    promote_to_weekly_when: Repeated AI threat intelligence items materially affect AppSec, detection, or incident-response guidance.
+  - id: anthropic-frontier-red-team
+    name: Anthropic Frontier Red Team
+    url: https://www.anthropic.com/research/team/frontier-red-team
+    cadence: monthly_or_signal_driven
+    use: Empirical AI cyber capability, red-team, and autonomous-system research for threat scenarios, benchmarks, and safety/evidence tests.
+    promote_to_weekly_when: Repeated releases produce actionable test, evidence, prompt, or harness updates.
+  - id: frontier-model-forum-ai-cyber-security
+    name: Frontier Model Forum AI-Cyber / AI Security workstreams
+    url: https://www.frontiermodelforum.org/workstreams/ai-cyber-workstream/
+    additional_urls:
+      - https://www.frontiermodelforum.org/workstreams/ai-security-workstream/
+    cadence: monthly_or_signal_driven
+    use: Frontier model cyber risk practices, capability thresholds, shared evaluations, and security practices for model development and deployment.
+    promote_to_weekly_when: Repeated publications materially affect governance mapping, evaluation criteria, or frontier AI cyber threat modeling.
+  - id: trail-of-bits-ai-ml-security
+    name: Trail of Bits AI/ML security
+    url: https://blog.trailofbits.com/categories/machine-learning/
+    additional_urls:
+      - https://blog.trailofbits.com/categories/prompt-injection/
+    cadence: monthly_or_signal_driven
+    use: Practical AI-assisted AppSec, ML security, prompt injection, MCP, agent, and audit research.
+    promote_to_weekly_when: Repeated posts produce concrete AppSec test/evidence, hardening, or prompt/template updates.
+  - id: lakera-blog
+    name: Lakera Blog
+    url: https://www.lakera.ai/blog
+    cadence: monthly_or_signal_driven
+    use: AI application and agent security research, guardrail patterns, and prompt-injection trends; validate vendor claims before durable promotion.
+    promote_to_weekly_when: Repeated technically specific research improves AI-client, agent, prompt-injection, or guardrail workflows.
+  - id: hiddenlayer-ai-threat-landscape
+    name: HiddenLayer Innovation Hub / AI Threat Landscape
+    url: https://www.hiddenlayer.com/innovation-hub
+    cadence: monthly_or_signal_driven
+    use: AI threat landscape, attack taxonomy, model supply-chain, and runtime security signal; validate vendor claims before durable promotion.
+    promote_to_weekly_when: Repeated technically specific research improves AI supply-chain, runtime, or threat-taxonomy coverage.
+  - id: ncsc-secure-ai-guidance
+    name: NCSC secure AI system development and frontier AI cyber guidance
+    url: https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development
+    cadence: monthly_or_signal_driven
+    use: Public guidance for secure AI lifecycle, secure-by-design expectations, AI cyber risk, and governance operating-model checks.
+    promote_to_weekly_when: Repeated guidance updates materially affect secure AI lifecycle, governance, or cyber-risk operating practices.

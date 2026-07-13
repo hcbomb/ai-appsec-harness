@@ -4,16 +4,42 @@ This workflow keeps the project current without turning every interesting link i
 
 ## Sources
 
-Review these sources weekly:
+Review these primary sources weekly:
 
-- Unsupervised Learning by Daniel Miessler
-  - https://newsletter.danielmiessler.com/
 - tl;dr sec Newsletter
   - https://tldrsec.com/t/Newsletter
+- Unsupervised Learning by Daniel Miessler
+  - https://newsletter.danielmiessler.com/
+- OWASP GenAI Security Project News / Resources
+  - https://genai.owasp.org/news/
+  - https://genai.owasp.org/resources/
+- AVID: AI Vulnerability Database
+  - https://avidml.org/
+
+Review these sources as a monthly or secondary strategic sweep. Do not add them to weekly review unless they repeatedly produce actionable signal for this harness:
+
+- Microsoft Security Blog: AI and agents
+  - https://www.microsoft.com/en-us/security/blog/topic/ai-and-machine-learning/
+- Google Threat Intelligence Group / Mandiant AI threat coverage
+  - https://cloud.google.com/blog/topics/threat-intelligence
+- Anthropic Frontier Red Team
+  - https://www.anthropic.com/research/team/frontier-red-team
+- Frontier Model Forum AI-Cyber and AI Security workstreams
+  - https://www.frontiermodelforum.org/workstreams/ai-cyber-workstream/
+  - https://www.frontiermodelforum.org/workstreams/ai-security-workstream/
+- Trail of Bits AI/ML security
+  - https://blog.trailofbits.com/categories/machine-learning/
+  - https://blog.trailofbits.com/categories/prompt-injection/
+- Lakera Blog
+  - https://www.lakera.ai/blog
+- HiddenLayer Innovation Hub / AI Threat Landscape
+  - https://www.hiddenlayer.com/innovation-hub
+- NCSC secure AI system development and frontier AI cyber guidance
+  - https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development
 
 ## Weekly Review Goal
 
-Summarize AI + security items from the newest newsletter issues and decide whether each item deserves:
+Summarize AI + security items from the newest weekly sources and decide whether each item deserves:
 
 - no action;
 - watchlist;

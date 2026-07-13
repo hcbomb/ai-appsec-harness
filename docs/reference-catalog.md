@@ -47,12 +47,31 @@ These are useful candidates for later categorization, especially when the harnes
 
 ## Ongoing Monitoring Feeds
 
-These sources are useful for weekly review. They should not automatically become controls or requirements. Promote an item only when it materially improves threat modeling, harness design, AI-client hardening, AISVS/CSA mapping, testing, detection, or engineering actionability.
+These sources are useful for ongoing review. They should not automatically become controls or requirements. Promote an item only when it materially improves threat modeling, harness design, AI-client hardening, AISVS/CSA mapping, testing, detection, or engineering actionability.
+
+### Primary Weekly Sources
 
 | Source | Best Use | URL |
 | --- | --- | --- |
-| Unsupervised Learning by Daniel Miessler | Broad signal across AI, cybersecurity, technology, national security, and culture; useful for AI security trend spotting and emerging tool discovery. | https://newsletter.danielmiessler.com/ |
 | tl;dr sec Newsletter | Weekly security research and tooling roundup; useful for AI + security items, autonomous vulnerability research, agentic security tooling, MCP/security implications, and AppSec-relevant research. | https://tldrsec.com/t/Newsletter |
+| Unsupervised Learning by Daniel Miessler | Broad signal across AI, cybersecurity, technology, national security, and culture; useful for AI security trend spotting and emerging tool discovery. | https://newsletter.danielmiessler.com/ |
+| OWASP GenAI Security Project News / Resources | Standards-community updates, new OWASP GenAI resources, agentic security guidance, MCP guidance, red-team guidance, and other material that may affect harness mappings or templates. | News: https://genai.owasp.org/news/<br>Resources: https://genai.owasp.org/resources/ |
+| AVID: AI Vulnerability Database | Evidence-backed AI vulnerability and failure records that can improve abuse cases, test/evidence ideas, and threat-model examples. | https://avidml.org/ |
+
+### Monthly / Secondary Strategic Sweep Sources
+
+Use these as monthly or signal-driven strategic sweep sources, not weekly sources, unless they repeatedly produce actionable signal for this harness.
+
+| Source | Best Use | URL |
+| --- | --- | --- |
+| Microsoft Security Blog: AI and agents | AI security, agent hardening, AI threat research, and security engineering practices; useful for strategy and test ideas when backed by primary technical detail. | https://www.microsoft.com/en-us/security/blog/topic/ai-and-machine-learning/ |
+| Google Threat Intelligence Group / Mandiant AI threat coverage | Adversary use of AI, AI-enabled threat intelligence, detection, and incident-response implications. | https://cloud.google.com/blog/topics/threat-intelligence |
+| Anthropic Frontier Red Team | Empirical AI cyber capability, red-team, and autonomous-system research that may inform threat scenarios, benchmarks, and safety/evidence tests. | https://www.anthropic.com/research/team/frontier-red-team |
+| Frontier Model Forum AI-Cyber / AI Security workstreams | Frontier model cyber risk practices, capability thresholds, shared evaluations, and security practices for model development and deployment. | AI-Cyber: https://www.frontiermodelforum.org/workstreams/ai-cyber-workstream/<br>AI Security: https://www.frontiermodelforum.org/workstreams/ai-security-workstream/ |
+| Trail of Bits AI/ML security | Practical AI-assisted AppSec, ML security, prompt injection, MCP, agent, and audit research; useful for concrete test/evidence and hardening ideas. | Machine learning: https://blog.trailofbits.com/categories/machine-learning/<br>Prompt injection: https://blog.trailofbits.com/categories/prompt-injection/ |
+| Lakera Blog | AI application and agent security research, guardrail patterns, and prompt-injection trends; treat vendor content as secondary signal until validated by technical sources. | https://www.lakera.ai/blog |
+| HiddenLayer Innovation Hub / AI Threat Landscape | AI threat landscape, attack taxonomy, model supply-chain, and runtime security signal; validate vendor claims before durable promotion. | https://www.hiddenlayer.com/innovation-hub |
+| NCSC secure AI system development and frontier AI cyber guidance | Public guidance for secure AI lifecycle, secure-by-design expectations, AI cyber risk, and governance operating-model checks. | https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development |
 
 ## Curation Rules
 

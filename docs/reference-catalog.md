@@ -45,10 +45,20 @@ These are useful candidates for later categorization, especially when the harnes
 | Awesome Open Source AI | Open source AI projects, models, tools, and infrastructure. | https://github.com/alvinreal/awesome-opensource-ai |
 | Awesome AI Apps | Practical examples and recipes for LLM-powered applications. | https://github.com/Arindam200/awesome-ai-apps |
 
+## Ongoing Monitoring Feeds
+
+These sources are useful for weekly review. They should not automatically become controls or requirements. Promote an item only when it materially improves threat modeling, harness design, AI-client hardening, AISVS/CSA mapping, testing, detection, or engineering actionability.
+
+| Source | Best Use | URL |
+| --- | --- | --- |
+| Unsupervised Learning by Daniel Miessler | Broad signal across AI, cybersecurity, technology, national security, and culture; useful for AI security trend spotting and emerging tool discovery. | https://newsletter.danielmiessler.com/ |
+| tl;dr sec Newsletter | Weekly security research and tooling roundup; useful for AI + security items, autonomous vulnerability research, agentic security tooling, MCP/security implications, and AppSec-relevant research. | https://tldrsec.com/t/Newsletter |
+
 ## Curation Rules
 
 - Prefer primary sources for standards, frameworks, and requirements.
 - Treat awesome lists as discovery feeds, not authorities.
+- Treat newsletters as monitoring feeds: summarize and triage first, then promote only durable or actionable items.
 - Preserve upstream URLs and retrieval dates in machine-readable records.
 - Do not claim AISVS, CSA, NIST, or OWASP conformance until exact upstream controls and evidence are mapped.
 - Track tool recommendations separately from hardening requirements.

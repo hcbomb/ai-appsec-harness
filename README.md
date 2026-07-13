@@ -44,6 +44,7 @@ The generated report is not a compliance certificate. It is an evidence gap anal
 - `docs/reference-catalog.md` - curated sources and how each should feed AppSec work.
 - `docs/harness-design.md` - target architecture for agents, harnesses, and review gates.
 - `docs/threat-modeling-stride.md` - two-tier threat modeling method: assisted STRIDE baseline and advanced Shostack-style practice.
+- `docs/weekly-monitoring.md` - weekly AI + security monitoring workflow and triage criteria.
 - `docs/aisvs-operationalization.md` - how to turn AISVS into engineering-ready evidence checks.
 - `data/reference-catalog.yml` - machine-readable reference catalog.
 - `data/control-catalog.seed.json` - starter harness controls for AI clients and agents.

@@ -82,3 +82,28 @@ awesome_feeds:
   - id: github-topic-ai-security
     name: GitHub ai-security topic
     url: https://github.com/topics/ai-security
+monitoring_feeds:
+  - id: unsupervised-learning
+    name: Unsupervised Learning by Daniel Miessler
+    url: https://newsletter.danielmiessler.com/
+    cadence: weekly
+    use: AI security trend spotting, emerging tool discovery, cyber/AI context, and practitioner signal.
+    promote_when_additive_to:
+      - threat_modeling
+      - ai_client_hardening
+      - agent_harnesses
+      - appsec_workflows
+      - governance_mapping
+      - detection_or_testing
+  - id: tldr-sec-newsletter
+    name: tl;dr sec Newsletter
+    url: https://tldrsec.com/t/Newsletter
+    cadence: weekly
+    use: Security research and tooling roundup with AI + security, autonomous vuln research, MCP, and AppSec-relevant items.
+    promote_when_additive_to:
+      - threat_modeling
+      - ai_client_hardening
+      - agent_harnesses
+      - appsec_workflows
+      - governance_mapping
+      - detection_or_testing

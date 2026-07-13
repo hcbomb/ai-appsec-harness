@@ -62,6 +62,13 @@ The reference catalog was seeded from community-maintained "awesome" lists and G
 - GitHub ai-security topic
   - https://github.com/topics/ai-security
 
+## Ongoing Monitoring Sources
+
+- Unsupervised Learning by Daniel Miessler
+  - https://newsletter.danielmiessler.com/
+- tl;dr sec Newsletter
+  - https://tldrsec.com/t/Newsletter
+
 ## Practitioner Operating Patterns
 
 The baseline review workflow also reflects generalized AppSec operating practices for request intake, architecture evidence, STRIDE review, control-gap tracking, exception support, and remediation follow-up.

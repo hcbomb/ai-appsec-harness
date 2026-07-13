@@ -28,10 +28,23 @@ See [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) for credited standards, framework
 
 ## Quick Start
 
-Run the seed harness against the example AI client intake:
+Use the repo as an AI AppSec harness inside Codex, Claude Code, or another AI coding/security agent:
+
+1. Open this repo in the AI tool, or vendor it into a target repo as `.ai-appsec-harness/`.
+2. Ask the tool to use the AI AppSec Harness for an AI client, LLM app, RAG, MCP, model-provider, or agent review.
+3. Provide existing architecture notes, system intake, data flows, model/provider inventory, tool inventory, prompts, tests, logs, or monitoring evidence.
+4. Ask for scope, assumptions, STRIDE abuse cases, applicable controls, evidence gaps, hardening actions, test ideas, backlog items, and attestation caveats.
+
+Codex can use `AGENTS.md` and `.agents/skills/ai-appsec-harness/SKILL.md`. Claude Code can use `CLAUDE.md` and `.claude/skills/ai-appsec-harness/SKILL.md`.
+
+See [docs/agent-tool-import.md](docs/agent-tool-import.md) for import patterns, target-repo snippets, expected inputs, and guardrails.
+
+## Python Proof Of Concept
+
+The no-dependency Python harness remains available for structured JSON intake files:
 
 ```bash
-PYTHONPATH=harness python -m ai_appsec_harness.cli \
+PYTHONPATH=harness python3 -m ai_appsec_harness.cli \
   --intake examples/ai-client-intake.example.json \
   --catalog data/control-catalog.seed.json \
   --out build/ai-client-attestation.md
@@ -42,6 +55,7 @@ The generated report is not a compliance certificate. It is an evidence gap anal
 ## Repository Map
 
 - `docs/reference-catalog.md` - curated sources and how each should feed AppSec work.
+- `docs/agent-tool-import.md` - how to import this harness into Codex, Claude Code, or another AI tool.
 - `docs/harness-design.md` - target architecture for agents, harnesses, and review gates.
 - `docs/threat-modeling-stride.md` - two-tier threat modeling method: assisted STRIDE baseline and advanced Shostack-style practice.
 - `docs/weekly-monitoring.md` - weekly AI + security monitoring workflow and triage criteria.
@@ -51,6 +65,8 @@ The generated report is not a compliance certificate. It is an evidence gap anal
 - `examples/ai-client-intake.example.json` - sample input for the harness.
 - `harness/` - no-dependency Python proof of concept.
 - `agents/` - agent roles and prompts for threat modeling, evidence collection, CSA mapping, and attestation.
+- `.agents/skills/ai-appsec-harness/` - Codex repo skill for AI AppSec review workflows.
+- `.claude/skills/ai-appsec-harness/` - Claude Code project skill for AI AppSec review workflows.
 - `templates/` - review, threat model, and attestation templates.
 
 ## Operating Principles
@@ -69,4 +85,4 @@ The generated report is not a compliance certificate. It is an evidence gap anal
 
 ## Current Status
 
-Alpha scaffold. The next useful milestone is an AISVS importer that pulls authoritative requirement identifiers from the upstream OWASP AISVS project and maps them to the seed control schema.
+Alpha scaffold with agent-import support, AISVS-oriented operational controls, weekly monitoring guidance, and a small Python proof of concept. Future work should replace candidate AISVS alignments with authoritative upstream AISVS requirement IDs, versions, and import metadata once the importer is implemented.

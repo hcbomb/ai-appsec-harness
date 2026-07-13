@@ -34,6 +34,20 @@ Given an AI system intake, the harness produces:
 8. Attest
    - Generate an attestation package that states scope, evidence, gaps, exceptions, compensating controls, and residual risk.
 
+## Agent Import Surface
+
+The harness should be usable by AI coding and security tools before every workflow is automated in Python.
+
+Supported repo-level import surfaces:
+
+- `AGENTS.md` for Codex and other agents that read repository instructions;
+- `CLAUDE.md` for Claude Code;
+- `.agents/skills/ai-appsec-harness/SKILL.md` for Codex skill discovery;
+- `.claude/skills/ai-appsec-harness/SKILL.md` for Claude Code skill discovery;
+- `docs/agent-tool-import.md` for target-repo integration patterns.
+
+Agent-imported reviews should produce human-readable artifacts first: intake gaps, STRIDE abuse cases, evidence requests, backlog items, hardening actions, and attestation caveats. The Python harness can then provide deterministic report generation when structured JSON inputs are available.
+
 ## Threat Modeling Depth
 
 Baseline reviews must answer:
@@ -81,4 +95,4 @@ Use three gates:
 - Build gate: controls, tests, prompts, tool permissions, and logging are implemented.
 - Run gate: monitoring, abuse detection, incident response, and periodic reevaluation are in place.
 
-The current Python harness implements a small slice of this model: intake, control selection, evidence gap analysis, and Markdown report generation.
+The current Python harness implements a small slice of this model: intake, control selection, evidence gap analysis, and Markdown report generation. The agent-import surface implements the broader human-led review workflow by making the prompts, templates, controls, and guardrails available directly to AI tools.

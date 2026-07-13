@@ -1,0 +1,58 @@
+{
+  "system": {
+    "name": "AI AppSec Harness Import",
+    "owner": "Security Engineering",
+    "system_type": "ai_security_harness",
+    "lifecycle_stage": "alpha",
+    "description": "Importable AI AppSec review harness used by Codex, Claude Code, or another AI tool through repository guidance, skills, prompts, templates, and seed control catalogs."
+  },
+  "capabilities": [
+    "tool_use",
+    "code_generation",
+    "workflow_automation"
+  ],
+  "data": {
+    "classifications": [
+      "public"
+    ],
+    "sensitive_data_notes": "The public harness should not contain secrets, customer data, private tickets, internal wiki links, or organization-specific review artifacts."
+  },
+  "integrations": {
+    "model_providers": [],
+    "tools": [
+      "codex",
+      "claude_code"
+    ],
+    "retrieval_sources": [
+      "local_repo_files"
+    ],
+    "external_actions": false
+  },
+  "deployment": {
+    "environment": "public_repository",
+    "internet_exposed": true,
+    "cloud_provider": "github"
+  },
+  "evidence": [
+    {
+      "id": "harness_source_pin",
+      "status": "partial",
+      "path": "git commit or release tag should be recorded by the importing repo"
+    },
+    {
+      "id": "harness_integrity_check",
+      "status": "available",
+      "path": "tools/verify-harness-integrity.py"
+    },
+    {
+      "id": "instruction_boundary_policy",
+      "status": "available",
+      "path": "docs/harness-self-hardening.md"
+    },
+    {
+      "id": "agent_permission_model",
+      "status": "partial",
+      "path": "AGENTS.md"
+    }
+  ]
+}

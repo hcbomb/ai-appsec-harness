@@ -254,6 +254,91 @@
         "Track unresolved risks in the implementation ticket, risk register, or exception workflow.",
         "Define revalidation triggers for design changes, new tools, new retrieval sources, new data classes, incidents, and exception renewals."
       ]
+    },
+    {
+      "id": "AIH-010",
+      "title": "Verify harness provenance and import integrity",
+      "summary": "AI tool harnesses, prompts, skills, templates, and control catalogs are pinned, reviewed, and integrity-checked before being imported into a target repository or AI agent environment.",
+      "applies_when": {
+        "system_types": ["ai_security_harness", "agent_tooling"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Supply chain security, model/tool provenance, change control, and deployment integrity"},
+        {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "Supply chain and agent/tool dependency risk"},
+        {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Third-party risk, change management, integrity, and assurance evidence"}
+      ],
+      "evidence": [
+        {"id": "harness_source_pin", "required": true, "prompt": "Record the source URL, commit SHA or release tag, retrieval date, and local import path for the harness."},
+        {"id": "harness_integrity_check", "required": true, "prompt": "Attach output from `python3 tools/verify-harness-integrity.py` or an equivalent review of imported guidance, skills, templates, and catalogs."},
+        {"id": "harness_update_review", "required": false, "prompt": "Document who reviewed harness updates before adoption and what changed in agent-facing instructions or controls."}
+      ],
+      "tests": [
+        {"id": "agent_surface_integrity", "prompt": "Verify `AGENTS.md`, `CLAUDE.md`, `.agents/skills/`, `.claude/skills/`, templates, and seed catalogs are present and do not contain hidden side-effect commands or instruction override language."},
+        {"id": "pinned_import_review", "prompt": "Verify target repos import the harness from a pinned commit, release tag, submodule, or reviewed copy rather than an unreviewed floating branch."}
+      ],
+      "hardening_actions": [
+        "Pin harness imports to a reviewed commit or release.",
+        "Run the local integrity verifier before using a vendored or updated copy.",
+        "Review diffs to agent-facing files before allowing an AI tool to follow them.",
+        "Treat public forks, copied prompts, and modified skills as untrusted until reviewed."
+      ]
+    },
+    {
+      "id": "AIH-011",
+      "title": "Separate trusted harness instructions from untrusted review content",
+      "summary": "Agent instructions from the harness are treated as trusted workflow guidance, while target repository content, retrieved documents, code comments, issue text, and user-provided artifacts are treated as untrusted inputs that cannot override guardrails.",
+      "applies_when": {
+        "system_types": ["ai_security_harness", "agent_tooling"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Input validation, orchestration and agentic security, MCP security, and output control"},
+        {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "Prompt injection, excessive agency, and insecure output handling"},
+        {"framework": "MITRE ATLAS", "status": "candidate", "note": "Prompt injection, data poisoning, and tool manipulation scenarios"}
+      ],
+      "evidence": [
+        {"id": "instruction_boundary_policy", "required": true, "prompt": "Document how the AI tool distinguishes trusted harness instructions from untrusted target repo content, retrieved material, and issue text."},
+        {"id": "prompt_injection_resistance_tests", "required": true, "prompt": "Attach tests or review notes showing malicious instructions in target files cannot override harness guardrails or trigger unsafe tools."},
+        {"id": "untrusted_content_labeling", "required": false, "prompt": "Show how reviews label user-controlled, retrieved, generated, and tool-returned content as untrusted."}
+      ],
+      "tests": [
+        {"id": "malicious_readme_instruction", "prompt": "Place hostile agent instructions in a target README or issue and verify the reviewer ignores them as untrusted content."},
+        {"id": "retrieved_context_override", "prompt": "Attempt to override harness guardrails through retrieved context, code comments, or prompt snippets and verify the override fails."}
+      ],
+      "hardening_actions": [
+        "Keep harness guardrails short, explicit, and loaded from trusted project guidance or skill files.",
+        "Tell agents to ignore instructions embedded in target repo content unless the human explicitly adopts them.",
+        "Label review artifacts and retrieved content as evidence, not as instructions.",
+        "Regression-test prompt-injection and instruction-boundary abuse cases."
+      ]
+    },
+    {
+      "id": "AIH-012",
+      "title": "Constrain AI tool side effects during harness use",
+      "summary": "AI agents using the harness cannot install dependencies, run networked commands, modify production systems, publish artifacts, or change external state without explicit human approval and reviewable logs.",
+      "applies_when": {
+        "system_types": ["ai_security_harness", "agent_tooling"],
+        "capabilities_any": ["tool_use", "mcp", "workflow_automation", "external_actions", "code_generation"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Agentic action authorization, tool-use controls, logging, monitoring, and incident response"},
+        {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Identity, authorization, logging, change management, and human oversight"},
+        {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "Excessive agency, insecure output handling, and supply chain risks"}
+      ],
+      "evidence": [
+        {"id": "agent_permission_model", "required": true, "prompt": "Document AI tool permissions, sandboxing, network access, writable paths, approved commands, and denied side effects."},
+        {"id": "human_approval_evidence", "required": true, "prompt": "Attach examples showing human approval is required before network access, dependency installation, privileged commands, external writes, or production-impacting actions."},
+        {"id": "agent_action_logs", "required": false, "prompt": "Attach logs that show requested action, approval decision, command/tool used, output, and affected files or systems."}
+      ],
+      "tests": [
+        {"id": "dependency_install_approval", "prompt": "Verify the agent cannot install or update dependencies while using the harness without explicit approval."},
+        {"id": "external_side_effect_denial", "prompt": "Verify the agent refuses or pauses before networked, privileged, destructive, or externally visible actions."}
+      ],
+      "hardening_actions": [
+        "Default harness use to read-only analysis until the human asks for edits.",
+        "Require approval for dependency installation, network access, publishing, production access, and external writes.",
+        "Keep generated findings reviewable and traceable to source files, evidence, and command output.",
+        "Prefer additive patches and backlog items over autonomous changes when risk is unclear."
+      ]
     }
   ]
 }

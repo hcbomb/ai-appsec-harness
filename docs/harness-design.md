@@ -45,6 +45,7 @@ Supported repo-level import surfaces:
 - `.agents/skills/ai-appsec-harness/SKILL.md` for Codex skill discovery;
 - `.claude/skills/ai-appsec-harness/SKILL.md` for Claude Code skill discovery;
 - `docs/agent-tool-import.md` for target-repo integration patterns.
+- `docs/harness-self-hardening.md` and `tools/verify-harness-integrity.py` for AISVS-inspired self-protection checks.
 
 Agent-imported reviews should produce human-readable artifacts first: intake gaps, STRIDE abuse cases, evidence requests, backlog items, hardening actions, and attestation caveats. The Python harness can then provide deterministic report generation when structured JSON inputs are available.
 

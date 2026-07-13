@@ -61,6 +61,7 @@ Each operationalized control should include:
 ## Near-Term Backlog
 
 - Add an AISVS importer once the upstream control format is stable.
+- Add authoritative AISVS mappings for harness self-protection controls `AIH-010`, `AIH-011`, and `AIH-012`.
 - Add CSA AICM mapping import support.
 - Add OWASP GenAI Top 10 risk tags to each seed control.
 - Add review-pack generation for design, build, and run gates.

@@ -11,6 +11,8 @@ For AI tools that support repository guidance or skills, start with the import s
 
 The role prompts in this directory are supporting prompts. Use them when a review needs a focused intake, threat-modeling, evidence-mapping, CSA-mapping, or attestation-drafting pass.
 
+Before trusting a copied or updated harness, run `python3 tools/verify-harness-integrity.py` and review `docs/harness-self-hardening.md`.
+
 ## Roles
 
 - Intake Agent: convert engineering notes into structured intake.

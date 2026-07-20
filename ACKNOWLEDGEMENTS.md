@@ -41,7 +41,7 @@ It is not affiliated with, endorsed by, or certified by any standards body, proj
 - Threat Modeling Manifesto
   - https://www.threatmodelingmanifesto.org/
 
-The STRIDE workflow in this repo uses the four-question frame as the organizing practice for deeper reviews:
+The AI threat modeling workflow in this repo is now MAESTRO-first for agentic, RAG, MCP, tool-using, and multi-layer AI architectures. STRIDE and the four-question frame remain credited here because the harness still uses them as secondary translation, completeness-check, and lightweight fallback practices:
 
 1. What are we working on?
 2. What can go wrong?
@@ -104,7 +104,7 @@ Secondary strategic sweep sources include:
 
 ## Practitioner Operating Patterns
 
-The baseline review workflow also reflects generalized AppSec operating practices for request intake, architecture evidence, STRIDE review, control-gap tracking, exception support, and remediation follow-up.
+The baseline review workflow also reflects generalized AppSec operating practices for request intake, architecture evidence, MAESTRO-first threat modeling, optional STRIDE translation, control-gap tracking, exception support, and remediation follow-up.
 
 Private wiki pages, ticketing content, organization-specific material, and non-public process details are intentionally not copied, linked, or redistributed in this public repository. Where practitioner workflows were useful, they were converted into generic patterns.
 

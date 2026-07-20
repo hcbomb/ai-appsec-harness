@@ -13,6 +13,13 @@ It is not affiliated with, endorsed by, or certified by any standards body, proj
 - OWASP GenAI Security Project and OWASP Top 10 for LLM and GenAI Applications
   - https://genai.owasp.org/
   - https://genai.owasp.org/llm-top-10/
+- OWASP Multi-Agentic System Threat Modeling Guide
+  - https://genai.owasp.org/resource/multi-agentic-system-threat-modeling-guide-v1-0/
+- MAESTRO Threat Modeling Playbook and CSA MAESTRO framework
+  - https://agentic-threat-modeling.github.io/MAESTRO/
+  - https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro
+- AI Defense Matrix by Lenny Zeltser and Sounil Yu
+  - https://aidefensematrix.com/
 - OWASP Threat Modeling Project
   - https://owasp.org/www-project-threat-modeling/
 - Cloud Security Alliance AI Controls Matrix, AI Safety Initiative, and STAR for AI

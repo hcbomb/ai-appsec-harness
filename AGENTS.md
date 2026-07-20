@@ -5,7 +5,9 @@ Use this repo as an AI AppSec review harness for AI clients, LLM apps, RAG syste
 ## Default Workflow
 
 - Start with the system intake shape in `templates/system-intake.md` or `examples/ai-client-intake.example.json`.
-- Use `docs/threat-modeling-stride.md` to choose baseline assisted STRIDE or advanced Shostack-style review depth.
+- Use `docs/threat-modeling-maestro.md` as the primary AI threat modeling workflow.
+- Use `docs/threat-modeling-stride.md` only as a secondary fallback, translation layer, or completeness check.
+- Use `docs/ai-defense-matrix.md` when the review needs leadership, ownership, roadmap, or defensive coverage framing.
 - Use `data/control-catalog.seed.json` as the local operational control catalog.
 - Use `docs/aisvs-operationalization.md` for AISVS-oriented evidence expectations and attestation limits.
 - Use `agents/prompts/` for role-specific review prompts when a task needs intake, threat modeling, evidence mapping, CSA mapping, or attestation drafting.
@@ -29,7 +31,9 @@ For AI AppSec reviews, produce:
 - scope and assumptions;
 - system inventory gaps;
 - threat-model tier recommendation;
-- AI-specific STRIDE abuse cases;
+- MAESTRO layer threats and cross-layer abuse cases;
+- optional STRIDE translation for the highest-priority findings;
+- AI Defense Matrix coverage gaps when useful;
 - applicable harness controls;
 - evidence status: available, partial, missing, stale, not applicable, or accepted risk;
 - prioritized hardening actions;

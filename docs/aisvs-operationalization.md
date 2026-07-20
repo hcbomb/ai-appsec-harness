@@ -11,8 +11,10 @@ OWASP AISVS should become the verification backbone for AI AppSec reviews. The p
    - Add local applicability rules for AI clients, agents, RAG systems, model pipelines, and cloud-hosted services.
    - Attach expected evidence, test ideas, and engineering hardening actions.
 3. Map to adjacent frameworks.
+   - MAESTRO for AI-native threat modeling across architecture layers.
    - OWASP GenAI risks for AppSec threat language.
    - CSA AI Controls Matrix for governance and assurance language.
+   - AI Defense Matrix for leadership, ownership, and defensive coverage gaps.
    - NIST AI RMF and MITRE ATLAS where they improve risk framing or scenario design.
 4. Generate evidence requests.
    - Convert each applicable control into concrete artifacts engineering can provide.
@@ -64,5 +66,6 @@ Each operationalized control should include:
 - Add authoritative AISVS mappings for harness self-protection controls `AIH-010`, `AIH-011`, and `AIH-012`.
 - Add CSA AICM mapping import support.
 - Add OWASP GenAI Top 10 risk tags to each seed control.
+- Add MAESTRO layer tags and AI Defense Matrix asset-class tags to each seed control where useful.
 - Add review-pack generation for design, build, and run gates.
 - Add regression tests for prompt boundaries, tool authorization, and retrieval source controls.

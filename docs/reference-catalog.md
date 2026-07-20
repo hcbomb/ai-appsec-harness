@@ -10,6 +10,10 @@ This catalog separates discovery feeds from operating standards. Awesome lists h
 | OWASP AISVS Docs | Human-readable reference for engineers, architects, security engineers, and auditors. | https://owasp.org/www-project-artificial-intelligence-security-verification-standard-aisvs-docs/ |
 | OWASP GenAI Security Project | Risk taxonomy and practitioner guidance for LLM and GenAI applications. | https://genai.owasp.org/ |
 | OWASP Top 10 for LLM Applications | AppSec-friendly risk language for threat modeling and security review narratives. | https://genai.owasp.org/llm-top-10/ |
+| OWASP Multi-Agentic System Threat Modeling Guide | Agentic AI and multi-agent threat modeling guide that applies OWASP agentic threats to multi-agent systems and informs MAESTRO-first review. | https://genai.owasp.org/resource/multi-agentic-system-threat-modeling-guide-v1-0/ |
+| MAESTRO Threat Modeling Playbook | Primary AI threat modeling method for agentic, MCP, RAG, and multi-layer AI architectures; use before STRIDE for AI systems. | https://agentic-threat-modeling.github.io/MAESTRO/ |
+| CSA MAESTRO Framework | Source framework for MAESTRO agentic AI threat modeling principles and layered architecture analysis. | https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro |
+| AI Defense Matrix | Leadership and roadmap overlay for AI defensive asset classes across NIST CSF 2.0 functions. | https://aidefensematrix.com/ |
 | CSA AI Controls Matrix | Governance and control mapping for secure, responsible AI systems, especially cloud-based AI. | https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1 |
 | CSA AI Safety Initiative | Working-group home for CSA AI safety, agentic AI, and governance work. | https://cloudsecurityalliance.org/ai-safety-initiative |
 | CSA STAR for AI | Assurance and trust program context for CSA AI attestations. | https://cloudsecurityalliance.org/star/ai |

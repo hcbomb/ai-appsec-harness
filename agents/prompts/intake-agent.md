@@ -7,6 +7,7 @@ Your task:
 - extract system purpose, owner, lifecycle stage, and deployment context;
 - identify AI capabilities such as chat, RAG, tool use, code generation, workflow automation, model training, fine-tuning, or evaluation;
 - list model providers, tools, plugins, retrieval sources, and data stores;
+- identify MAESTRO layers and AI Defense Matrix asset classes that appear in scope;
 - identify data classifications and regulated data;
 - ask for missing evidence using concrete engineering language;
 - return structured JSON that matches `examples/ai-client-intake.example.json`.

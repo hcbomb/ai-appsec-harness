@@ -16,7 +16,7 @@ The importable workflow is the preferred human-in-the-loop path for early design
 - `agents/prompts/` - role prompts for intake, threat modeling, evidence mapping, CSA mapping, and attestation drafting.
 - `templates/` - reusable intake, threat model, engineering brief, and attestation artifacts.
 - `data/control-catalog.seed.json` - local operational controls aligned to AISVS-style evidence expectations and adjacent AI security frameworks.
-- `docs/` - method documentation for STRIDE, AISVS operationalization, reference curation, and weekly monitoring.
+- `docs/` - method documentation for MAESTRO, STRIDE translation, AI Defense Matrix coverage, AISVS operationalization, reference curation, and weekly monitoring.
 
 ## Import Patterns
 
@@ -34,8 +34,9 @@ Example prompt:
 
 ```text
 Use the AI AppSec Harness to threat model this RAG agent design.
-Produce scope, assumptions, STRIDE abuse cases, applicable controls,
-evidence gaps, hardening actions, and test ideas.
+Produce scope, assumptions, MAESTRO layer threats, cross-layer abuse cases,
+optional STRIDE translation, AI Defense Matrix coverage gaps, applicable
+controls, evidence gaps, hardening actions, and test ideas.
 ```
 
 ### Vendor Or Submodule Into A Target Repo
@@ -62,6 +63,8 @@ use `.ai-appsec-harness` as the AI AppSec Harness.
 
 Read `.ai-appsec-harness/AGENTS.md`, then use:
 
+- `.ai-appsec-harness/docs/threat-modeling-maestro.md`
+- `.ai-appsec-harness/docs/ai-defense-matrix.md`
 - `.ai-appsec-harness/docs/threat-modeling-stride.md`
 - `.ai-appsec-harness/docs/aisvs-operationalization.md`
 - `.ai-appsec-harness/data/control-catalog.seed.json`
@@ -111,7 +114,9 @@ Ask the tool to return:
 
 - scope, assumptions, and missing inputs;
 - threat-model tier recommendation;
-- AI-specific STRIDE abuse cases;
+- MAESTRO layer threats and cross-layer abuse cases;
+- optional STRIDE translation for high-priority findings;
+- AI Defense Matrix coverage gaps when useful;
 - applicable control and evidence gap summary;
 - hardening actions and test/evidence ideas;
 - recommended backlog items;

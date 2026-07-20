@@ -1,5 +1,5 @@
 version: 0.1.0
-retrieved_on: "2026-07-13"
+retrieved_on: "2026-07-20"
 primary_frameworks:
   - id: owasp-aisvs
     name: OWASP Artificial Intelligence Security Verification Standard
@@ -17,6 +17,22 @@ primary_frameworks:
     name: OWASP Top 10 for LLM and GenAI Applications
     url: https://genai.owasp.org/llm-top-10/
     use: Risk language for threat models and review reports.
+  - id: owasp-mas-threat-modeling-guide
+    name: OWASP Multi-Agentic System Threat Modeling Guide
+    url: https://genai.owasp.org/resource/multi-agentic-system-threat-modeling-guide-v1-0/
+    use: Agentic AI and multi-agent threat modeling guide that informs MAESTRO-first review.
+  - id: maestro-threat-modeling-playbook
+    name: MAESTRO Threat Modeling Playbook
+    url: https://agentic-threat-modeling.github.io/MAESTRO/
+    use: Primary AI threat modeling method for agentic, MCP, RAG, and multi-layer AI architectures.
+  - id: csa-maestro-framework
+    name: CSA MAESTRO Framework
+    url: https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro
+    use: Source framework for MAESTRO agentic AI threat modeling principles and layered architecture analysis.
+  - id: ai-defense-matrix
+    name: AI Defense Matrix
+    url: https://aidefensematrix.com/
+    use: Leadership and roadmap overlay for AI defensive asset classes across NIST CSF 2.0 functions.
   - id: csa-ai-controls-matrix
     name: CSA AI Controls Matrix
     url: https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1

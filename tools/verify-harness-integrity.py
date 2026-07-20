@@ -15,6 +15,8 @@ REQUIRED_FILES = [
     ".agents/skills/ai-appsec-harness/SKILL.md",
     ".claude/skills/ai-appsec-harness/SKILL.md",
     "docs/agent-tool-import.md",
+    "docs/threat-modeling-maestro.md",
+    "docs/ai-defense-matrix.md",
     "docs/aisvs-operationalization.md",
     "docs/threat-modeling-stride.md",
     "data/control-catalog.seed.json",

@@ -25,12 +25,14 @@ If structured input is needed, use `templates/system-intake.md` or `examples/ai-
 0. If the task is about importing, updating, or trusting this harness, run or recommend `python3 tools/verify-harness-integrity.py` and review `docs/harness-self-hardening.md`.
 1. Establish scope, owner, lifecycle stage, target state, and requested output.
 2. Classify the system: AI client, agent, RAG app, LLM app, model service, model pipeline, or evaluation harness.
-3. Select threat-model depth using `docs/threat-modeling-stride.md`.
-4. Identify AI-specific trust boundaries: prompt/context, retrieval, model/provider, tool/action, identity, data, logging, and human approval.
-5. Apply STRIDE with AI abuse cases: prompt injection, indirect prompt injection, retrieval poisoning, sensitive data leakage, unauthorized tool invocation, excessive agency, unsafe output handling, provider/config drift, and missing regression tests.
-6. Map evidence to `data/control-catalog.seed.json` and `docs/aisvs-operationalization.md`.
-7. Use role prompts in `agents/prompts/` when a focused subtask is needed.
-8. Draft outputs with `templates/threat-model.md`, `templates/aisvs-attestation.md`, or `templates/engineering-cohort-brief.md`.
+3. Select threat-model depth using `docs/threat-modeling-maestro.md`.
+4. Map MAESTRO layers and AI-specific trust boundaries: model/provider, data operations, agent framework, deployment/infrastructure, evaluation/observability, security/compliance, agent ecosystem, prompt/context, retrieval, tool/action, identity, logging, and human approval.
+5. Identify MAESTRO layer threats and cross-layer abuse cases: prompt injection, indirect prompt injection, retrieval poisoning, sensitive data leakage, unauthorized tool invocation, excessive agency, unsafe output handling, provider/config drift, missing regression tests, and agent delegation failures.
+6. Add STRIDE translation only when it helps communicate the highest-priority findings.
+7. Add an AI Defense Matrix overlay from `docs/ai-defense-matrix.md` when the review needs leadership, ownership, roadmap, or defensive coverage framing.
+8. Map evidence to `data/control-catalog.seed.json` and `docs/aisvs-operationalization.md`.
+9. Use role prompts in `agents/prompts/` when a focused subtask is needed.
+10. Draft outputs with `templates/threat-model.md`, `templates/aisvs-attestation.md`, or `templates/engineering-cohort-brief.md`.
 
 ## Output Requirements
 
@@ -38,7 +40,9 @@ Return:
 
 - scope, assumptions, and missing inputs;
 - threat-model tier recommendation;
-- STRIDE table or summary with AI-specific abuse cases;
+- MAESTRO layer map and threat summary;
+- optional STRIDE table or summary for high-priority findings;
+- AI Defense Matrix coverage gaps when useful;
 - applicable controls and evidence status;
 - hardening actions and test/evidence ideas;
 - backlog items with priority and owner placeholder;

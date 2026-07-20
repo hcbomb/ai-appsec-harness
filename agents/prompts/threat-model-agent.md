@@ -13,9 +13,12 @@ Inputs:
 
 Produce:
 
-- review tier recommendation: baseline assisted STRIDE or advanced Shostack-style STRIDE;
+- review tier recommendation: minimum viable MAESTRO, full MAESTRO, or STRIDE fallback;
 - assets and trust boundaries;
 - entry points and prompt/context boundaries;
+- MAESTRO layer inventory and layer-specific threats;
+- cross-layer attack scenarios;
+- AI Defense Matrix asset-class coverage gaps when leadership or roadmap framing is useful;
 - current state, target state, and transitional/interim state;
 - requestor context, business objective, and review output needed;
 - abuse cases;
@@ -23,7 +26,7 @@ Produce:
 - agent/tool authorization risks;
 - data leakage risks;
 - retrieval poisoning risks;
-- STRIDE table with spoofing, tampering, repudiation, information disclosure, denial of service, and elevation of privilege;
+- optional STRIDE translation table with spoofing, tampering, repudiation, information disclosure, denial of service, and elevation of privilege;
 - current controls, control gaps, compensating controls, and residual risk;
 - monitoring and incident response gaps;
 - prioritized hardening actions.
@@ -32,6 +35,8 @@ Rules:
 
 - Treat model output and retrieved content as untrusted.
 - Call out where human approval is required.
-- Use the four-question frame for advanced reviews: what are we working on, what can go wrong, what are we going to do about it, and did we do a good job.
+- Use MAESTRO as the primary AI threat modeling method for AI clients, RAG, MCP, agentic, and multi-agent systems.
+- Use STRIDE only as a fallback, completeness check, or translation layer for the highest-priority findings.
+- Use the AI Defense Matrix to communicate ownership and defensive coverage gaps across Govern, Identify, Protect, Detect, Respond, and Recover.
 - Use OWASP GenAI and MITRE ATLAS language where useful.
 - Keep findings actionable for engineering.

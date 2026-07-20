@@ -56,7 +56,8 @@ Identify the newest issues or posts since the previous run. If there is no previ
 An item is additive when it improves at least one of:
 
 - AI-client or agent threat modeling;
-- STRIDE abuse-case coverage;
+- MAESTRO layer and cross-layer abuse-case coverage;
+- STRIDE translation coverage where useful;
 - OWASP AISVS operationalization;
 - OWASP GenAI / LLM Top 10 mapping;
 - CSA AI governance or attestation mapping;

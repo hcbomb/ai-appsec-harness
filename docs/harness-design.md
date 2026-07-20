@@ -7,6 +7,9 @@ The harness should make AI AppSec reviews repeatable without flattening the nuan
 Given an AI system intake, the harness produces:
 
 - an AI threat model;
+- a MAESTRO layer map and threat analysis;
+- an optional STRIDE translation for broad AppSec consumption;
+- an AI Defense Matrix coverage summary for leadership and roadmap planning;
 - an applicable control set;
 - an AISVS-oriented evidence checklist;
 - CSA AI control mapping notes;
@@ -21,8 +24,10 @@ Given an AI system intake, the harness produces:
 2. Classify
    - Identify whether the system is an AI client, agent, RAG app, model-hosting service, model-training pipeline, evaluation harness, or internal productivity tool.
 3. Threat Model
-   - Use the baseline assisted STRIDE flow for normal reviews and the advanced Shostack-style flow for high-impact or agentic systems.
-   - Model trust boundaries, prompt boundaries, data flows, tool calls, delegated authority, identity transitions, external actions, current/target state, compensating controls, and abuse cases.
+   - Use MAESTRO as the primary AI threat-modeling method.
+   - Use STRIDE as a secondary fallback, translation layer, or completeness check.
+   - Model MAESTRO layers, trust boundaries, prompt boundaries, data flows, tool calls, delegated authority, identity transitions, external actions, current/target state, compensating controls, and abuse cases.
+   - Add an AI Defense Matrix overlay when the review needs leadership, ownership, roadmap, or control-coverage framing.
 4. Map Controls
    - Select applicable controls from AISVS, OWASP GenAI, CSA AICM, and local AppSec requirements.
 5. Collect Evidence
@@ -47,7 +52,7 @@ Supported repo-level import surfaces:
 - `docs/agent-tool-import.md` for target-repo integration patterns.
 - `docs/harness-self-hardening.md` and `tools/verify-harness-integrity.py` for AISVS-inspired self-protection checks.
 
-Agent-imported reviews should produce human-readable artifacts first: intake gaps, STRIDE abuse cases, evidence requests, backlog items, hardening actions, and attestation caveats. The Python harness can then provide deterministic report generation when structured JSON inputs are available.
+Agent-imported reviews should produce human-readable artifacts first: intake gaps, MAESTRO layer threats, optional STRIDE translation, AI Defense Matrix coverage gaps, evidence requests, backlog items, hardening actions, and attestation caveats. The Python harness can then provide deterministic report generation when structured JSON inputs are available.
 
 ## Threat Modeling Depth
 
@@ -57,17 +62,24 @@ Baseline reviews must answer:
 - why the business needs it;
 - who owns it;
 - what systems, environments, identities, and data are involved;
-- what STRIDE threats matter;
+- what MAESTRO layers are in scope;
+- what AI Defense Matrix asset classes need ownership or defensive coverage;
 - what controls, gaps, compensating controls, and decisions exist.
 
-Advanced reviews must also answer Adam Shostack's four-question frame:
+Advanced reviews must also answer the full MAESTRO workflow:
 
-- what are we working on;
-- what can go wrong;
-- what are we going to do about it;
-- did we do a good job.
+- business context;
+- architecture and component analysis;
+- threat actor analysis;
+- trust boundary analysis;
+- asset and data-flow analysis;
+- layer threat identification;
+- mitigation planning;
+- code, configuration, and evidence validation;
+- residual risk;
+- output generation and documentation.
 
-For AI clients and agents, advanced reviews must include prompt/context boundaries, model/provider boundaries, retrieval poisoning, tool authorization, delegated authority, output validation, logging/auditability, rollback, and monitoring.
+For AI clients and agents, advanced reviews must include prompt/context boundaries, model/provider boundaries, retrieval poisoning, tool authorization, delegated authority, output validation, logging/auditability, rollback, monitoring, and cross-layer MAESTRO threat propagation.
 
 ## Agent Roles
 

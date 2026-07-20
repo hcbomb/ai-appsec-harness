@@ -16,7 +16,9 @@ We are reviewing AI clients, agents, and LLM applications so teams can ship usef
 
 ## What AppSec Will Produce
 
-- Threat model.
+- MAESTRO-first threat model.
+- STRIDE translation where useful.
+- AI Defense Matrix coverage summary when leadership or roadmap framing is needed.
 - Applicable controls.
 - Evidence gap report.
 - Hardening actions.

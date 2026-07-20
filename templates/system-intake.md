@@ -22,6 +22,31 @@
 - Model training or fine-tuning:
 - Evaluation:
 
+## MAESTRO Layer Scope
+
+| Layer | In Scope? | Notes |
+| --- | --- | --- |
+| L1 Foundation Models |  |  |
+| L2 Data Operations |  |  |
+| L3 Agent Frameworks |  |  |
+| L4 Deployment And Infrastructure |  |  |
+| L5 Evaluation And Observability |  |  |
+| L6 Security And Compliance |  |  |
+| L7 Agent Ecosystem |  |  |
+
+## AI Defense Matrix Asset Classes
+
+| Asset Class | Present? | Owner / Notes |
+| --- | --- | --- |
+| AI-Workload Platforms |  |  |
+| AI Orchestration Tools |  |  |
+| AI-Generated Code |  |  |
+| AI Gateways And Routers |  |  |
+| AI Models |  |  |
+| Training Data |  |  |
+| Runtime AI Data |  |  |
+| AI Agent Identities |  |  |
+
 ## Models And Providers
 
 | Provider | Model | Region | Data retention | Training use | Notes |
@@ -63,7 +88,9 @@
 - Architecture diagram:
 - Data flow:
 - Threat model:
-- STRIDE analysis:
+- MAESTRO layer analysis:
+- STRIDE translation:
+- AI Defense Matrix overlay:
 - Tool inventory:
 - Prompt contract:
 - Tests:

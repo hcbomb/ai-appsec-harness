@@ -13,6 +13,8 @@ It is not affiliated with, endorsed by, or certified by any standards body, proj
 - OWASP GenAI Security Project and OWASP Top 10 for LLM and GenAI Applications
   - https://genai.owasp.org/
   - https://genai.owasp.org/llm-top-10/
+- OWASP Top 10 for Agentic Applications
+  - https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
 - OWASP Multi-Agentic System Threat Modeling Guide
   - https://genai.owasp.org/resource/multi-agentic-system-threat-modeling-guide-v1-0/
 - MAESTRO Threat Modeling Playbook and CSA MAESTRO framework
@@ -22,6 +24,10 @@ It is not affiliated with, endorsed by, or certified by any standards body, proj
   - https://aidefensematrix.com/
 - OWASP Threat Modeling Project
   - https://owasp.org/www-project-threat-modeling/
+- OWASP Application Security Verification Standard (ASVS)
+  - https://owasp.org/www-project-application-security-verification-standard/
+- Model Context Protocol Authorization and Security Guidance
+  - https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization
 - Cloud Security Alliance AI Controls Matrix, AI Safety Initiative, and STAR for AI
   - https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1
   - https://cloudsecurityalliance.org/ai-safety-initiative

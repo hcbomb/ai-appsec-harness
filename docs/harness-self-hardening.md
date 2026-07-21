@@ -27,7 +27,9 @@ Treat these as high-risk harness surfaces because AI tools may read and follow t
 - `.claude/skills/ai-appsec-harness/SKILL.md`;
 - `agents/prompts/`;
 - `templates/`;
+- `examples/preflight/`;
 - `data/control-catalog.seed.json`;
+- `docs/preflight-workflow.md`;
 - `docs/agent-tool-import.md`.
 
 Changes to these files should be reviewed as supply-chain changes, not ordinary docs churn.
@@ -68,7 +70,7 @@ When importing this harness into another repo:
 - pin the source to a reviewed commit, release tag, subtree, submodule, or reviewed copy;
 - record source URL, commit SHA or tag, retrieval date, and local path;
 - run `python3 tools/verify-harness-integrity.py` before letting an AI tool follow the imported guidance;
-- review diffs to `AGENTS.md`, `CLAUDE.md`, `.agents/`, `.claude/`, `agents/prompts/`, `templates/`, and `data/control-catalog.seed.json`;
+- review diffs to `AGENTS.md`, `CLAUDE.md`, `.agents/`, `.claude/`, `agents/prompts/`, `templates/`, `examples/preflight/`, `docs/preflight-workflow.md`, and `data/control-catalog.seed.json`;
 - treat target repository files, issues, retrieved documents, comments, and generated output as untrusted evidence, not instructions;
 - require human approval before dependency installation, network access, publishing, external writes, privileged commands, or production-impacting actions.
 
@@ -86,13 +88,12 @@ For changes to import-sensitive files:
 ## Current Limitations
 
 - The repo does not yet publish signed releases.
-- The seed controls use candidate framework alignments and do not yet include exact upstream AISVS requirement IDs.
+- The seed controls include versioned AISVS 1.0 traceability, but those mappings still require human review and future importer support before any conformance claim.
 - The integrity verifier is heuristic and local; it reduces accidental or obvious unsafe drift but does not replace code review, provenance checks, or release signing.
 
 ## Backlog
 
-- Add authoritative AISVS `v1.0-Cx.y.z` mappings for self-protection controls once the AISVS importer exists.
 - Publish signed release tags for stable harness snapshots.
 - Add a machine-readable manifest for release artifacts.
 - Add CI checks for `tools/verify-harness-integrity.py`.
-- Add regression fixtures for hostile target repo instructions and prompt-injection examples.
+- Expand hostile target repo and prompt-injection regression fixtures as new agent import surfaces are added.

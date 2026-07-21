@@ -12,6 +12,18 @@
 - Requested output:
 - Target review date:
 
+## Preflight Classification
+
+- Profiles: chatbot / RAG application / agent / MCP-tool-using application / model service / model pipeline / evaluation harness / conventional web/API
+- Review depth: quick / standard / deep
+- Confidence: low / medium / high
+
+## Facts, Assumptions, And Missing Evidence
+
+| Type | Statement | Local source path / requested artifact |
+| --- | --- | --- |
+| Found fact / Partial / Assumption / Missing / Human-validation-required |  |  |
+
 ## AI Capabilities
 
 - Chat:

@@ -1,6 +1,6 @@
 # Operationalizing OWASP AISVS
 
-OWASP AISVS should become the verification backbone for AI AppSec reviews. The practical goal is not to paste the standard into a spreadsheet. The goal is to make each applicable requirement testable, evidence-backed, and useful to engineering teams building AI clients and agents.
+OWASP AISVS 1.0 is the verification backbone for AI AppSec reviews in this harness. The practical goal is not to paste the standard into a spreadsheet. The goal is to make each applicable requirement testable, evidence-backed, and useful to engineering teams building AI clients and agents.
 
 ## Implementation Pattern
 
@@ -41,7 +41,7 @@ OWASP AISVS should become the verification backbone for AI AppSec reviews. The p
 Each operationalized control should include:
 
 - stable local control ID;
-- upstream AISVS ID and version;
+- upstream AISVS IDs and version;
 - title and summary;
 - applicability rules;
 - mapped frameworks;
@@ -62,10 +62,10 @@ Each operationalized control should include:
 
 ## Near-Term Backlog
 
-- Add an AISVS importer once the upstream control format is stable.
-- Add authoritative AISVS mappings for harness self-protection controls `AIH-010`, `AIH-011`, and `AIH-012`.
+- Add an AISVS importer so current seed traceability can be refreshed automatically from upstream metadata.
+- Expand AISVS 1.0 traceability notes with levels, requirement titles, and source line metadata.
 - Add CSA AICM mapping import support.
-- Add OWASP GenAI Top 10 risk tags to each seed control.
+- Expand OWASP Agentic Top 10 and OWASP GenAI Top 10 risk tags with upstream source metadata.
 - Add MAESTRO layer tags and AI Defense Matrix asset-class tags to each seed control where useful.
 - Add review-pack generation for design, build, and run gates.
 - Add regression tests for prompt boundaries, tool authorization, and retrieval source controls.

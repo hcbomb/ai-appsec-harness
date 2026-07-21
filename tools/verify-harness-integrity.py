@@ -15,10 +15,13 @@ REQUIRED_FILES = [
     ".agents/skills/ai-appsec-harness/SKILL.md",
     ".claude/skills/ai-appsec-harness/SKILL.md",
     "docs/agent-tool-import.md",
+    "docs/preflight-workflow.md",
     "docs/threat-modeling-maestro.md",
     "docs/ai-defense-matrix.md",
     "docs/aisvs-operationalization.md",
     "docs/threat-modeling-stride.md",
+    "templates/preflight-report.md",
+    "examples/preflight/mcp-agent.preflight.json",
     "data/control-catalog.seed.json",
 ]
 
@@ -151,6 +154,7 @@ def check_required_guardrails(root: Path, errors: list[str]) -> None:
 
     text = read_text(agents).lower()
     required_phrases = [
+        "run the ai appsec preflight on this project",
         "do not claim aisvs",
         "human approval",
         "untrusted",

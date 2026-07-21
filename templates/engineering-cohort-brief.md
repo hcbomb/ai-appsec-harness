@@ -16,13 +16,15 @@ We are reviewing AI clients, agents, and LLM applications so teams can ship usef
 
 ## What AppSec Will Produce
 
+- Engineer-first AI AppSec preflight report.
 - MAESTRO-first threat model.
 - STRIDE translation where useful.
 - AI Defense Matrix coverage summary when leadership or roadmap framing is needed.
-- Applicable controls.
-- Evidence gap report.
-- Hardening actions.
-- Attestation-ready summary.
+- Evidence gaps with local source paths when found.
+- Concrete security tests.
+- Ticket-ready backlog and hardening actions.
+- Residual-risk notes and revalidation triggers.
+- Attestation-ready summary later, if scope and evidence justify it.
 
 ## What Good Looks Like
 

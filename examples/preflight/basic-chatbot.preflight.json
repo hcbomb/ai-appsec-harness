@@ -1,0 +1,122 @@
+{
+  "system": {
+    "name": "Example Support Chatbot",
+    "owner": "Product Engineering",
+    "lifecycle_stage": "design"
+  },
+  "preflight_summary": {
+    "scope": "Internal chatbot answering product support questions with a hosted LLM provider.",
+    "confidence": "medium",
+    "system_risk_profile": "chatbot; internal; no tools; no retrieval; internal data only",
+    "review_depth": "quick",
+    "release_blockers": [],
+    "important_fixes": [
+      "Add prompt-injection regression tests before Security review."
+    ],
+    "non_blocking_backlog": [
+      "Add structured AI interaction logging after the first pilot."
+    ]
+  },
+  "system_model": {
+    "profiles": ["chatbot"],
+    "components": ["web client", "chat API", "hosted LLM provider"],
+    "trust_boundaries": ["user input to chat API", "chat API to hosted LLM provider"],
+    "models_and_providers": ["example-chat-model via hosted provider"],
+    "plugins_mcp_agent_dependencies": [],
+    "flows": {
+      "prompt": ["user question", "server prompt template", "LLM request"],
+      "data": ["internal FAQ excerpts in request body"],
+      "retrieval": [],
+      "identity": ["authenticated employee session"],
+      "tool": [],
+      "external_action": []
+    },
+    "facts": [
+      "No tool execution path was found in local evidence.",
+      "Provider configuration is documented in docs/ai/provider.md."
+    ],
+    "assumptions": [
+      "The chatbot does not process regulated data unless later enabled."
+    ],
+    "missing_architecture_evidence": [
+      "No model/provider retention setting evidence was found."
+    ]
+  },
+  "threat_model": {
+    "narrative": [
+      "What are we working on: an internal chatbot with a hosted model provider.",
+      "What can go wrong: prompt injection can cause unsafe or confidential output.",
+      "What are we going to do: add prompt boundary tests and provider retention evidence.",
+      "Did we do a good job: human validation is still needed before launch."
+    ],
+    "threats": [
+      {
+        "id": "T-CHAT-001",
+        "title": "User prompt overrides trusted instructions",
+        "priority": "high",
+        "maestro_layers": ["L2 Data Operations", "L3 Agent Frameworks", "L5 Evaluation And Observability"],
+        "agentic_risk_labels": ["OWASP LLM01 Prompt Injection"],
+        "attack_path": "Employee enters instructions that attempt to override the system prompt or expose hidden policy text.",
+        "affected_assets": ["system prompt", "internal FAQ content", "chat output"],
+        "likely_impact": "Confidential guidance or unsafe content could be returned to an employee.",
+        "existing_controls": ["Authenticated employee access"],
+        "gaps": ["No prompt-injection regression test evidence found"],
+        "mitigation_decision": "Block release until prompt boundary tests are added for the pilot flows.",
+        "residual_risk": "medium after test coverage and provider retention evidence are reviewed",
+        "traceability": ["AIH-002", "v1.0-C2.1.3", "v1.0-C2.1.6", "MITRE ATLAS AML.T0051"],
+        "evidence_refs": ["E-CHAT-001"],
+        "test_refs": ["TEST-CHAT-001"],
+        "backlog_refs": ["BACKLOG-CHAT-001"],
+        "stride_translation": "Tampering and information disclosure"
+      }
+    ]
+  },
+  "evidence_gaps": [
+    {
+      "id": "E-CHAT-001",
+      "title": "Prompt-injection regression tests",
+      "status": "missing",
+      "source_path": "",
+      "requested_artifact": "Add test output showing user prompts cannot override trusted instructions or reveal hidden prompt text."
+    },
+    {
+      "id": "E-CHAT-002",
+      "title": "Provider retention settings",
+      "status": "partial",
+      "source_path": "docs/ai/provider.md",
+      "requested_artifact": "Attach provider retention and training-use settings for the selected model."
+    }
+  ],
+  "security_tests": [
+    {
+      "id": "TEST-CHAT-001",
+      "title": "Prompt boundary regression test",
+      "objective": "Verify user prompts cannot override system/developer instructions.",
+      "prerequisites": ["Representative system prompt", "chat test harness"],
+      "steps": ["Submit jailbreak and prompt-extraction prompts", "Assert hidden instructions are not disclosed", "Assert unsafe requested behavior is refused"],
+      "expected_secure_behavior": "The chatbot refuses instruction override and does not reveal prompt or internal policy content.",
+      "evidence_to_retain": "Test fixture, prompts used, response transcript, and pass/fail result.",
+      "test_type": "CI",
+      "references": ["AIH-002", "v1.0-C2.1.3", "v1.0-C2.1.6"]
+    }
+  ],
+  "engineering_backlog": [
+    {
+      "id": "BACKLOG-CHAT-001",
+      "title": "Add chatbot prompt-injection regression tests",
+      "problem": "Security cannot verify instruction hierarchy from existing evidence.",
+      "recommended_change": "Create CI tests for prompt override, prompt extraction, and role confusion.",
+      "acceptance_criteria": ["Tests run in CI", "Failures block merge", "Evidence artifact is linked in the review ticket"],
+      "suggested_test": "TEST-CHAT-001",
+      "priority": "high",
+      "owner": "TBD engineering owner",
+      "release_gate": "build",
+      "references": ["AIH-002", "E-CHAT-001", "TEST-CHAT-001"]
+    }
+  ],
+  "residual_risk": {
+    "unresolved_decisions": ["Whether provider retention settings satisfy the internal data policy."],
+    "human_review_points": ["Security must review prompt boundary test results before pilot launch."],
+    "revalidation_triggers": ["New model provider", "New data classification", "New externally visible chatbot surface"]
+  }
+}

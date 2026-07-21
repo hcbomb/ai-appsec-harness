@@ -121,6 +121,20 @@ def render_markdown(intake: dict[str, Any], results: list[ControlResult]) -> str
                 f"- {alignment.get('framework')}: {alignment.get('note')} ({alignment.get('status')})"
             )
 
+        if control.get("authoritative_mappings"):
+            lines.extend(["", "**Versioned traceability**", ""])
+            for mapping in control.get("authoritative_mappings", []):
+                version = mapping.get("version", "unknown")
+                ids = ", ".join(mapping.get("ids", []))
+                lines.append(f"- {mapping.get('framework')} {version}: {ids}")
+                if mapping.get("note"):
+                    lines.append(f"  - Note: {mapping.get('note')}")
+
+        if control.get("risk_tags"):
+            lines.extend(["", "**Risk labels**", ""])
+            for tag in control.get("risk_tags", []):
+                lines.append(f"- {tag}")
+
         lines.extend(["", "**Evidence**", ""])
         for evidence in result.evidence:
             marker = "required" if evidence.required else "optional"
@@ -149,7 +163,7 @@ def render_markdown(intake: dict[str, Any], results: list[ControlResult]) -> str
             "## Reviewer Notes",
             "",
             "- This report is generated from seed controls and requires human AppSec validation.",
-            "- Do not claim OWASP AISVS or CSA AI conformance until authoritative upstream controls are mapped and evidence is reviewed.",
+            "- Do not claim OWASP AISVS or CSA AI conformance until scope, evidence, exceptions, and reviewer decisions are validated by humans.",
             "- Record accepted risks, compensating controls, and residual risk before release approval.",
             "",
         ]

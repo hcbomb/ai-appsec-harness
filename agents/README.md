@@ -5,6 +5,7 @@ The agent roles here are designed to support a human-led AppSec review. They sho
 ## Roles
 
 - Intake Agent: convert engineering notes into structured intake.
+- Security Advisory Agent: turns an early review request into self-service guidance, required evidence, and meeting gates.
 - Threat Model Agent: identify abuse cases, trust boundaries, and review priorities.
 - AISVS Evidence Agent: map evidence to AISVS-oriented controls and identify gaps.
 - CSA Mapper Agent: translate technical evidence into CSA AI governance language.

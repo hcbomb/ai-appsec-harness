@@ -6,6 +6,7 @@ The harness should make AI AppSec reviews repeatable without flattening the nuan
 
 Given an AI system intake, the harness produces:
 
+- an initial security advisory response to the requestor;
 - an AI threat model;
 - an applicable control set;
 - an AISVS-oriented evidence checklist;
@@ -20,19 +21,33 @@ Given an AI system intake, the harness produces:
    - Capture system purpose, owners, lifecycle stage, architecture, model providers, tools, retrieval sources, data classes, identities, environments, and release gate needs.
 2. Classify
    - Identify whether the system is an AI client, agent, RAG app, model-hosting service, model-training pipeline, evaluation harness, or internal productivity tool.
-3. Threat Model
+3. Advise
+   - Return a concise advisory response that identifies required self-service evidence, security questions, data-handling concerns, likely controls, and conditions for Security review.
+4. Threat Model
    - Use the baseline assisted STRIDE flow for normal reviews and the advanced Shostack-style flow for high-impact or agentic systems.
    - Model trust boundaries, prompt boundaries, data flows, tool calls, delegated authority, identity transitions, external actions, current/target state, compensating controls, and abuse cases.
-4. Map Controls
+5. Map Controls
    - Select applicable controls from AISVS, OWASP GenAI, CSA AICM, and local AppSec requirements.
-5. Collect Evidence
+6. Collect Evidence
    - Request engineering artifacts, test results, architecture diagrams, policy decisions, logs, and runtime configuration.
-6. Evaluate
+7. Evaluate
    - Determine whether evidence is present, reviewable, stale, incomplete, or contradicted by implementation.
-7. Harden
+8. Harden
    - Produce engineering actions that reduce risk and can be regression-tested.
-8. Attest
+9. Attest
    - Generate an attestation package that states scope, evidence, gaps, exceptions, compensating controls, and residual risk.
+
+## Security Advisory Response Pattern
+
+Use this pattern when a team asks for a security review before they have a complete design artifact. The harness should return useful guidance first, then ask the team to publish the self-service threat model or equivalent review packet.
+
+The advisory should:
+
+- clarify that Security can provide a better risk review after the owning team documents the actual use case, architecture, data flows, trust boundaries, and control assumptions;
+- avoid turning the first meeting into discovery when the requestor can document the facts first;
+- identify the minimum evidence needed for review;
+- call out likely data-handling, privacy, quality, and security-control questions;
+- recommend a meeting only when unresolved risks, unclear data flows, sensitive-data handling concerns, or launch-blocking decisions remain.
 
 ## Threat Modeling Depth
 

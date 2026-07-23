@@ -254,6 +254,37 @@
         "Track unresolved risks in the implementation ticket, risk register, or exception workflow.",
         "Define revalidation triggers for design changes, new tools, new retrieval sources, new data classes, incidents, and exception renewals."
       ]
+    },
+    {
+      "id": "AIH-010",
+      "title": "Issue security advisory before review meeting",
+      "summary": "Early project requests receive a structured advisory that asks the owning team to document use case, data inventory, data flows, trust boundaries, control assumptions, and open risks before Security performs a risk review.",
+      "applies_when": {
+        "system_types": ["ai_client", "agent", "rag", "llm_app", "model_service", "model_pipeline"]
+      },
+      "alignments": [
+        {"framework": "OWASP AISVS", "status": "candidate", "note": "Security requirements, architecture evidence, and review readiness"},
+        {"framework": "OWASP Threat Modeling", "status": "practice", "note": "Threat modeling intake and structured review preparation"},
+        {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Governance, data handling, and assurance evidence"},
+        {"framework": "NIST AI RMF", "status": "candidate", "note": "Govern, Map, and Manage functions"}
+      ],
+      "evidence": [
+        {"id": "security_advisory_response", "required": true, "prompt": "Attach the advisory response sent to the requestor, including the requested self-service threat model or review packet."},
+        {"id": "review_packet", "required": true, "prompt": "Attach the requestor-owned review packet with use case, scope, data inventory, data flow, trust boundaries, controls, and open risks."},
+        {"id": "data_handling_assumptions", "required": true, "prompt": "Document data classifications, regulated data scope, sensitive metadata, retention, logging, export paths, and non-production restrictions."},
+        {"id": "meeting_gate_decision", "required": false, "prompt": "Document whether a meeting is needed and which unresolved risks, unclear data flows, sensitive-data concerns, exception needs, or launch-blocking decisions remain."}
+      ],
+      "tests": [
+        {"id": "review_packet_completeness", "prompt": "Verify the review packet covers use case, data inventory, data flow, trust boundaries, controls, known assumptions, and open risks."},
+        {"id": "data_classification_traceability", "prompt": "Verify every collected, stored, logged, exported, or derived data category has a classification and owner."},
+        {"id": "meeting_gate_traceability", "prompt": "Verify any scheduled security meeting is tied to unresolved risks, unclear data flows, sensitive-data handling concerns, exception needs, or launch-blocking decisions."}
+      ],
+      "hardening_actions": [
+        "Send a concise advisory response before scheduling discovery-heavy meetings.",
+        "Ask engineering to publish the self-service threat model or review packet first.",
+        "Focus Security review on actual risks, gaps, assumptions, and decisions.",
+        "Reserve meetings for unresolved risks, unclear data flows, sensitive-data handling concerns, exception needs, or launch-blocking decisions."
+      ]
     }
   ]
 }

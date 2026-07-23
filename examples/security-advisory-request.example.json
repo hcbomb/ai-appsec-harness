@@ -1,0 +1,32 @@
+{
+  "request": {
+    "title": "Example regulated telemetry and reporting flow",
+    "request_type": "security_advisory_before_review",
+    "requesting_team": "Product Engineering",
+    "lifecycle_stage": "design",
+    "requested_output": "security review guidance",
+    "summary": "The team wants to capture application telemetry and make it available for reporting, quality review, and support workflows."
+  },
+  "known_context": {
+    "environment": "development and pilot",
+    "customer_facing": false,
+    "regulated_data_possible": true,
+    "raw_free_text_possible": true,
+    "external_integrations_possible": false
+  },
+  "known_questions": [
+    "Can regulated data enter telemetry fields or free-text comments?",
+    "Where is telemetry redacted, rejected, or validated before storage?",
+    "Who can access dashboards and exports?",
+    "How are tenant, user, session, and correlation identifiers handled?"
+  ],
+  "advisory_should_request": [
+    "use_case_and_scope",
+    "data_inventory",
+    "data_flow",
+    "trust_boundaries",
+    "security_controls",
+    "known_assumptions_and_open_risks",
+    "meeting_gate_decision"
+  ]
+}

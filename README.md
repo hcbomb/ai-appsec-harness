@@ -43,12 +43,14 @@ The generated report is not a compliance certificate. It is an evidence gap anal
 
 - `docs/reference-catalog.md` - curated sources and how each should feed AppSec work.
 - `docs/harness-design.md` - target architecture for agents, harnesses, and review gates.
+- `docs/security-advisory-response.md` - self-service security advisory workflow for project proposals before review meetings.
 - `docs/threat-modeling-stride.md` - two-tier threat modeling method: assisted STRIDE baseline and advanced Shostack-style practice.
 - `docs/weekly-monitoring.md` - weekly AI + security monitoring workflow and triage criteria.
 - `docs/aisvs-operationalization.md` - how to turn AISVS into engineering-ready evidence checks.
 - `data/reference-catalog.yml` - machine-readable reference catalog.
 - `data/control-catalog.seed.json` - starter harness controls for AI clients and agents.
 - `examples/ai-client-intake.example.json` - sample input for the harness.
+- `examples/security-advisory-request.example.json` - sample early-review request for the security advisory workflow.
 - `harness/` - no-dependency Python proof of concept.
 - `agents/` - agent roles and prompts for threat modeling, evidence collection, CSA mapping, and attestation.
 - `templates/` - review, threat model, and attestation templates.
@@ -61,6 +63,7 @@ The generated report is not a compliance certificate. It is an evidence gap anal
 - Clear source-to-control mapping.
 - Reproducible reports from versioned inputs.
 - Engineering-readable output with AppSec-grade traceability.
+- Useful guidance before meetings, so reviews focus on risks and decisions rather than discovery.
 
 ## Threat Modeling Tiers
 

@@ -54,6 +54,15 @@
 | --- | --- |
 |  |  |
 
+**AI assistant and secure-coding overlay**
+
+| Area | Status | Local source path | Gap / requested artifact |
+| --- | --- | --- | --- |
+| AI assistant instructions | found / partial / missing / not applicable |  |  |
+| Dependency and lockfile discipline | found / partial / missing / not applicable |  |  |
+| CI security checks | found / partial / missing / not applicable |  |  |
+| Language-specific secure-coding guardrails | found / partial / missing / not applicable |  |  |
+
 ## C. Threat Model
 
 Use a simple narrative:

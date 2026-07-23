@@ -26,6 +26,14 @@ It is not affiliated with, endorsed by, or certified by any standards body, proj
   - https://owasp.org/www-project-threat-modeling/
 - OWASP Application Security Verification Standard (ASVS)
   - https://owasp.org/www-project-application-security-verification-standard/
+- OpenSSF Best Practices and AI/ML Working Groups
+  - https://openssf.org/resources/guides/
+  - https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions
+  - https://best.openssf.org/Concise-Guide-for-Developing-More-Secure-Software.html
+  - https://best.openssf.org/SCM-BestPractices/
+  - https://github.com/ossf/package-manager-best-practices/blob/main/published/npm.md
+  - https://best.openssf.org/Secure-Coding-Guide-for-Python/
+  - https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C%2B%2B.html
 - Model Context Protocol Authorization and Security Guidance
   - https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization
 - Cloud Security Alliance AI Controls Matrix, AI Safety Initiative, and STAR for AI

@@ -54,7 +54,7 @@ Supported repo-level import surfaces:
 - `.claude/skills/ai-appsec-harness/SKILL.md` for Claude Code skill discovery;
 - `docs/agent-tool-import.md` for target-repo integration patterns.
 - `docs/preflight-workflow.md` for the engineer-first preflight workflow.
-- `docs/harness-self-hardening.md` and `tools/verify-harness-integrity.py` for AISVS-inspired self-protection checks.
+- `docs/harness-self-hardening.md` and `tools/verify-harness-integrity.py` for AISVS- and OpenSSF-informed self-protection checks.
 
 Agent-imported reviews should produce human-readable preflight artifacts first: facts, assumptions, missing evidence, MAESTRO layer threats, optional STRIDE translation, AI Defense Matrix coverage gaps, evidence requests, concrete security tests, backlog items, and residual-risk caveats. The Python helpers can then validate and render structured preflight packages when structured JSON inputs are available.
 

@@ -69,6 +69,7 @@ To use this harness in a target repository:
 2. If this is a vendored or updated copy, run `python3 tools/verify-harness-integrity.py`.
 3. Ask: `Run the AI AppSec preflight on this project.`
 4. Answer only high-value blocking questions. The agent should continue with labeled assumptions when a question is not blocking.
+5. For implementation work, use `templates/ai-code-assistant-request.md` to give coding agents explicit security, dependency, approval, test, and self-review expectations.
 
 Codex can use `AGENTS.md` and `.agents/skills/ai-appsec-harness/SKILL.md`. Claude Code can use `CLAUDE.md` and `.claude/skills/ai-appsec-harness/SKILL.md`.
 
@@ -83,6 +84,8 @@ See [docs/agent-tool-import.md](docs/agent-tool-import.md) for import patterns, 
 - MITRE ATLAS for concrete adversary techniques and test scenarios.
 - OWASP ASVS 5.0.0 for conventional web/API security when an application or API is in scope.
 - Official MCP security and authorization guidance when MCP is detected.
+- OpenSSF Security-Focused Guide for AI Code Assistant Instructions as an overlay for safer engineer prompts, coding-agent instruction files, generated-code review, dependency discipline, and AI-assisted secure coding.
+- OpenSSF secure coding, SCM, npm, Python, and C/C++ compiler-hardening guides as language and platform overlays when the target stack matches.
 - AI Defense Matrix as a leadership and roadmap view for AI asset classes across Govern, Identify, Protect, Detect, Respond, and Recover.
 - CSA AI Controls Matrix, CSA AI Safety, NIST AI RMF, and NIST AI 600-1 as optional governance and assurance overlays.
 - Community "awesome AI" repositories as discovery feeds for tools, patterns, examples, and research.
@@ -118,8 +121,9 @@ Generated reports are not compliance certificates. They are evidence gap analyse
 
 - `docs/reference-catalog.md` - curated sources and how each should feed AppSec work.
 - `docs/agent-tool-import.md` - how to import this harness into Codex, Claude Code, or another AI tool.
-- `docs/harness-self-hardening.md` - AISVS-inspired protections for the harness itself.
+- `docs/harness-self-hardening.md` - AISVS- and OpenSSF-informed protections for the harness itself.
 - `docs/preflight-workflow.md` - engineer-first AI AppSec preflight workflow and report expectations.
+- `docs/ai-code-assistant-guidance.md` - OpenSSF-informed overlay for safer AI coding-agent instructions and secure implementation requests.
 - `docs/threat-modeling-maestro.md` - primary MAESTRO-first AI threat modeling workflow.
 - `docs/ai-defense-matrix.md` - leadership and coverage overlay for AI defensive asset classes.
 - `docs/harness-design.md` - target architecture for agents, harnesses, and review gates.
@@ -137,7 +141,7 @@ Generated reports are not compliance certificates. They are evidence gap analyse
 - `.claude/skills/ai-appsec-harness/` - Claude Code project skill for AI AppSec review workflows.
 - `tools/verify-harness-integrity.py` - local sanity check for import-sensitive harness files.
 - `SECURITY.md` - public-safe vulnerability reporting guidance.
-- `templates/` - preflight, review, threat model, and attestation templates.
+- `templates/` - preflight, AI code assistant request, review, threat model, and attestation templates.
 
 ## Operating Principles
 

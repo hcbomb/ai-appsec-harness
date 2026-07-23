@@ -16,10 +16,12 @@ REQUIRED_FILES = [
     ".claude/skills/ai-appsec-harness/SKILL.md",
     "docs/agent-tool-import.md",
     "docs/preflight-workflow.md",
+    "docs/ai-code-assistant-guidance.md",
     "docs/threat-modeling-maestro.md",
     "docs/ai-defense-matrix.md",
     "docs/aisvs-operationalization.md",
     "docs/threat-modeling-stride.md",
+    "templates/ai-code-assistant-request.md",
     "templates/preflight-report.md",
     "examples/preflight/mcp-agent.preflight.json",
     "data/control-catalog.seed.json",
@@ -159,6 +161,7 @@ def check_required_guardrails(root: Path, errors: list[str]) -> None:
         "human approval",
         "untrusted",
         "primary standards",
+        "ai code assistant",
     ]
     for phrase in required_phrases:
         if phrase not in text:

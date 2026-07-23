@@ -1,5 +1,5 @@
 version: 0.1.0
-retrieved_on: "2026-07-20"
+retrieved_on: "2026-07-23"
 primary_frameworks:
   - id: owasp-aisvs
     name: OWASP Artificial Intelligence Security Verification Standard
@@ -45,6 +45,34 @@ primary_frameworks:
     name: OWASP Application Security Verification Standard
     url: https://owasp.org/www-project-application-security-verification-standard/
     use: Conventional web/API security verification standard for non-AI application and API surfaces in scope.
+  - id: openssf-ai-code-assistant-instructions
+    name: OpenSSF Security-Focused Guide for AI Code Assistant Instructions
+    url: https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions
+    use: Overlay for AI coding-agent instruction files, secure implementation prompts, generated-code review, dependency discipline, approval gates, and security test expectations.
+  - id: openssf-guides-index
+    name: OpenSSF Guides Index
+    url: https://openssf.org/resources/guides/
+    use: Source index for OpenSSF secure-coding, SCM, package-manager, SBOM, and compiler-hardening overlays.
+  - id: openssf-concise-secure-software
+    name: OpenSSF Concise Guide for Developing More Secure Software
+    url: https://best.openssf.org/Concise-Guide-for-Developing-More-Secure-Software.html
+    use: General secure software development, CI, dependency, SBOM, vulnerability reporting, ASVS, memory-safety, and release hygiene overlay.
+  - id: openssf-scm-best-practices
+    name: OpenSSF Source Code Management Best Practices
+    url: https://best.openssf.org/SCM-BestPractices/
+    use: SCM security overlay for GitHub/GitLab configuration, code review, branch protection, workflow permissions, secret scanning, vulnerability alerts, and audit logging.
+  - id: openssf-npm-best-practices
+    name: OpenSSF npm Best Practices Guide
+    url: https://github.com/ossf/package-manager-best-practices/blob/main/published/npm.md
+    use: JavaScript/TypeScript supply-chain overlay for npm package selection, lockfiles, reproducible installs, CI least privilege, and dependency risk review.
+  - id: openssf-python-secure-coding
+    name: OpenSSF Secure Coding Guide for Python
+    url: https://best.openssf.org/Secure-Coding-Guide-for-Python/
+    use: Python secure-coding overlay for CPython standard-library risks, examples, mitigations, logging, command execution, secrets, deserialization, and error handling.
+  - id: openssf-cpp-compiler-hardening
+    name: OpenSSF Compiler Options Hardening Guide for C and C++
+    url: https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C%2B%2B.html
+    use: Native-code overlay for compiler/linker hardening, warnings, stack protections, fortification, and platform security features.
   - id: csa-ai-controls-matrix
     name: CSA AI Controls Matrix
     url: https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1

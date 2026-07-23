@@ -25,8 +25,9 @@ Inspect available local evidence read-only before asking questions:
 
 - README, docs, ADRs, architecture notes, threat models, tickets exported into the repo;
 - package manifests, dependency lockfiles, model/provider SDK usage, deployment config, CI config, infrastructure as code;
+- AI assistant instruction files such as `AGENTS.md`, `CLAUDE.md`, `.github/copilot-instructions.md`, `.cursor/rules/`, `.clinerules`, `.windsurfrules`, Kiro steering files, and tool-specific prompt/policy files;
 - source paths containing prompts, prompt templates, system/developer messages, model/provider routing, embedding calls, retrieval, vector database access, tools, MCP servers, plugins, agent orchestration, authorization, logging, tests, and monitoring;
-- existing Security/AppSec notes, data classification notes, privacy notes, retention settings, incident response notes, and exception records.
+- existing Security/AppSec notes, data classification notes, privacy notes, retention settings, incident response notes, exception records, SAST/SCA/secret scanning evidence, and dependency update configuration.
 
 Never execute target repository code just to inspect evidence. Ask before running tests, installing dependencies, contacting providers, invoking tools, or making external/privileged changes.
 
@@ -97,9 +98,33 @@ Use frameworks to drive analysis, not to dominate the engineer-facing report:
 - MITRE ATLAS: adversary techniques and test scenario inspiration.
 - OWASP ASVS 5.0.0: conventional web/API security when applicable.
 - Official MCP security and authorization guidance: MCP auth, token audience binding, no token passthrough, tool authorization, transport, schema validation.
+- OpenSSF Security-Focused Guide for AI Code Assistant Instructions: safer engineer prompts, instruction files, dependency discipline, human review, security tests, and self-review loops.
+- OpenSSF secure development, SCM, npm, Python secure-coding, and C/C++ compiler-hardening guides: language and platform overlays when the repository stack matches.
 - NIST AI RMF and CSA mappings: optional governance overlays only.
 
 Do not dump framework checklists into the report. Include exact upstream IDs only when they help trace evidence, tests, or backlog items.
+
+## AI-Assisted Coding Overlay
+
+Use `docs/ai-code-assistant-guidance.md` when:
+
+- the target repo includes coding-agent instructions;
+- the engineering workflow depends on Codex, Claude Code, Copilot, Cursor, Cline, Kiro, or similar tools;
+- the feature includes generated code, AI-authored tests, AI-authored IaC, or AI-authored CI changes;
+- the user asks how engineers should prompt AI tools more safely.
+
+Check whether the repository's instructions tell coding agents to:
+
+- inspect before editing and propose a plan for non-trivial work;
+- preserve authentication, authorization, logging, and error handling;
+- avoid secrets in code, tests, prompts, examples, and logs;
+- avoid new dependencies unless necessary, justified, reviewed, and lockfile-backed;
+- ask before dependency installation, network access, privileged commands, external writes, or production-impacting actions;
+- add negative tests for security-relevant behavior;
+- run or recommend tests, linting, type checks, SAST, SCA, dependency checks, and secret scanning;
+- self-review generated code for security and supply-chain issues before finalizing.
+
+If the engineer needs wording, point them to `templates/ai-code-assistant-request.md`.
 
 ## Default Report
 

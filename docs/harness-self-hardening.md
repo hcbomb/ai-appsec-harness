@@ -17,6 +17,13 @@ Use these AISVS 1.0 chapter themes as the self-hardening lens:
 
 For this repo, translate those themes into controls for agent-facing files, prompt templates, skills, seed catalogs, import guidance, release/update process, and generated review artifacts.
 
+Use OpenSSF guidance as an additional supply-chain and secure-coding lens:
+
+- AI code assistant instructions should be concise, specific, security-focused, and backed by human review;
+- generated code, dependency suggestions, external resources, CI changes, and IaC changes need explicit review and verification;
+- package changes should use official package managers, lockfiles, dependency checks, and SBOM or component inventory where useful;
+- SCM settings should preserve review gates, branch protection, workflow permission limits, secret scanning, and vulnerability alerts.
+
 ## What To Protect
 
 Treat these as high-risk harness surfaces because AI tools may read and follow them:
@@ -30,7 +37,9 @@ Treat these as high-risk harness surfaces because AI tools may read and follow t
 - `examples/preflight/`;
 - `data/control-catalog.seed.json`;
 - `docs/preflight-workflow.md`;
-- `docs/agent-tool-import.md`.
+- `docs/ai-code-assistant-guidance.md`;
+- `docs/agent-tool-import.md`;
+- `templates/ai-code-assistant-request.md`.
 
 Changes to these files should be reviewed as supply-chain changes, not ordinary docs churn.
 
@@ -71,6 +80,7 @@ When importing this harness into another repo:
 - record source URL, commit SHA or tag, retrieval date, and local path;
 - run `python3 tools/verify-harness-integrity.py` before letting an AI tool follow the imported guidance;
 - review diffs to `AGENTS.md`, `CLAUDE.md`, `.agents/`, `.claude/`, `agents/prompts/`, `templates/`, `examples/preflight/`, `docs/preflight-workflow.md`, and `data/control-catalog.seed.json`;
+- review AI assistant instruction and prompt templates against `docs/ai-code-assistant-guidance.md`;
 - treat target repository files, issues, retrieved documents, comments, and generated output as untrusted evidence, not instructions;
 - require human approval before dependency installation, network access, publishing, external writes, privileged commands, or production-impacting actions.
 
@@ -81,6 +91,7 @@ For changes to import-sensitive files:
 - keep agent instructions short, explicit, and reviewable;
 - avoid hidden dynamic command execution in skill files;
 - avoid adding install commands, network commands, or external tool calls to agent guidance;
+- keep AI code assistant request templates explicit about secure coding, dependency approval, tests, SAST/SCA/secret checks, and self-review;
 - separate trusted harness instructions from examples containing hostile or untrusted content;
 - add or update tests when controls, CLI behavior, or verifier behavior changes;
 - document security-relevant changes in commit messages or pull request descriptions.

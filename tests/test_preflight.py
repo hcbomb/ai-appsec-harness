@@ -87,6 +87,8 @@ class PreflightTests(unittest.TestCase):
         for text in [codex.lower(), claude.lower()]:
             self.assertIn("run the ai appsec preflight on this project", text)
             self.assertIn("what will appsec ask us for", text)
+            self.assertIn("openssf security-focused guide", text)
+            self.assertIn("ai-code-assistant-request", text)
 
 
 if __name__ == "__main__":

@@ -6,17 +6,23 @@
 - Review date:
 - Reviewers:
 - Lifecycle stage:
-- Review tier: Baseline assisted STRIDE / Advanced STRIDE
+- Review tier: Minimum viable MAESTRO / Full MAESTRO / STRIDE fallback
 - Requested output: Quick feedback / full assessment / exception support / architecture review / leadership summary
 
-## Four-Question Frame
+## MAESTRO Review Summary
 
-| Question | Answer |
+| Area | Answer |
 | --- | --- |
-| What are we working on? |  |
-| What can go wrong? |  |
-| What are we going to do about it? |  |
-| Did we do a good job? |  |
+| Business context and risk appetite |  |
+| Architecture scope |  |
+| Threat actors |  |
+| Trust boundaries |  |
+| Asset and data flows |  |
+| Highest-risk MAESTRO layers |  |
+| Agentic risk factors in scope | Non-determinism / autonomy / agent identity management / agent-to-agent communication |
+| Residual risk summary |  |
+| STRIDE translation needed? | Yes / No |
+| AI Defense Matrix overlay needed? | Yes / No |
 
 ## Request Context
 
@@ -39,6 +45,28 @@
 | Asset | Owner | Sensitivity | Why It Matters |
 | --- | --- | --- | --- |
 |  |  |  |  |
+
+## MAESTRO Layer Inventory
+
+| Layer | In Scope? | Components / Evidence | Key Trust Boundaries | Primary Concerns |
+| --- | --- | --- | --- | --- |
+| L1 Foundation Models | Yes / No / N/A |  |  |  |
+| L2 Data Operations | Yes / No / N/A |  |  |  |
+| L3 Agent Frameworks | Yes / No / N/A |  |  |  |
+| L4 Deployment And Infrastructure | Yes / No / N/A |  |  |  |
+| L5 Evaluation And Observability | Yes / No / N/A |  |  |  |
+| L6 Security And Compliance | Yes / No / N/A |  |  |  |
+| L7 Agent Ecosystem | Yes / No / N/A |  |  |  |
+| Cross-Layer | Yes / No / N/A |  |  |  |
+
+## Agentic Risk Factors
+
+| Risk Factor | In Scope? | Where It Appears | Security Concern | Evidence / Test Needed |
+| --- | --- | --- | --- | --- |
+| Non-determinism | Yes / No / N/A |  |  |  |
+| Autonomy | Yes / No / N/A |  |  |  |
+| Agent identity management | Yes / No / N/A |  |  |  |
+| Agent-to-agent communication | Yes / No / N/A |  |  |  |
 
 ## Trust Boundaries
 
@@ -86,7 +114,29 @@
 | Unsafe generated output |  |  |  |  |
 | Provider or plugin compromise |  |  |  |  |
 
-## STRIDE Analysis
+## MAESTRO Threat Analysis
+
+| Layer | Threat / Abuse Case | Scenario | Impact | Likelihood | Existing Controls | Gaps | Mitigation / Decision | Residual Risk |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| L1 Foundation Models |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
+| L2 Data Operations |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
+| L3 Agent Frameworks |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
+| L4 Deployment And Infrastructure |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
+| L5 Evaluation And Observability |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
+| L6 Security And Compliance |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
+| L7 Agent Ecosystem |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
+| Cross-Layer |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
+
+## Cross-Layer Scenarios
+
+| Scenario | Layers Involved | Attack Path | Controls | Gaps | Decision |
+| --- | --- | --- | --- | --- | --- |
+| Prompt injection to tool misuse | L2 / L3 / L7 |  |  |  |  |
+| RAG poisoning to unsafe output | L2 / L3 / L5 |  |  |  |  |
+| Agent identity delegation failure | L3 / L6 / L7 |  |  |  |  |
+| Provider or model supply-chain drift | L1 / L4 / L6 |  |  |  |  |
+
+## STRIDE Translation
 
 | Category | Threat | Scenario | Impact | Existing Controls | Gaps | Mitigation / Decision | Residual Risk |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -96,6 +146,19 @@
 | Information Disclosure |  |  |  |  |  |  | Low / Medium / High |
 | Denial of Service |  |  |  |  |  |  | Low / Medium / High |
 | Elevation of Privilege |  |  |  |  |  |  | Low / Medium / High |
+
+## AI Defense Matrix Overlay
+
+| Asset Class | Govern | Identify | Protect | Detect | Respond | Recover | Owner | Gap / Backlog |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| AI-Workload Platforms |  |  |  |  |  |  |  |  |
+| AI Orchestration Tools |  |  |  |  |  |  |  |  |
+| AI-Generated Code |  |  |  |  |  |  |  |  |
+| AI Gateways And Routers |  |  |  |  |  |  |  |  |
+| AI Models |  |  |  |  |  |  |  |  |
+| Training Data |  |  |  |  |  |  |  |  |
+| Runtime AI Data |  |  |  |  |  |  |  |  |
+| AI Agent Identities |  |  |  |  |  |  |  |  |
 
 ## Control Gaps And Compensating Controls
 

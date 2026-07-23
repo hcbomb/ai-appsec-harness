@@ -1,25 +1,30 @@
-# Threat Modeling With STRIDE
+# Secondary STRIDE Threat Modeling
 
-This repo uses a two-tier threat modeling model:
+Use `docs/threat-modeling-maestro.md` first for AI clients, LLM applications, RAG systems, MCP/tool-using workflows, and autonomous or semi-autonomous agents.
 
-- Baseline: a minimum viable assisted STRIDE assessment that engineering teams can complete early without becoming threat modeling experts.
-- Advanced: a deeper Shostack-style practice using the four-question frame, diagrams, trust boundaries, STRIDE analysis, and review quality checks.
+STRIDE remains in this repo because it is familiar to many AppSec and engineering audiences. Use it as:
 
-The baseline tier is designed for speed and consistency. The advanced tier is for systems with sensitive data, privileged actions, external integrations, AI agents, production impact, regulatory exposure, or unresolved design decisions.
+- a fallback when MAESTRO would be too much for the review scope;
+- a translation layer for leadership, AppSec, and engineering teams that expect traditional categories;
+- a completeness check after MAESTRO layer analysis;
+- a lightweight intake path for non-AI or low-complexity changes.
 
-## Tier 1: Baseline Assisted STRIDE
+Do not use STRIDE as the primary method for agentic AI, multi-agent, RAG, MCP, or tool-using systems unless the review is intentionally lightweight. Those systems should start with MAESTRO and optionally translate top findings into STRIDE.
 
-Use this tier for normal design reviews, project risk assessments, exception support, and AI system reviews where the team needs fast, structured security feedback.
+## Tier 1: Lightweight STRIDE Fallback
+
+Use this tier for normal software design reviews, project risk assessments, exception support, and low-complexity AI system reviews where MAESTRO is not needed and the team needs fast, structured security feedback.
 
 ### When To Run It
 
-Run a baseline STRIDE review when a team is:
+Run a lightweight STRIDE fallback when a team is:
 
-- designing a new service, application, AI client, agent, or data flow;
-- introducing new integrations, APIs, tools, retrieval sources, or providers;
+- designing a new non-AI service, application, or data flow;
+- reviewing a low-complexity AI client or feature after documenting why MAESTRO is not needed;
+- introducing new integrations, APIs, tools, retrieval sources, or providers in a non-agentic or intentionally lightweight scope;
 - changing identity, authorization, access, networking, or environment boundaries;
 - processing sensitive data such as customer data, PHI, PII, financial data, secrets, or internal confidential data;
-- adopting AI platforms, LLM providers, model pipelines, agent frameworks, or RAG systems;
+- adopting AI platforms, LLM providers, model pipelines, agent frameworks, or RAG systems where the review will immediately escalate to MAESTRO if the scope becomes agentic, sensitive, or production-facing;
 - requesting an exception, transitional control, or compensating-control path.
 
 ### Minimum Intake
@@ -33,7 +38,7 @@ Required:
 - business use case and target delivery or review date;
 - current state, target state, and any interim operating model;
 - known manual controls, control gaps, or transitional concerns;
-- intended review output: quick feedback, full STRIDE, exception support, architecture review, leadership summary, or PDF/exportable artifact.
+- intended review output: quick feedback, STRIDE translation, exception support, architecture review, leadership summary, or PDF/exportable artifact.
 
 Minimum architecture views:
 
@@ -65,7 +70,7 @@ For complex systems, add software/component, infrastructure/deployment, network 
 3. Capture business use cases.
    - Identify users, workflows, affected systems, environments, and impact if delayed or unavailable.
 4. Identify review shape.
-   - Choose lightweight review, full STRIDE, exception-supporting assessment, architecture-heavy review, or follow-on implementation tasks.
+   - Choose lightweight review, STRIDE translation, exception-supporting assessment, architecture-heavy review, or follow-on implementation tasks.
 5. Review architecture.
    - Confirm enough context exists to understand system scope, trust boundaries, IAM/access flow, data flow, and environment differences.
 6. Analyze STRIDE.
@@ -102,9 +107,9 @@ Architecture-heavy review:
 - assessment artifact;
 - optional exportable packet for review meetings.
 
-### Baseline Definition Of Done
+### Fallback Definition Of Done
 
-A baseline STRIDE review is complete when:
+A lightweight STRIDE fallback is complete when:
 
 - all STRIDE categories were considered;
 - significant risks are documented in plain language;
@@ -113,20 +118,11 @@ A baseline STRIDE review is complete when:
 - owners and next steps are assigned;
 - the output informs design, release, exception, or deployment decisions.
 
-## Tier 2: Advanced Shostack-Style Practice
+## Tier 2: STRIDE Translation After MAESTRO
 
-Use this tier when the design is high impact, ambiguous, production-facing, sensitive, agentic, externally integrated, or likely to become a reusable control model.
+Use this tier after a MAESTRO review when the output needs to be easier for a traditional AppSec audience to consume.
 
-### Four-Question Frame
-
-Use the four questions to keep the review focused:
-
-1. What are we working on?
-2. What can go wrong?
-3. What are we going to do about it?
-4. Did we do a good job?
-
-The advanced method should answer these questions with diagrams, threats, decisions, tests, and review quality checks.
+Translation rule: do not re-run the whole review from scratch. Start from the MAESTRO layer threats, agentic risk-factor notes, cross-layer scenarios, and AI Defense Matrix coverage gaps, then classify only the significant findings into STRIDE categories.
 
 ### What Are We Working On?
 
@@ -152,7 +148,7 @@ Use multiple diagrams when one diagram would hide too much:
 
 ### What Can Go Wrong?
 
-Apply STRIDE to the system model, not only to a text description.
+Apply STRIDE to the MAESTRO-informed system model, not only to a text description.
 
 Review threats by:
 
@@ -215,7 +211,7 @@ Use review quality checks:
 
 - Did we include the right people: product, engineering, security, platform, data, and operations?
 - Did diagrams show trust boundaries, current/target state, and sensitive data?
-- Did we review all STRIDE categories without forcing irrelevant filler?
+- If STRIDE translation was used, did we review the relevant STRIDE categories without forcing irrelevant filler?
 - Did we identify specific abuse cases, not only generic risks?
 - Did we convert risks into decisions, backlog items, tests, or accepted risks?
 - Did we record assumptions and unresolved questions?
@@ -224,7 +220,7 @@ Use review quality checks:
 
 ## Escalation Triggers
 
-Escalate or move from baseline to advanced when:
+Escalate from a lightweight STRIDE fallback to MAESTRO-first when:
 
 - production scope includes unresolved manual access handling;
 - privileged access is standing, unclear, broad, or not reviewable;
@@ -241,7 +237,7 @@ Escalate or move from baseline to advanced when:
 Use the right artifact for the right job:
 
 - tracking ticket: status, missing inputs, follow-up questions, remediation tasks, and implementation work;
-- assessment artifact: formal STRIDE results, residual risk, control gaps, compensating controls, and decisions;
+- assessment artifact: formal MAESTRO results, optional STRIDE translation, residual risk, control gaps, compensating controls, and decisions;
 - diagrams: architecture, trust boundaries, data flow, IAM/access flow, agent/tool flow, and operational workflow;
 - exportable packet: leadership, audit, exception, or approval workflows.
 
@@ -251,11 +247,12 @@ An AI threat model is ready for AppSec review when it includes:
 
 - system scope and owners;
 - current, target, and transitional state;
+- MAESTRO layer analysis or rationale for a lightweight STRIDE-only review;
 - model/provider inventory;
 - tools, plugins, MCP servers, APIs, and external actions;
 - retrieval sources and data classifications;
 - trust boundaries for prompts, context, tools, identity, data, and providers;
-- STRIDE analysis with AI-specific abuse cases;
+- MAESTRO threats and optional STRIDE translation with AI-specific abuse cases;
 - control gaps and compensating controls;
 - remediation plan and accepted-risk path;
 - monitoring, incident response, and revalidation triggers.

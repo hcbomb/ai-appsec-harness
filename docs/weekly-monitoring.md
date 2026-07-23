@@ -4,32 +4,60 @@ This workflow keeps the project current without turning every interesting link i
 
 ## Sources
 
-Review these sources weekly:
+Review these primary sources weekly:
 
-- Unsupervised Learning by Daniel Miessler
-  - https://newsletter.danielmiessler.com/
 - tl;dr sec Newsletter
   - https://tldrsec.com/t/Newsletter
+- Unsupervised Learning by Daniel Miessler
+  - https://newsletter.danielmiessler.com/
+- OWASP GenAI Security Project News / Resources
+  - https://genai.owasp.org/news/
+  - https://genai.owasp.org/resources/
+- AVID: AI Vulnerability Database
+  - https://avidml.org/
+
+Review these sources as a monthly or secondary strategic sweep. Do not add them to weekly review unless they repeatedly produce actionable signal for this harness:
+
+- Microsoft Security Blog: AI and agents
+  - https://www.microsoft.com/en-us/security/blog/topic/ai-and-machine-learning/
+- Google Threat Intelligence Group / Mandiant AI threat coverage
+  - https://cloud.google.com/blog/topics/threat-intelligence
+- Anthropic Frontier Red Team
+  - https://www.anthropic.com/research/team/frontier-red-team
+- Frontier Model Forum AI-Cyber and AI Security workstreams
+  - https://www.frontiermodelforum.org/workstreams/ai-cyber-workstream/
+  - https://www.frontiermodelforum.org/workstreams/ai-security-workstream/
+- Trail of Bits AI/ML security
+  - https://blog.trailofbits.com/categories/machine-learning/
+  - https://blog.trailofbits.com/categories/prompt-injection/
+- Lakera Blog
+  - https://www.lakera.ai/blog
+- HiddenLayer Innovation Hub / AI Threat Landscape
+  - https://www.hiddenlayer.com/innovation-hub
+- NCSC secure AI system development and frontier AI cyber guidance
+  - https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development
 
 ## Weekly Review Goal
 
-Summarize AI + security items from the newest newsletter issues and decide whether each item deserves:
+Summarize AI + security items from the newest weekly sources and decide whether each item deserves:
 
 - no action;
-- watchlist only;
-- reference-catalog addition;
-- harness backlog item;
-- control-catalog candidate;
-- threat-model prompt/template update;
-- evidence/test idea;
-- GitHub issue or implementation task.
+- watchlist;
+- add reference;
+- create backlog item;
+- update harness;
+- update prompt/template;
+- update test/evidence idea.
+
+Identify the newest issues or posts since the previous run. If there is no previous run state, start with the newest visible issue from each source and record the issue URL, publication date, and retrieval date in the report.
 
 ## What Counts As Additive
 
 An item is additive when it improves at least one of:
 
 - AI-client or agent threat modeling;
-- STRIDE abuse-case coverage;
+- MAESTRO layer, agentic risk-factor, and cross-layer abuse-case coverage;
+- STRIDE translation coverage where useful;
 - OWASP AISVS operationalization;
 - OWASP GenAI / LLM Top 10 mapping;
 - CSA AI governance or attestation mapping;
@@ -42,18 +70,19 @@ An item is additive when it improves at least one of:
 
 ## Weekly Output Format
 
-Use this structure for the weekly report:
+Use this structure for the weekly report summary:
 
-| Item | Source | Why It Matters | Action |
-| --- | --- | --- | --- |
-|  |  |  | No action / watch / add reference / create backlog item / update harness |
+| Item | Source | Plain-Language Summary | Why It Matters / No Action Rationale | Action |
+| --- | --- | --- | --- | --- |
+|  |  |  |  | No action / watchlist / add reference / create backlog item / update harness / update prompt/template / update test/evidence idea |
 
 Then include:
 
-- Top 3 items worth attention.
+- Top 5 items worth attention.
 - Items ignored and why.
-- Suggested repo changes, if any.
+- Recommended repo updates, if any.
 - Suggested issue/backlog entries, if any.
+- Any immediate AppSec action to take.
 
 ## Action Rules
 
@@ -62,3 +91,4 @@ Then include:
 - Do not update controls from news alone. Add a candidate first, then validate against standards or primary technical material.
 - Keep public repo content organization-neutral.
 - Preserve source URL, retrieval date, and rationale for any promoted reference.
+- When a change is additive, keep it small and explain the rationale in the branch, commit, or proposed patch.

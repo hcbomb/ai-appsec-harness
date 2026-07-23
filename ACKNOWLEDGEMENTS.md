@@ -13,8 +13,29 @@ It is not affiliated with, endorsed by, or certified by any standards body, proj
 - OWASP GenAI Security Project and OWASP Top 10 for LLM and GenAI Applications
   - https://genai.owasp.org/
   - https://genai.owasp.org/llm-top-10/
+- OWASP Top 10 for Agentic Applications
+  - https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+- OWASP Multi-Agentic System Threat Modeling Guide
+  - https://genai.owasp.org/resource/multi-agentic-system-threat-modeling-guide-v1-0/
+- MAESTRO Threat Modeling Playbook and CSA MAESTRO framework
+  - https://agentic-threat-modeling.github.io/MAESTRO/
+  - https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro
+- AI Defense Matrix by Lenny Zeltser and Sounil Yu
+  - https://aidefensematrix.com/
 - OWASP Threat Modeling Project
   - https://owasp.org/www-project-threat-modeling/
+- OWASP Application Security Verification Standard (ASVS)
+  - https://owasp.org/www-project-application-security-verification-standard/
+- OpenSSF Best Practices and AI/ML Working Groups
+  - https://openssf.org/resources/guides/
+  - https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions
+  - https://best.openssf.org/Concise-Guide-for-Developing-More-Secure-Software.html
+  - https://best.openssf.org/SCM-BestPractices/
+  - https://github.com/ossf/package-manager-best-practices/blob/main/published/npm.md
+  - https://best.openssf.org/Secure-Coding-Guide-for-Python/
+  - https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C%2B%2B.html
+- Model Context Protocol Authorization and Security Guidance
+  - https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization
 - Cloud Security Alliance AI Controls Matrix, AI Safety Initiative, and STAR for AI
   - https://cloudsecurityalliance.org/artifacts/ai-controls-matrix-v1-1
   - https://cloudsecurityalliance.org/ai-safety-initiative
@@ -34,7 +55,7 @@ It is not affiliated with, endorsed by, or certified by any standards body, proj
 - Threat Modeling Manifesto
   - https://www.threatmodelingmanifesto.org/
 
-The STRIDE workflow in this repo uses the four-question frame as the organizing practice for deeper reviews:
+The AI threat modeling workflow in this repo is now MAESTRO-first for agentic, RAG, MCP, tool-using, and multi-layer AI architectures. STRIDE and the four-question frame remain credited here because the harness still uses them as secondary translation, completeness-check, and lightweight fallback practices:
 
 1. What are we working on?
 2. What can go wrong?
@@ -64,14 +85,40 @@ The reference catalog was seeded from community-maintained "awesome" lists and G
 
 ## Ongoing Monitoring Sources
 
-- Unsupervised Learning by Daniel Miessler
-  - https://newsletter.danielmiessler.com/
 - tl;dr sec Newsletter
   - https://tldrsec.com/t/Newsletter
+- Unsupervised Learning by Daniel Miessler
+  - https://newsletter.danielmiessler.com/
+- OWASP GenAI Security Project News and Resources
+  - https://genai.owasp.org/news/
+  - https://genai.owasp.org/resources/
+- AVID: AI Vulnerability Database
+  - https://avidml.org/
+
+Secondary strategic sweep sources include:
+
+- Microsoft Security Blog: AI and agents
+  - https://www.microsoft.com/en-us/security/blog/topic/ai-and-machine-learning/
+- Google Threat Intelligence Group / Mandiant AI threat coverage
+  - https://cloud.google.com/blog/topics/threat-intelligence
+- Anthropic Frontier Red Team
+  - https://www.anthropic.com/research/team/frontier-red-team
+- Frontier Model Forum AI-Cyber and AI Security workstreams
+  - https://www.frontiermodelforum.org/workstreams/ai-cyber-workstream/
+  - https://www.frontiermodelforum.org/workstreams/ai-security-workstream/
+- Trail of Bits AI/ML security
+  - https://blog.trailofbits.com/categories/machine-learning/
+  - https://blog.trailofbits.com/categories/prompt-injection/
+- Lakera Blog
+  - https://www.lakera.ai/blog
+- HiddenLayer Innovation Hub / AI Threat Landscape
+  - https://www.hiddenlayer.com/innovation-hub
+- NCSC secure AI system development and frontier AI cyber guidance
+  - https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development
 
 ## Practitioner Operating Patterns
 
-The baseline review workflow also reflects generalized AppSec operating practices for request intake, architecture evidence, STRIDE review, control-gap tracking, exception support, and remediation follow-up.
+The baseline review workflow also reflects generalized AppSec operating practices for request intake, architecture evidence, MAESTRO-first threat modeling, optional STRIDE translation, control-gap tracking, exception support, and remediation follow-up.
 
 Private wiki pages, ticketing content, organization-specific material, and non-public process details are intentionally not copied, linked, or redistributed in this public repository. Where practitioner workflows were useful, they were converted into generic patterns.
 

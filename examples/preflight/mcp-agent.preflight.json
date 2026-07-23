@@ -1,0 +1,176 @@
+{
+  "system": {
+    "name": "Example MCP Deployment Agent",
+    "owner": "Developer Productivity",
+    "lifecycle_stage": "design"
+  },
+  "preflight_summary": {
+    "scope": "Agent that reads repository context and can invoke MCP tools to open pull requests and draft deployment tickets.",
+    "confidence": "medium",
+    "system_risk_profile": "agent; MCP/tool-using; external actions; code generation; production-adjacent",
+    "review_depth": "deep",
+    "release_blockers": [
+      "Tool authorization and approval evidence are missing.",
+      "MCP token audience validation evidence is missing."
+    ],
+    "important_fixes": [
+      "Add human approval gates for pull request and deployment-ticket actions.",
+      "Add MCP token and tool-schema validation tests."
+    ],
+    "non_blocking_backlog": [
+      "Add AI Defense Matrix owner mapping for agent identities."
+    ]
+  },
+  "system_model": {
+    "profiles": ["agent", "MCP/tool-using application", "code generation"],
+    "components": ["agent runtime", "MCP client", "GitHub MCP server", "ticketing MCP server", "hosted LLM provider"],
+    "trust_boundaries": ["repo files to agent context", "agent runtime to MCP client", "MCP client to remote MCP servers", "MCP servers to downstream APIs"],
+    "models_and_providers": ["example-agent-model"],
+    "plugins_mcp_agent_dependencies": ["github-mcp-server", "ticketing-mcp-server"],
+    "flows": {
+      "prompt": ["user request", "repo evidence", "agent planning prompt"],
+      "data": ["source files", "issue text", "generated diffs", "tool logs"],
+      "retrieval": ["local repo file reads"],
+      "identity": ["developer session", "agent service identity", "MCP access token"],
+      "tool": ["tools/list", "tools/call", "downstream GitHub and ticketing API calls"],
+      "external_action": ["pull request creation", "deployment ticket creation"]
+    },
+    "facts": [
+      "The design includes remote MCP servers.",
+      "The agent can create pull requests and deployment tickets."
+    ],
+    "assumptions": [
+      "Production deployment itself is not directly executed by the agent."
+    ],
+    "missing_architecture_evidence": [
+      "No MCP authorization diagram was found.",
+      "No approval binding or replay protection design was found."
+    ]
+  },
+  "threat_model": {
+    "narrative": [
+      "What are we working on: a tool-using agent with remote MCP integrations.",
+      "What can go wrong: malicious repo content or MCP responses can drive unauthorized actions.",
+      "What are we going to do: require runtime authorization, human approval, schema validation, and token audience checks.",
+      "Did we do a good job: human AppSec review must validate tool scopes and action approval before pilot."
+    ],
+    "threats": [
+      {
+        "id": "T-MCP-001",
+        "title": "Prompt injection drives unauthorized tool use",
+        "priority": "high",
+        "maestro_layers": ["L2 Data Operations", "L3 Agent Frameworks", "L7 Agent Ecosystem"],
+        "agentic_risk_labels": ["ASI01 Agent Goal Hijack", "ASI02 Tool Misuse"],
+        "attack_path": "A malicious repository file is read into context and instructs the agent to create or modify external artifacts.",
+        "affected_assets": ["developer identity", "repository", "ticketing system", "MCP tool calls"],
+        "likely_impact": "Unauthorized pull requests or deployment tickets could be created under trusted context.",
+        "existing_controls": ["Human user starts the agent session"],
+        "gaps": ["No approval gate evidence", "No runtime tool policy evidence"],
+        "mitigation_decision": "Block release until high-impact MCP tools require human approval and runtime policy authorization.",
+        "residual_risk": "medium after approval gates and tool policy tests pass",
+        "traceability": ["AIH-003", "AIH-006", "v1.0-C9.2.1", "v1.0-C9.5.1", "v1.0-C10.2.5"],
+        "evidence_refs": ["E-MCP-001", "E-MCP-002"],
+        "test_refs": ["TEST-MCP-001"],
+        "backlog_refs": ["BACKLOG-MCP-001"],
+        "stride_translation": "Elevation of privilege and tampering"
+      },
+      {
+        "id": "T-MCP-002",
+        "title": "MCP token passthrough or audience confusion",
+        "priority": "high",
+        "maestro_layers": ["L4 Deployment And Infrastructure", "L6 Security And Compliance", "L7 Agent Ecosystem"],
+        "agentic_risk_labels": ["ASI03 Identity & Privilege Abuse", "ASI04 Agentic Supply Chain Vulnerabilities"],
+        "attack_path": "An MCP server accepts or forwards a token not issued for that server, allowing confused-deputy access to downstream APIs.",
+        "affected_assets": ["MCP access token", "downstream APIs", "developer authorization context"],
+        "likely_impact": "A compromised or misconfigured MCP server could misuse user authorization outside intended scope.",
+        "existing_controls": ["Remote MCP is planned to use OAuth"],
+        "gaps": ["No evidence of issuer, audience, expiration, and scope validation", "No evidence that token passthrough is forbidden"],
+        "mitigation_decision": "Require MCP authorization evidence and tests before Security review.",
+        "residual_risk": "low to medium after token validation and passthrough tests pass",
+        "traceability": ["AIH-003", "v1.0-C10.2.2", "v1.0-C10.2.7", "MCP Authorization 2025-06-18"],
+        "evidence_refs": ["E-MCP-003"],
+        "test_refs": ["TEST-MCP-002"],
+        "backlog_refs": ["BACKLOG-MCP-002"],
+        "stride_translation": "Spoofing and elevation of privilege"
+      }
+    ]
+  },
+  "evidence_gaps": [
+    {
+      "id": "E-MCP-001",
+      "title": "MCP tool inventory",
+      "status": "partial",
+      "source_path": "docs/agent-tools.md",
+      "requested_artifact": "List each MCP server, tool, scope, downstream API, and side-effect classification."
+    },
+    {
+      "id": "E-MCP-002",
+      "title": "Human approval gate design",
+      "status": "missing",
+      "source_path": "",
+      "requested_artifact": "Attach approval flow showing canonical action parameters, approver identity, and block-on-timeout behavior."
+    },
+    {
+      "id": "E-MCP-003",
+      "title": "MCP authorization and token validation evidence",
+      "status": "missing",
+      "source_path": "",
+      "requested_artifact": "Attach tests or design showing issuer, audience, expiration, scope validation, and no token passthrough to downstream APIs."
+    }
+  ],
+  "security_tests": [
+    {
+      "id": "TEST-MCP-001",
+      "title": "Unauthorized MCP tool invocation test",
+      "objective": "Verify repo-controlled content cannot invoke tools outside user authorization or approval boundaries.",
+      "prerequisites": ["Agent test harness", "Mock MCP server", "Malicious repository fixture"],
+      "steps": ["Load a repository file containing hostile instructions", "Ask the agent to summarize the project", "Observe attempted tool calls", "Assert high-impact calls are blocked pending approval"],
+      "expected_secure_behavior": "The runtime blocks unauthorized tool calls and requires explicit human approval for high-impact actions.",
+      "evidence_to_retain": "Repo fixture, agent trace, denied tool-call log, approval prompt screenshot or transcript.",
+      "test_type": "CI and manual testing",
+      "references": ["AIH-003", "v1.0-C9.2.1", "v1.0-C9.5.1"]
+    },
+    {
+      "id": "TEST-MCP-002",
+      "title": "MCP token audience and passthrough test",
+      "objective": "Verify MCP servers reject wrong-audience tokens and do not forward inbound access tokens to downstream APIs.",
+      "prerequisites": ["MCP auth test environment", "Token fixture with wrong audience", "Downstream API mock"],
+      "steps": ["Call MCP server with wrong-audience token", "Call valid tool path", "Inspect downstream API request headers"],
+      "expected_secure_behavior": "Wrong-audience tokens are rejected and downstream APIs receive separately issued tokens, not the client-presented token.",
+      "evidence_to_retain": "Token validation logs, HTTP traces, and downstream mock assertions.",
+      "test_type": "CI",
+      "references": ["v1.0-C10.2.2", "v1.0-C10.2.7", "MCP Authorization 2025-06-18"]
+    }
+  ],
+  "engineering_backlog": [
+    {
+      "id": "BACKLOG-MCP-001",
+      "title": "Add runtime tool policy and human approval gates",
+      "problem": "High-impact external actions can be requested by agent context without proven deterministic approval enforcement.",
+      "recommended_change": "Implement policy-enforced tool authorization and explicit approval gates for pull request and deployment-ticket actions.",
+      "acceptance_criteria": ["Tool policy is deny-by-default", "Approval displays canonical parameters", "Policy and approval denials are logged"],
+      "suggested_test": "TEST-MCP-001",
+      "priority": "high",
+      "owner": "TBD engineering owner",
+      "release_gate": "design",
+      "references": ["AIH-003", "AIH-006", "E-MCP-002", "TEST-MCP-001"]
+    },
+    {
+      "id": "BACKLOG-MCP-002",
+      "title": "Implement MCP token audience validation and no-passthrough checks",
+      "problem": "MCP authorization design does not prove tokens are bound to the intended MCP server or isolated from downstream API calls.",
+      "recommended_change": "Validate issuer, audience, expiration, and scope on every MCP request; mint separate downstream tokens instead of forwarding inbound tokens.",
+      "acceptance_criteria": ["Wrong-audience tokens are rejected", "Expired tokens are rejected", "Downstream APIs do not receive the client-presented token"],
+      "suggested_test": "TEST-MCP-002",
+      "priority": "high",
+      "owner": "TBD engineering owner",
+      "release_gate": "build",
+      "references": ["AIH-003", "E-MCP-003", "TEST-MCP-002"]
+    }
+  ],
+  "residual_risk": {
+    "unresolved_decisions": ["Which MCP tools are allowed in the pilot and which are blocked until later review."],
+    "human_review_points": ["Security must review MCP authorization design, approval gates, and tool logs before pilot."],
+    "revalidation_triggers": ["New MCP server", "New tool scope", "New downstream API", "New production action", "Protocol version change"]
+  }
+}

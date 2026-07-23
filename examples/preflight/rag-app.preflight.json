@@ -1,0 +1,173 @@
+{
+  "system": {
+    "name": "Example RAG Knowledge Assistant",
+    "owner": "Platform Engineering",
+    "lifecycle_stage": "implementation"
+  },
+  "preflight_summary": {
+    "scope": "RAG assistant that answers internal engineering questions from wiki pages and runbooks.",
+    "confidence": "medium",
+    "system_risk_profile": "RAG; internal; confidential data; no external actions",
+    "review_depth": "standard",
+    "release_blockers": [
+      "Retrieval authorization evidence is missing."
+    ],
+    "important_fixes": [
+      "Add poisoning and cross-tenant retrieval tests."
+    ],
+    "non_blocking_backlog": [
+      "Add retrieval freshness scoring after launch."
+    ]
+  },
+  "system_model": {
+    "profiles": ["RAG application", "chatbot"],
+    "components": ["web client", "RAG API", "embedding job", "vector database", "hosted LLM provider"],
+    "trust_boundaries": ["employee browser to RAG API", "RAG API to vector database", "RAG API to hosted provider"],
+    "models_and_providers": ["example-embedding-model", "example-chat-model"],
+    "plugins_mcp_agent_dependencies": [],
+    "flows": {
+      "prompt": ["employee question", "retrieved chunks", "answer prompt"],
+      "data": ["wiki pages", "runbooks", "prompt logs"],
+      "retrieval": ["query embedding", "vector search", "chunk authorization", "context assembly"],
+      "identity": ["employee SSO", "service account for vector database"],
+      "tool": [],
+      "external_action": []
+    },
+    "facts": [
+      "Retrieval source inventory exists at docs/retrieval-sources.md.",
+      "Data classification notes mention internal and confidential content."
+    ],
+    "assumptions": [
+      "The vector database is shared across multiple teams."
+    ],
+    "missing_architecture_evidence": [
+      "No proof that document-level authorization is enforced before prompt assembly."
+    ]
+  },
+  "threat_model": {
+    "narrative": [
+      "What are we working on: an internal RAG assistant over engineering documents.",
+      "What can go wrong: poisoned or unauthorized documents can shape model output.",
+      "What are we going to do: require retrieval authorization, poisoning tests, and provenance evidence.",
+      "Did we do a good job: Security should validate source ownership and test output before rollout."
+    ],
+    "threats": [
+      {
+        "id": "T-RAG-001",
+        "title": "Indirect prompt injection through retrieved content",
+        "priority": "high",
+        "maestro_layers": ["L2 Data Operations", "L3 Agent Frameworks", "L5 Evaluation And Observability"],
+        "agentic_risk_labels": ["OWASP LLM01 Prompt Injection", "ASI06 Memory & Context Poisoning"],
+        "attack_path": "A wiki page contains hidden instructions that are retrieved and inserted into the answer prompt.",
+        "affected_assets": ["retrieval index", "prompt context", "generated answer"],
+        "likely_impact": "The assistant may disclose internal information or produce unsafe guidance.",
+        "existing_controls": ["Source inventory exists"],
+        "gaps": ["No indirect prompt injection test result was found", "No source quarantine process was found"],
+        "mitigation_decision": "Require poisoning tests and untrusted-content labeling before Security review.",
+        "residual_risk": "medium if tests pass and source quarantine is documented",
+        "traceability": ["AIH-002", "AIH-005", "v1.0-C2.1.3", "v1.0-C8.2.4", "MITRE ATLAS AML.T0070"],
+        "evidence_refs": ["E-RAG-001", "E-RAG-002"],
+        "test_refs": ["TEST-RAG-001"],
+        "backlog_refs": ["BACKLOG-RAG-001"],
+        "stride_translation": "Tampering and information disclosure"
+      },
+      {
+        "id": "T-RAG-002",
+        "title": "Unauthorized cross-team retrieval",
+        "priority": "high",
+        "maestro_layers": ["L2 Data Operations", "L6 Security And Compliance"],
+        "agentic_risk_labels": ["OWASP LLM02 Sensitive Information Disclosure"],
+        "attack_path": "A user asks a question that retrieves confidential chunks from a team they cannot access directly.",
+        "affected_assets": ["vector database", "confidential runbooks", "employee identity context"],
+        "likely_impact": "Confidential engineering information may be exposed across authorization boundaries.",
+        "existing_controls": ["Employee SSO exists"],
+        "gaps": ["Retrieval authorization tests are missing"],
+        "mitigation_decision": "Block release until retrieval uses end-user authorization at query and context assembly time.",
+        "residual_risk": "low to medium after authorization tests pass",
+        "traceability": ["AIH-004", "AIH-005", "v1.0-C5.2.2", "v1.0-C8.1.3"],
+        "evidence_refs": ["E-RAG-003"],
+        "test_refs": ["TEST-RAG-002"],
+        "backlog_refs": ["BACKLOG-RAG-002"],
+        "stride_translation": "Information disclosure and elevation of privilege"
+      }
+    ]
+  },
+  "evidence_gaps": [
+    {
+      "id": "E-RAG-001",
+      "title": "Retrieval source inventory",
+      "status": "found",
+      "source_path": "docs/retrieval-sources.md",
+      "requested_artifact": ""
+    },
+    {
+      "id": "E-RAG-002",
+      "title": "Indirect prompt injection test results",
+      "status": "missing",
+      "source_path": "",
+      "requested_artifact": "Attach tests showing hostile retrieved instructions are labeled untrusted and cannot override system instructions."
+    },
+    {
+      "id": "E-RAG-003",
+      "title": "Retrieval authorization tests",
+      "status": "missing",
+      "source_path": "",
+      "requested_artifact": "Attach tests proving retrieval respects user, team, tenant, and document-level authorization."
+    }
+  ],
+  "security_tests": [
+    {
+      "id": "TEST-RAG-001",
+      "title": "Poisoned retrieved document test",
+      "objective": "Verify hostile retrieved content cannot control instructions or output policy.",
+      "prerequisites": ["Test document source", "RAG ingestion pipeline", "Known hostile payload"],
+      "steps": ["Insert a document containing hidden instructions", "Ingest or index it", "Ask a question that retrieves the document", "Inspect answer and trace logs"],
+      "expected_secure_behavior": "The assistant treats retrieved instructions as untrusted content and refuses any attempt to override policy.",
+      "evidence_to_retain": "Source document, retrieved chunk trace, generated answer, and pass/fail assertion.",
+      "test_type": "CI or manual testing",
+      "references": ["AIH-005", "v1.0-C8.2.4", "MITRE ATLAS AML.T0070"]
+    },
+    {
+      "id": "TEST-RAG-002",
+      "title": "Cross-team retrieval authorization test",
+      "objective": "Verify document-level access controls apply before retrieval and before prompt assembly.",
+      "prerequisites": ["Two users with different document access", "Confidential test document"],
+      "steps": ["Index a document visible to only one user", "Query as an unauthorized user", "Inspect retrieved chunks and answer"],
+      "expected_secure_behavior": "No unauthorized chunks are retrieved, assembled into prompts, emitted, or logged in readable form.",
+      "evidence_to_retain": "Access fixtures, retrieval trace, prompt assembly trace, and response transcript.",
+      "test_type": "CI",
+      "references": ["AIH-004", "v1.0-C5.2.2", "v1.0-C8.1.3"]
+    }
+  ],
+  "engineering_backlog": [
+    {
+      "id": "BACKLOG-RAG-001",
+      "title": "Add RAG poisoning regression coverage",
+      "problem": "Retrieved content can carry adversarial instructions into the model context.",
+      "recommended_change": "Add poisoned-document fixtures, untrusted-content labeling, and assertions that retrieved instructions cannot override system policy.",
+      "acceptance_criteria": ["Poisoned document test runs in CI", "Logs show retrieved content boundary labels", "Unsafe instruction override is refused"],
+      "suggested_test": "TEST-RAG-001",
+      "priority": "high",
+      "owner": "TBD engineering owner",
+      "release_gate": "build",
+      "references": ["AIH-002", "AIH-005", "E-RAG-002"]
+    },
+    {
+      "id": "BACKLOG-RAG-002",
+      "title": "Enforce end-user authorization in retrieval",
+      "problem": "The current evidence does not prove retrieval respects the caller's document access.",
+      "recommended_change": "Pass end-user authorization context through retrieval and context assembly, with deny-by-default behavior.",
+      "acceptance_criteria": ["Unauthorized chunks are not retrieved", "Prompt traces omit unauthorized content", "Authorization test evidence is retained"],
+      "suggested_test": "TEST-RAG-002",
+      "priority": "high",
+      "owner": "TBD engineering owner",
+      "release_gate": "design",
+      "references": ["AIH-004", "AIH-005", "E-RAG-003"]
+    }
+  ],
+  "residual_risk": {
+    "unresolved_decisions": ["Whether the shared vector database is acceptable for confidential documents."],
+    "human_review_points": ["Security should review retrieval authorization and poisoning test results."],
+    "revalidation_triggers": ["New retrieval source", "New document classification", "Vector database tenancy change", "Provider routing change"]
+  }
+}

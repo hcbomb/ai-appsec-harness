@@ -26,9 +26,9 @@ primary_frameworks:
     url: https://genai.owasp.org/resource/multi-agentic-system-threat-modeling-guide-v1-0/
     use: Agentic AI and multi-agent threat modeling guide that informs MAESTRO-first review.
   - id: maestro-threat-modeling-playbook
-    name: MAESTRO Threat Modeling Playbook
+    name: OWASP MAESTRO Threat Modeling Playbook
     url: https://agentic-threat-modeling.github.io/MAESTRO/
-    use: Primary AI threat modeling method for agentic, MCP, RAG, and multi-layer AI architectures.
+    use: Primary AI threat modeling method for agentic, MCP, RAG, and multi-layer AI architectures; based on the OWASP Multi-Agentic System Threat Modelling Guide and the CSA MAESTRO framework.
   - id: csa-maestro-framework
     name: CSA MAESTRO Framework
     url: https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro

@@ -56,7 +56,7 @@ Identify the newest issues or posts since the previous run. If there is no previ
 An item is additive when it improves at least one of:
 
 - AI-client or agent threat modeling;
-- MAESTRO layer and cross-layer abuse-case coverage;
+- MAESTRO layer, agentic risk-factor, and cross-layer abuse-case coverage;
 - STRIDE translation coverage where useful;
 - OWASP AISVS operationalization;
 - OWASP GenAI / LLM Top 10 mapping;

@@ -37,7 +37,7 @@ For AI AppSec reviews, produce:
 
 - preflight summary with scope, confidence, system/risk profile, release blockers, important fixes, and non-blocking backlog;
 - system model with discovered facts, assumptions, missing evidence, components, trust boundaries, and prompt/data/retrieval/identity/tool/action flows;
-- MAESTRO layer threats and cross-layer abuse cases;
+- OWASP MAESTRO layer threats, agentic risk factors, and cross-layer abuse cases;
 - optional STRIDE translation for the highest-priority findings;
 - evidence status: found, partial, missing, stale, assumed, not applicable, or human-validation-required, with local source paths when found;
 - concrete security tests with objective, fixture, attack steps, expected secure behavior, and retained evidence;

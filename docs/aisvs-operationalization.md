@@ -11,7 +11,7 @@ OWASP AISVS 1.0 is the verification backbone for AI AppSec reviews in this harne
    - Add local applicability rules for AI clients, agents, RAG systems, model pipelines, and cloud-hosted services.
    - Attach expected evidence, test ideas, and engineering hardening actions.
 3. Map to adjacent frameworks.
-   - MAESTRO for AI-native threat modeling across architecture layers.
+   - OWASP MAESTRO for AI-native threat modeling across architecture layers, agentic risk factors, and cross-layer abuse cases.
    - OWASP GenAI risks for AppSec threat language.
    - CSA AI Controls Matrix for governance and assurance language.
    - AI Defense Matrix for leadership, ownership, and defensive coverage gaps.

@@ -78,7 +78,7 @@ See [docs/agent-tool-import.md](docs/agent-tool-import.md) for import patterns, 
 ## What This Operationalizes
 
 - Shostack's Four Questions as the simple engineer-facing report narrative.
-- MAESTRO as the primary AI threat modeling method for agentic, RAG, MCP, and multi-layer AI architectures.
+- OWASP MAESTRO as the primary AI threat modeling method for agentic, RAG, MCP, and multi-layer AI architectures.
 - OWASP AISVS 1.0 as the versioned verification backbone.
 - OWASP Top 10 for Agentic Applications and OWASP Top 10 for LLM and GenAI Applications as risk language engineers already recognize.
 - MITRE ATLAS for concrete adversary techniques and test scenarios.
@@ -154,8 +154,8 @@ Generated reports are not compliance certificates. They are evidence gap analyse
 
 ## Threat Modeling Tiers
 
-- Baseline: perform a minimum viable MAESTRO assessment with business context, AI architecture layers, trust boundaries, asset flows, key threats, mitigations, evidence requests, and residual-risk notes.
-- Advanced: perform the full MAESTRO review across business context, architecture, threat actors, trust boundaries, asset flows, layer threats, mitigations, code/evidence validation, residual risk, and final documentation.
+- Baseline: perform a minimum viable OWASP MAESTRO assessment with business context, AI architecture layers, agentic risk factors, trust boundaries, asset flows, key threats, mitigations, evidence requests, and residual-risk notes.
+- Advanced: perform the full OWASP MAESTRO review across business context, architecture, threat actors, trust boundaries, asset flows, agentic risk factors, layer threats, cross-layer threats, mitigations, code/evidence validation, residual risk, and final documentation.
 - Secondary: translate the highest-priority findings into STRIDE when that makes the result easier for broad AppSec, engineering, or leadership audiences to consume.
 
 ## Current Status

@@ -1,8 +1,18 @@
 # Threat Modeling With MAESTRO
 
-This repo uses MAESTRO as the primary AI threat modeling workflow for AI clients, LLM applications, RAG systems, MCP/tool-using workflows, and autonomous or semi-autonomous agents.
+This repo uses the OWASP MAESTRO Threat Modeling Playbook as the primary AI threat modeling workflow for AI clients, LLM applications, RAG systems, MCP/tool-using workflows, and autonomous or semi-autonomous agents.
 
 STRIDE remains useful, but it is secondary: use it as a consumer-friendly translation layer, a completeness check, or a fallback when the audience expects traditional AppSec categories.
+
+## Source Posture
+
+Use the upstream MAESTRO playbook as the authoritative method reference, but keep this repo's workflow intentionally engineer-first:
+
+- OWASP MAESTRO Threat Modeling Playbook v1.0.0 is based on the OWASP Multi-Agentic System Threat Modelling Guide v1.0 and the CSA MAESTRO framework.
+- MAESTRO decomposes agentic AI into seven architectural layers plus a cross-layer dimension.
+- MAESTRO complements the OWASP Agentic Security Initiative threat taxonomy; use ASI IDs when they improve traceability, but do not make the engineer-facing report an ID dump.
+- The playbook includes extended threat IDs and blindspot vectors that may evolve separately from official OWASP ASI taxonomy releases. Treat those as useful references, not certification claims.
+- This harness prefers MAESTRO-first analysis for AI systems, then STRIDE translation for broad AppSec communication. STRIDE can still be used early as a quick completeness sweep, but it should not replace MAESTRO for RAG, tool-using, MCP, agentic, or multi-agent systems.
 
 ## Why MAESTRO First
 
@@ -29,9 +39,10 @@ Minimum steps:
 1. Capture business context, system purpose, owners, lifecycle stage, data sensitivity, and requested output.
 2. Map the architecture across MAESTRO layers.
 3. Identify trust boundaries and asset flows across prompt, retrieval, model, tool, identity, deployment, and monitoring paths.
-4. Identify the highest-risk threats and abuse cases per relevant layer.
-5. Produce mitigations, evidence requests, backlog items, and residual-risk notes.
-6. Translate the highest-priority findings into STRIDE only when it helps the audience understand them.
+4. Apply the four agentic risk factors across relevant layers: non-determinism, autonomy, agent identity management, and agent-to-agent communication.
+5. Identify the highest-risk threats and abuse cases per relevant layer and across layers.
+6. Produce mitigations, evidence requests, backlog items, and residual-risk notes.
+7. Translate the highest-priority findings into STRIDE only when it helps the audience understand them.
 
 ### Tier 2: Full MAESTRO Review
 
@@ -63,6 +74,18 @@ Use this layer map as the harness default. If an upstream MAESTRO source updates
 | L5 Evaluation And Observability | Evals, red-team tests, monitoring, traces, audit logs, policy decisions, drift and anomaly detection. | Prompt/tool abuse telemetry, blocked actions, regression tests, incident triggers, evidence quality, replayability. |
 | L6 Security And Compliance | Governance, risk acceptance, policy, privacy, regulatory obligations, control mapping, attestations. | AISVS, OWASP GenAI, CSA, NIST AI RMF, EU AI Act overlays, exceptions, residual risk, reviewer decisions. |
 | L7 Agent Ecosystem | Multi-agent coordination, third-party agents, plugins, external services, human handoffs, ecosystem protocols. | Delegation, agent identity, inter-agent trust, MCP/tool ecosystems, external side effects, confused-deputy paths. |
+| Cross-Layer | Emergent behavior from interactions across layers. | Prompt injection to tool misuse, retrieval poisoning to unsafe action, identity chains, cascading failures, logging blind spots, trust propagation. |
+
+## Agentic Risk Factors
+
+Apply these four factors to every relevant layer:
+
+| Risk Factor | Why It Matters | Review Prompt |
+| --- | --- | --- |
+| Non-determinism | Identical inputs can produce different outputs, decisions, retrieval paths, tool calls, logs, and risk outcomes. | What security guarantees depend on consistent behavior, and how are they tested or monitored? |
+| Autonomy | Agents can plan, loop, call tools, or take action before a human notices. | What are the autonomy boundaries, approval gates, kill switches, and rollback paths? |
+| Agent identity management | Agents may act under their own identity, a service account, or delegated user authority. | Does authorization propagate end-to-end, and are agent credentials least-privileged and auditable? |
+| Agent-to-agent communication | Agents, tools, MCP servers, APIs, memories, and shared state can become communication channels. | Are messages authenticated, scoped, encrypted where needed, schema-validated, and separated by trust boundary? |
 
 ## MAESTRO Threat Questions
 
@@ -76,6 +99,7 @@ Ask these questions for each relevant layer:
 - What would make this layer unsafe if the model behaves unexpectedly?
 - What happens if a lower layer is compromised and a higher layer trusts it?
 - What happens if a higher layer delegates unsafe authority to a lower layer?
+- Which agentic risk factors amplify the threat: non-determinism, autonomy, identity, or agent-to-agent communication?
 
 ## STRIDE Translation
 
@@ -96,10 +120,11 @@ A MAESTRO-first threat model should include:
 
 - scope, owners, assumptions, lifecycle stage, and requested output;
 - MAESTRO layer inventory;
+- agentic risk-factor notes for non-determinism, autonomy, identity, and agent-to-agent communication where relevant;
 - AI Defense Matrix asset-class coverage notes when leadership or roadmap planning is needed;
 - trust boundaries and asset/data flows;
 - threat actors and abuse cases;
-- MAESTRO layer threats with impact, likelihood, controls, gaps, and mitigations;
+- MAESTRO layer and cross-layer threats with impact, likelihood, controls, gaps, and mitigations;
 - STRIDE translation for the top findings, if useful;
 - evidence requests and test ideas;
 - backlog items, owners, and priority;
@@ -113,8 +138,8 @@ A threat model is ready for AppSec review when:
 - MAESTRO layers relevant to the system were considered;
 - missing layers or not-applicable layers have rationale;
 - significant cross-layer threats are captured;
+- agentic risk factors were considered across the relevant layers;
 - external actions, privileged tools, memory, retrieval, identity, and monitoring were reviewed where applicable;
 - the highest-priority threats map to mitigations, tests, backlog items, or accepted-risk decisions;
 - STRIDE was used only where it improves communication or catches a gap;
 - the output can be understood by engineering, AppSec, governance, and incident response.
-

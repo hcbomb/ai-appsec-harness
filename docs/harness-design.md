@@ -27,9 +27,9 @@ Given a project and available local evidence, the harness produces an engineer-f
    - Identify whether the system is a chatbot, AI client, agent, RAG app, MCP/tool-using workflow, model-hosting service, model-training pipeline, evaluation harness, internal productivity tool, or conventional web/API surface.
    - Select quick, standard, or deep review depth based on data sensitivity, autonomy, external actions, reach, and reversibility.
 3. Threat Model
-   - Use MAESTRO as the primary AI threat-modeling method.
+   - Use OWASP MAESTRO as the primary AI threat-modeling method.
    - Use STRIDE as a secondary fallback, translation layer, or completeness check.
-   - Model MAESTRO layers, trust boundaries, prompt boundaries, data flows, tool calls, delegated authority, identity transitions, external actions, current/target state, compensating controls, and abuse cases.
+   - Model MAESTRO layers, agentic risk factors, trust boundaries, prompt boundaries, data flows, tool calls, delegated authority, identity transitions, external actions, current/target state, compensating controls, and abuse cases.
    - Add an AI Defense Matrix overlay when the review needs leadership, ownership, roadmap, or control-coverage framing.
 4. Map Evidence And Controls
    - Select applicable controls from AISVS 1.0 traceability, OWASP GenAI/Agentic Top 10 labels, MITRE ATLAS, OWASP ASVS where applicable, MCP guidance where detected, and local AppSec requirements.
@@ -66,7 +66,7 @@ Quick and standard preflights must answer:
 - why the business needs it;
 - who owns it;
 - what systems, environments, identities, and data are involved;
-- what MAESTRO layers are in scope;
+- what MAESTRO layers and agentic risk factors are in scope;
 - what AI Defense Matrix asset classes need ownership or defensive coverage;
 - what controls, gaps, compensating controls, and decisions exist.
 
@@ -83,7 +83,7 @@ Deep preflights must also answer the full MAESTRO workflow:
 - residual risk;
 - output generation and documentation.
 
-For AI clients and agents, advanced reviews must include prompt/context boundaries, model/provider boundaries, retrieval poisoning, tool authorization, delegated authority, output validation, logging/auditability, rollback, monitoring, and cross-layer MAESTRO threat propagation.
+For AI clients and agents, advanced reviews must include prompt/context boundaries, model/provider boundaries, retrieval poisoning, tool authorization, delegated authority, non-determinism, autonomy, agent identity, agent-to-agent communication, output validation, logging/auditability, rollback, monitoring, and cross-layer MAESTRO threat propagation.
 
 ## Agent Roles
 

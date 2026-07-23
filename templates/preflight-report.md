@@ -76,6 +76,15 @@ Use a simple narrative:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |  | high / medium / low |  |  |  |  |  |  |  |  |  |  |
 
+**Agentic risk factors**
+
+| Risk Factor | Relevant? | Where It Appears | Why It Changes Risk |
+| --- | --- | --- | --- |
+| Non-determinism | yes / no / n/a |  |  |
+| Autonomy | yes / no / n/a |  |  |
+| Agent identity management | yes / no / n/a |  |  |
+| Agent-to-agent communication | yes / no / n/a |  |  |
+
 Add STRIDE translation only when it improves communication:
 
 | Threat ID | STRIDE translation | Why useful |

@@ -62,7 +62,7 @@ For leadership or roadmap reviews, add this table:
 
 ## How It Connects To MAESTRO
 
-- Use MAESTRO to find architecture-specific threats.
+- Use OWASP MAESTRO to find architecture-specific threats, agentic risk factors, and cross-layer abuse cases.
 - Use the AI Defense Matrix to show where defensive ownership and coverage are missing.
 - Use AISVS to turn findings into verification evidence.
 - Use CSA AI Controls Matrix and NIST AI RMF for governance and assurance language.
@@ -78,4 +78,3 @@ Turn weak cells into backlog entries:
 - `detect`: add logs, traces, alerts, evals, red-team checks, or anomaly detection;
 - `respond`: write containment, escalation, incident, and rollback playbooks;
 - `recover`: test restore, rotation, rollback, reindexing, disabling, or revalidation paths.
-

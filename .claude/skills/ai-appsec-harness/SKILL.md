@@ -43,7 +43,7 @@ If structured input is needed, use `templates/system-intake.md` or `examples/ai-
 5. Ask only high-value blocking questions. If a question is not blocking, continue with a clearly labeled assumption.
 6. Use frameworks as the internal engine, not as the user interface:
    - Shostack's Four Questions for the simple report narrative.
-   - MAESTRO for AI architecture layers, trust boundaries, and cross-layer abuse cases.
+   - OWASP MAESTRO for AI architecture layers, agentic risk factors, trust boundaries, and cross-layer abuse cases.
    - OWASP AISVS 1.0 as the versioned verification backbone.
    - OWASP Top 10 for Agentic Applications for recognizable agentic risk labels.
    - MITRE ATLAS for adversary techniques and concrete test scenarios.
@@ -62,7 +62,7 @@ Return one complete Markdown report with these sections:
 
 - A. Preflight summary: review scope and confidence, system/risk profile, release blockers, important fixes before Security review, and non-blocking backlog items.
 - B. System model: components and trust boundaries; prompt, data, retrieval, identity, tool, and external-action flows; models, providers, plugins, MCP servers, and agent dependencies; missing architecture evidence.
-- C. Threat model: highest-priority MAESTRO layer and cross-layer abuse cases with attack path, affected assets, likely impact, existing controls, gaps, mitigation decision, residual risk, and STRIDE translation only when useful.
+- C. Threat model: highest-priority MAESTRO layer, agentic risk factors, and cross-layer abuse cases with attack path, affected assets, likely impact, existing controls, gaps, mitigation decision, residual risk, and STRIDE translation only when useful.
 - D. Evidence gaps: status as found, partial, missing, stale, assumed, not applicable, or human-validation-required; exact local source path when found; concrete requested artifact when missing.
 - E. Security tests: objective, prerequisites or fixture, attack/action steps, expected secure behavior, evidence to retain, and whether the test belongs in CI, manual testing, or later red teaming.
 - F. Engineering backlog: ticket title, problem and threat addressed, recommended change, acceptance criteria, suggested test, priority, owner placeholder, release gate, and mapped evidence/control references.

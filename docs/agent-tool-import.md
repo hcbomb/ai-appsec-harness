@@ -117,7 +117,7 @@ The default output is one Markdown preflight report containing:
 
 - preflight summary with scope, confidence, risk profile, release blockers, important fixes, and non-blocking backlog;
 - system model with discovered facts, assumptions, missing evidence, components, trust boundaries, and prompt/data/retrieval/identity/tool/action flows;
-- MAESTRO layer threats and cross-layer abuse cases;
+- MAESTRO layer threats, agentic risk factors, and cross-layer abuse cases;
 - STRIDE translation only when it improves communication;
 - evidence gaps with status and local source paths when found;
 - concrete security tests for important threats;

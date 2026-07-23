@@ -92,7 +92,7 @@ Ask only high-value blocking questions. Otherwise continue with labeled assumpti
 Use frameworks to drive analysis, not to dominate the engineer-facing report:
 
 - Shostack's Four Questions: simple narrative structure.
-- MAESTRO: AI architecture layers and cross-layer abuse cases.
+- OWASP MAESTRO Threat Modeling Playbook v1.0.0: AI architecture layers, four agentic risk factors, ASI threat taxonomy traceability, and cross-layer abuse cases.
 - OWASP AISVS 1.0: versioned verification backbone and traceability IDs.
 - OWASP Top 10 for Agentic Applications: recognizable agentic risk labels.
 - MITRE ATLAS: adversary techniques and test scenario inspiration.

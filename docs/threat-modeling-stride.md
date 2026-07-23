@@ -122,7 +122,7 @@ A lightweight STRIDE fallback is complete when:
 
 Use this tier after a MAESTRO review when the output needs to be easier for a traditional AppSec audience to consume.
 
-Translation rule: do not re-run the whole review from scratch. Start from the MAESTRO layer threats, cross-layer scenarios, and AI Defense Matrix coverage gaps, then classify only the significant findings into STRIDE categories.
+Translation rule: do not re-run the whole review from scratch. Start from the MAESTRO layer threats, agentic risk-factor notes, cross-layer scenarios, and AI Defense Matrix coverage gaps, then classify only the significant findings into STRIDE categories.
 
 ### What Are We Working On?
 

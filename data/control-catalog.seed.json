@@ -279,13 +279,13 @@
     {
       "id": "AIH-009",
       "title": "Perform MAESTRO threat modeling with STRIDE translation",
-      "summary": "The system has a documented MAESTRO-first threat model that captures business context, AI architecture layers, current and target state, trust boundaries, cross-layer abuse cases, AI Defense Matrix coverage gaps where useful, control gaps, compensating controls, residual risk, and remediation decisions. STRIDE is used as a secondary translation or completeness check.",
+      "summary": "The system has a documented OWASP MAESTRO-first threat model that captures business context, AI architecture layers, agentic risk factors, current and target state, trust boundaries, cross-layer abuse cases, AI Defense Matrix coverage gaps where useful, control gaps, compensating controls, residual risk, and remediation decisions. STRIDE is used as a secondary translation or completeness check.",
       "applies_when": {
         "system_types": ["ai_client", "agent", "rag", "llm_app", "model_service", "model_pipeline"]
       },
       "alignments": [
         {"framework": "OWASP AISVS", "status": "mapped", "note": "Threat modeling, architecture, and security requirement verification", "version": "1.0"},
-        {"framework": "MAESTRO", "status": "practice", "note": "Primary AI threat modeling method for agentic, RAG, MCP, and multi-layer AI systems"},
+        {"framework": "OWASP MAESTRO Threat Modeling Playbook", "status": "practice", "note": "Primary AI threat modeling method for agentic, RAG, MCP, and multi-layer AI systems, with seven layers, cross-layer analysis, and agentic risk factors"},
         {"framework": "OWASP GenAI Top 10", "status": "candidate", "note": "Risk mapping for LLM and GenAI applications"},
         {"framework": "AI Defense Matrix", "status": "practice", "note": "Leadership and roadmap coverage across AI asset classes and NIST CSF 2.0 functions"},
         {"framework": "CSA AI Controls Matrix", "status": "candidate", "note": "Risk management, governance, and assurance evidence"},
@@ -293,23 +293,25 @@
         {"framework": "Shostack Four Question Frame", "status": "practice", "note": "What are we working on, what can go wrong, what are we going to do about it, and did we do a good job"}
       ],
       "evidence": [
-        {"id": "maestro_threat_model", "required": true, "prompt": "Attach the MAESTRO-first AI threat model with scope, owners, business context, architecture layers, trust boundaries, current/target state, and review tier."},
-        {"id": "maestro_layer_map", "required": true, "prompt": "Attach the MAESTRO layer inventory covering foundation models, data operations, agent frameworks, deployment/infrastructure, evaluation/observability, security/compliance, and agent ecosystem where applicable."},
+        {"id": "maestro_threat_model", "required": true, "prompt": "Attach the OWASP MAESTRO-first AI threat model with scope, owners, business context, architecture layers, agentic risk factors, trust boundaries, current/target state, and review tier."},
+        {"id": "maestro_layer_map", "required": true, "prompt": "Attach the MAESTRO layer inventory covering foundation models, data operations, agent frameworks, deployment/infrastructure, evaluation/observability, security/compliance, agent ecosystem, and cross-layer paths where applicable."},
+        {"id": "agentic_risk_factor_review", "required": true, "prompt": "Document how non-determinism, autonomy, agent identity management, and agent-to-agent communication affect the relevant MAESTRO layers."},
         {"id": "cross_layer_scenarios", "required": true, "prompt": "Attach cross-layer AI abuse cases such as prompt injection to tool misuse, RAG poisoning to unsafe output, identity delegation failure, or provider/model supply-chain drift."},
         {"id": "stride_translation", "required": false, "prompt": "Attach STRIDE translation for the highest-priority findings when useful for AppSec or engineering audiences."},
         {"id": "ai_defense_matrix_overlay", "required": false, "prompt": "Attach AI Defense Matrix asset-class coverage notes when leadership, ownership, roadmap, or defensive coverage framing is needed."},
         {"id": "architecture_views", "required": true, "prompt": "Attach or link system context, trust-zone/environment, IAM/access flow, data flow, and AI tool/retrieval flow views."},
         {"id": "remediation_plan", "required": true, "prompt": "Attach mitigation decisions, owners, due dates, compensating controls, accepted risks, and residual risk."},
-        {"id": "review_quality_check", "required": false, "prompt": "Document whether the review considered relevant MAESTRO layers, cross-layer threats, evidence quality, stakeholders, and revalidation triggers."}
+        {"id": "review_quality_check", "required": false, "prompt": "Document whether the review considered relevant MAESTRO layers, agentic risk factors, cross-layer threats, evidence quality, stakeholders, and revalidation triggers."}
       ],
       "tests": [
-        {"id": "maestro_layer_completeness", "prompt": "Verify every relevant MAESTRO layer was considered and not-applicable layers have rationale rather than being silently skipped."},
+        {"id": "maestro_layer_completeness", "prompt": "Verify every relevant MAESTRO layer and the cross-layer dimension were considered, and not-applicable layers have rationale rather than being silently skipped."},
+        {"id": "agentic_risk_factor_coverage", "prompt": "Verify non-determinism, autonomy, agent identity management, and agent-to-agent communication were reviewed for every relevant layer."},
         {"id": "cross_layer_abuse_case_coverage", "prompt": "Verify prompt injection, indirect prompt injection, retrieval poisoning, data leakage, unauthorized tool use, excessive agency, unsafe output handling, agent delegation failure, and model/provider drift were considered where applicable."},
         {"id": "stride_translation_check", "prompt": "Verify the highest-priority MAESTRO findings can be translated into STRIDE categories when the audience needs traditional AppSec language."},
         {"id": "ai_defense_matrix_gap_check", "prompt": "Verify key AI asset classes have ownership and coverage notes across Govern, Identify, Protect, Detect, Respond, and Recover when the review is used for program planning."},
         {"id": "mitigation_traceability", "prompt": "Verify each high or medium risk maps to a remediation, compensating control, accepted risk, or explicit release-blocking decision."}
       ],
-      "hardening_actions": ["Run the minimum viable MAESTRO flow during design review.", "Use full MAESTRO for high-impact, sensitive, production-facing, agentic, or multi-agent systems.", "Translate top findings into STRIDE only when it improves stakeholder communication or catches a completeness gap.", "Use the AI Defense Matrix to identify ownership and defensive coverage gaps across AI asset classes.", "Track unresolved risks in the implementation ticket, risk register, or exception workflow.", "Define revalidation triggers for design changes, new tools, new retrieval sources, new data classes, incidents, and exception renewals."],
+      "hardening_actions": ["Run the minimum viable MAESTRO flow during design review.", "Use full MAESTRO for high-impact, sensitive, production-facing, agentic, or multi-agent systems.", "Apply agentic risk factors across every relevant layer before prioritizing threats.", "Translate top findings into STRIDE only when it improves stakeholder communication or catches a completeness gap.", "Use the AI Defense Matrix to identify ownership and defensive coverage gaps across AI asset classes.", "Track unresolved risks in the implementation ticket, risk register, or exception workflow.", "Define revalidation triggers for design changes, new tools, new retrieval sources, new data classes, incidents, and exception renewals."],
       "authoritative_mappings": [
         {
           "framework": "OWASP AISVS",

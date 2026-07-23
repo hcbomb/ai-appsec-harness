@@ -19,6 +19,7 @@
 | Trust boundaries |  |
 | Asset and data flows |  |
 | Highest-risk MAESTRO layers |  |
+| Agentic risk factors in scope | Non-determinism / autonomy / agent identity management / agent-to-agent communication |
 | Residual risk summary |  |
 | STRIDE translation needed? | Yes / No |
 | AI Defense Matrix overlay needed? | Yes / No |
@@ -56,6 +57,16 @@
 | L5 Evaluation And Observability | Yes / No / N/A |  |  |  |
 | L6 Security And Compliance | Yes / No / N/A |  |  |  |
 | L7 Agent Ecosystem | Yes / No / N/A |  |  |  |
+| Cross-Layer | Yes / No / N/A |  |  |  |
+
+## Agentic Risk Factors
+
+| Risk Factor | In Scope? | Where It Appears | Security Concern | Evidence / Test Needed |
+| --- | --- | --- | --- | --- |
+| Non-determinism | Yes / No / N/A |  |  |  |
+| Autonomy | Yes / No / N/A |  |  |  |
+| Agent identity management | Yes / No / N/A |  |  |  |
+| Agent-to-agent communication | Yes / No / N/A |  |  |  |
 
 ## Trust Boundaries
 
@@ -114,6 +125,7 @@
 | L5 Evaluation And Observability |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
 | L6 Security And Compliance |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
 | L7 Agent Ecosystem |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
+| Cross-Layer |  |  |  | Low / Medium / High |  |  |  | Low / Medium / High |
 
 ## Cross-Layer Scenarios
 

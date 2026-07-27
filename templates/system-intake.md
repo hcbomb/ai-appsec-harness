@@ -89,6 +89,18 @@
 | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |
 
+## Evaluation Environment Containment
+
+Complete this section when an evaluation harness can run code, use tools, install packages, access a package proxy or cache, or reach external systems.
+
+| Boundary | Allowed scope / restriction | Evidence | Owner |
+| --- | --- | --- | --- |
+| Network egress and package registries |  |  |  |
+| Credentials, service identities, and cloud permissions |  |  |  |
+| Evaluation datasets, fixtures, and test solutions |  |  |  |
+| Writable paths and artifact destinations |  |  |  |
+| Monitoring, stop conditions, and containment response |  |  |  |
+
 ## Retrieval Sources
 
 | Source | Owner | Data class | Authz model | Freshness | Poisoning controls |

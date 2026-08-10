@@ -76,6 +76,8 @@ PYTHONPATH=harness python3 -m ai_appsec_harness.cli \
 
 When importing this harness into another repo:
 
+- before opening a newly acquired or untrusted repository in an execution-enabled coding agent, inspect it in a non-executing viewer or isolated workspace; project-scoped agent configuration can launch processes before the first prompt;
+- review project-scoped assistant configuration, MCP server definitions, hooks, tasks, shell wrappers, and startup or environment settings before granting project trust; do not rely on a post-open prompt review to catch pre-execution behavior;
 - pin the source to a reviewed commit, release tag, subtree, submodule, or reviewed copy;
 - record source URL, commit SHA or tag, retrieval date, and local path;
 - run `python3 tools/verify-harness-integrity.py` before letting an AI tool follow the imported guidance;

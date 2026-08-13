@@ -1,5 +1,5 @@
 version: 0.1.0
-retrieved_on: "2026-07-23"
+retrieved_on: "2026-08-10"
 primary_frameworks:
   - id: owasp-aisvs
     name: OWASP Artificial Intelligence Security Verification Standard
@@ -14,9 +14,9 @@ primary_frameworks:
     url: https://genai.owasp.org/
     use: GenAI risk taxonomy and practitioner guidance.
   - id: owasp-llm-top-10
-    name: OWASP Top 10 for LLM and GenAI Applications
-    url: https://genai.owasp.org/llm-top-10/
-    use: Risk language for threat models and review reports.
+    name: OWASP Top 10 for LLM Applications 2026
+    url: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
+    use: Current, versioned risk language for threat models and review reports.
   - id: owasp-agentic-top-10
     name: OWASP Top 10 for Agentic Applications
     url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/

@@ -58,6 +58,7 @@ These are useful candidates for later categorization, especially when the harnes
 | Awesome LLM Powered Agent | Agent papers, repositories, and implementation references. | https://github.com/hyp1231/awesome-llm-powered-agent |
 | Awesome Open Source AI | Open source AI projects, models, tools, and infrastructure. | https://github.com/alvinreal/awesome-opensource-ai |
 | Awesome AI Apps | Practical examples and recipes for LLM-powered applications. | https://github.com/Arindam200/awesome-ai-apps |
+| Agent Egress Bench | Tool-neutral attack corpus for testing the egress proxy, firewall, or MCP wrapper around an AI agent. Use it as a candidate source of regression fixtures and evidence expectations for secret exfiltration, prompt injection, SSRF, MCP poisoning or drift, A2A, WebSocket, and shell-obfuscation defenses; it is not a control standard or product endorsement. Retrieved 2026-08-03. | https://github.com/luckyPipewrench/agent-egress-bench |
 
 ## Ongoing Monitoring Feeds
 

@@ -138,6 +138,13 @@ awesome_feeds:
   - id: github-topic-ai-security
     name: GitHub ai-security topic
     url: https://github.com/topics/ai-security
+candidate_test_corpora:
+  - id: agent-egress-bench
+    name: Agent Egress Bench
+    url: https://github.com/luckyPipewrench/agent-egress-bench
+    retrieved_on: "2026-08-03"
+    use: Tool-neutral candidate corpus for testing AI-agent egress controls, including proxy, firewall, and MCP-wrapper coverage for secret exfiltration, prompt injection, SSRF, MCP poisoning or drift, A2A, WebSocket, and shell-obfuscation cases.
+    caveat: Discovery and test-fixture source only; validate applicability and avoid treating it as a control standard or product endorsement.
 monitoring_feeds:
   - id: tldr-sec-newsletter
     name: tl;dr sec Newsletter

@@ -11,12 +11,44 @@ The importable workflow is the preferred human-in-the-loop path for pre-Security
 
 - `AGENTS.md` - project-level guidance for Codex and other agents that read `AGENTS.md`.
 - `CLAUDE.md` - Claude Code guidance that imports `AGENTS.md` and points Claude to the project skill.
+- `skills/ai-appsec-harness/SKILL.md` - portable, GitHub CLI-discoverable Codex skill for the core preflight workflow.
 - `.agents/skills/ai-appsec-harness/SKILL.md` - Codex repo skill for AI AppSec review workflows.
 - `.claude/skills/ai-appsec-harness/SKILL.md` - Claude Code project skill for the same workflow.
 - `agents/prompts/` - role prompts for intake, threat modeling, evidence mapping, CSA mapping, and attestation drafting.
 - `templates/` - reusable preflight, AI code assistant request, intake, threat model, engineering brief, and attestation artifacts.
 - `data/control-catalog.seed.json` - local operational controls aligned to AISVS-style evidence expectations and adjacent AI security frameworks.
 - `docs/` - method documentation for preflight, AI code assistant guidance, MAESTRO, STRIDE translation, AI Defense Matrix coverage, AISVS operationalization, reference curation, and weekly monitoring.
+
+## GitHub CLI Installation
+
+Use the portable skill when you want the core workflow available in Codex without importing the complete repository:
+
+```bash
+gh skill install OWNER/ai-appsec-harness ai-appsec-harness --agent codex --scope user
+```
+
+Replace `OWNER` with the repository owner. `--scope user` makes the skill available across your local Codex projects; omit it to install in the current project. Pin a reviewed release or commit when you need repeatability:
+
+```bash
+gh skill install OWNER/ai-appsec-harness ai-appsec-harness \
+  --agent codex --scope user --pin TAG-OR-COMMIT
+```
+
+The repo-local Codex skill remains available through an explicit hidden-directory path for compatibility with existing project imports:
+
+```bash
+gh skill install OWNER/ai-appsec-harness \
+  .agents/skills/ai-appsec-harness/SKILL.md \
+  --allow-hidden-dirs --agent codex --scope user
+```
+
+To validate the portable path before publishing, run this from a checkout of the harness:
+
+```bash
+gh skill install skills/ai-appsec-harness --from-local --all --agent codex
+```
+
+The portable skill contains the standalone preflight procedure. Use the full vendor or submodule pattern below when a review needs the templates, reference catalog, structured controls, Python helpers, or integrity verification.
 
 ## Import Patterns
 

@@ -71,7 +71,15 @@ To use this harness in a target repository:
 4. Answer only high-value blocking questions. The agent should continue with labeled assumptions when a question is not blocking.
 5. For implementation work, use `templates/ai-code-assistant-request.md` to give coding agents explicit security, dependency, approval, test, and self-review expectations.
 
-Codex can use `AGENTS.md` and `.agents/skills/ai-appsec-harness/SKILL.md`. Claude Code can use `CLAUDE.md` and `.claude/skills/ai-appsec-harness/SKILL.md`.
+Codex can use the portable `skills/ai-appsec-harness/SKILL.md` via GitHub CLI, or the repo-local `AGENTS.md` and `.agents/skills/ai-appsec-harness/SKILL.md` when the full harness is available. Claude Code can use `CLAUDE.md` and `.claude/skills/ai-appsec-harness/SKILL.md`.
+
+For a portable Codex preflight skill, install from GitHub:
+
+```bash
+gh skill install OWNER/ai-appsec-harness ai-appsec-harness --agent codex --scope user
+```
+
+The portable skill is deliberately self-contained. Vendor or clone the full repository when you need its templates, catalogs, deterministic helpers, and integrity verification.
 
 See [docs/agent-tool-import.md](docs/agent-tool-import.md) for import patterns, target-repo snippets, expected inputs, and guardrails.
 

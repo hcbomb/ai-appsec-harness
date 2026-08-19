@@ -130,6 +130,7 @@ Generated reports are not compliance certificates. They are evidence gap analyse
 - `docs/security-advisory-response.md` - self-service security advisory workflow for project proposals before review meetings.
 - `docs/threat-modeling-stride.md` - secondary STRIDE fallback and translation guide.
 - `docs/weekly-monitoring.md` - weekly AI + security monitoring workflow and triage criteria.
+- `docs/security-skills.md` - focused, evidence-first AI security prompt modules and their limits.
 - `docs/aisvs-operationalization.md` - how to turn AISVS into engineering-ready evidence checks.
 - `data/reference-catalog.yml` - machine-readable reference catalog.
 - `data/control-catalog.seed.json` - starter harness controls for AI clients and agents.
@@ -138,7 +139,7 @@ Generated reports are not compliance certificates. They are evidence gap analyse
 - `examples/security-advisory-request.example.json` - sample early-review request for the security advisory workflow.
 - `examples/harness-import-intake.example.json` - sample intake for reviewing the harness import path itself.
 - `harness/` - no-dependency Python helpers for preflight validation/rendering and structured intake gap reports.
-- `agents/` - agent roles and prompts for threat modeling, evidence collection, CSA mapping, and attestation.
+- `agents/` - agent roles and prompts for threat modeling, evidence collection, focused security checks, CSA mapping, and attestation.
 - `.agents/skills/ai-appsec-harness/` - Codex repo skill for AI AppSec review workflows.
 - `.claude/skills/ai-appsec-harness/` - Claude Code project skill for AI AppSec review workflows.
 - `tools/verify-harness-integrity.py` - local sanity check for import-sensitive harness files.

@@ -15,6 +15,7 @@ Use this repo as an engineer-first AI AppSec preflight harness for AI clients, L
 - Use `data/control-catalog.seed.json` as the local operational control catalog.
 - Use `docs/aisvs-operationalization.md` for AISVS-oriented evidence expectations and attestation limits.
 - Use `agents/prompts/` for role-specific review prompts when a task needs intake, threat modeling, evidence mapping, CSA mapping, or attestation drafting.
+- Use `docs/security-skills.md` and its focused prompts for vendor triage, telemetry gaps, agent identity, prompt intent, or skill provenance without expanding a narrow request into a full preflight.
 - Use `templates/` for durable review artifacts.
 
 ## Review Rules

@@ -87,6 +87,7 @@ Use these as monthly or signal-driven strategic sweep sources, not weekly source
 | Lakera Blog | AI application and agent security research, guardrail patterns, and prompt-injection trends; treat vendor content as secondary signal until validated by technical sources. | https://www.lakera.ai/blog |
 | HiddenLayer Innovation Hub / AI Threat Landscape | AI threat landscape, attack taxonomy, model supply-chain, and runtime security signal; validate vendor claims before durable promotion. | https://www.hiddenlayer.com/innovation-hub |
 | NCSC secure AI system development and frontier AI cyber guidance | Public guidance for secure AI lifecycle, secure-by-design expectations, AI cyber risk, and governance operating-model checks. | https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development |
+| AI Security Podcast / The Inference Stack | Practitioner interviews and weekly AI/cloud/cybersecurity commentary from Ashish Rajan; use as discovery for operational patterns and corroborate any durable recommendation with primary technical sources. | Podcast: https://www.aisecuritypodcast.com/<br>Newsletter: https://www.ashishrajan.com/ |
 
 ## Curation Rules
 

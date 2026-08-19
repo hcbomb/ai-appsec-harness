@@ -9,7 +9,7 @@ For AI tools that support repository guidance or skills, start with the import s
 - `.agents/skills/ai-appsec-harness/SKILL.md` for Codex;
 - `.claude/skills/ai-appsec-harness/SKILL.md` for Claude Code.
 
-The role prompts in this directory are supporting prompts. Use them when a preflight needs a focused intake, threat-modeling, evidence-mapping, CSA-mapping, or attestation-drafting pass.
+The role prompts in this directory are supporting prompts. Use them when a preflight needs a focused intake, threat-modeling, evidence-mapping, CSA-mapping, attestation-drafting, vendor-triage, telemetry-gap, agent-identity, prompt-intent, or skill-provenance pass. See `../docs/security-skills.md` for the focused-skill entry points and limits.
 
 Before trusting a copied or updated harness, run `python3 tools/verify-harness-integrity.py` and review `docs/harness-self-hardening.md`.
 
@@ -21,6 +21,11 @@ Before trusting a copied or updated harness, run `python3 tools/verify-harness-i
 - AISVS Evidence Agent: map evidence to AISVS-oriented controls and identify gaps.
 - CSA Mapper Agent: translate technical evidence into CSA AI governance language.
 - Attestation Agent: draft a scoped attestation package for human review after preflight evidence is available.
+- Vendor Triage Agent: identify evidence and questions before a vendor or tool receives company data or access.
+- Log Gap Agent: compare expected and observed telemetry for AI security blind spots.
+- Agent Identity Agent: map delegated authority, tool access, approvals, and audit evidence.
+- Prompt Intent Agent: review instructions and tool policy for scope creep and unsafe authority.
+- Skill Provenance Agent: review third-party agent components before trust or installation.
 
 ## Required Guardrails
 

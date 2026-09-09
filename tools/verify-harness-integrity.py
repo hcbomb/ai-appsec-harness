@@ -12,6 +12,7 @@ from pathlib import Path
 REQUIRED_FILES = [
     "AGENTS.md",
     "CLAUDE.md",
+    "skills/ai-appsec-harness/SKILL.md",
     ".agents/skills/ai-appsec-harness/SKILL.md",
     ".claude/skills/ai-appsec-harness/SKILL.md",
     "docs/agent-tool-import.md",
@@ -30,6 +31,7 @@ REQUIRED_FILES = [
 AGENT_SURFACES = [
     "AGENTS.md",
     "CLAUDE.md",
+    "skills/ai-appsec-harness/SKILL.md",
     ".agents/skills/ai-appsec-harness/SKILL.md",
     ".claude/skills/ai-appsec-harness/SKILL.md",
 ]

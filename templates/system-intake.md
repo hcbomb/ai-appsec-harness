@@ -95,11 +95,14 @@ Complete this section when an evaluation harness can run code, use tools, instal
 
 | Boundary | Allowed scope / restriction | Evidence | Owner |
 | --- | --- | --- | --- |
+| Internet access justification and approved destinations |  |  |  |
+| Live-target prohibition and exception path |  |  |  |
 | Network egress and package registries |  |  |  |
 | Credentials, service identities, and cloud permissions |  |  |  |
 | Evaluation datasets, fixtures, and test solutions |  |  |  |
 | Writable paths and artifact destinations |  |  |  |
-| Monitoring, stop conditions, and containment response |  |  |  |
+| Stop conditions, kill switch, and rollback owner |  |  |  |
+| Real-time monitoring, alerting, and containment response |  |  |  |
 
 ## Retrieval Sources
 

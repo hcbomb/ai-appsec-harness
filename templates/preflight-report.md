@@ -63,6 +63,19 @@
 | CI security checks | found / partial / missing / not applicable |  |  |
 | Language-specific secure-coding guardrails | found / partial / missing / not applicable |  |  |
 
+**Evaluation containment**
+
+Complete when the system includes an evaluation harness, autonomous test loop, code execution, package installation, or tool-driven internet access.
+
+| Control area | Status | Local source path | Gap / requested artifact |
+| --- | --- | --- | --- |
+| Internet-access justification | found / partial / missing / not applicable |  |  |
+| Approved destinations and live-target prohibition | found / partial / missing / not applicable |  |  |
+| Sandbox, writable-path, and artifact-destination limits | found / partial / missing / not applicable |  |  |
+| Credentials and identity isolation | found / partial / missing / not applicable |  |  |
+| Stop conditions and kill switch | found / partial / missing / not applicable |  |  |
+| Real-time monitoring and incident trigger | found / partial / missing / not applicable |  |  |
+
 ## C. Threat Model
 
 Use a simple narrative:
@@ -84,6 +97,15 @@ Use a simple narrative:
 | Autonomy | yes / no / n/a |  |  |
 | Agent identity management | yes / no / n/a |  |  |
 | Agent-to-agent communication | yes / no / n/a |  |  |
+
+**Containment checks for autonomous or evaluator workflows**
+
+| Check | Status | Why it matters |
+| --- | --- | --- |
+| Internet access is justified and scoped | pass / partial / fail / n/a | Prevents broad, unnecessary external reach during tests. |
+| Live third-party targets are prohibited by default | pass / partial / fail / n/a | Reduces real-world harm from permissive evaluation behavior. |
+| Stop conditions or kill switch are documented | pass / partial / fail / n/a | Limits blast radius when agent behavior drifts. |
+| Real-time monitoring can detect unsafe external actions | pass / partial / fail / n/a | Makes containment failures visible before they compound. |
 
 Add STRIDE translation only when it improves communication:
 

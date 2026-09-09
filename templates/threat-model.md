@@ -103,6 +103,19 @@
 | Retrieval source |  |  |  |  |
 | Prompt template |  |  |  |  |
 
+## Evaluation And Containment
+
+Complete when the system can browse, call tools, execute code, install packages, reach the internet, or run autonomous evaluation loops.
+
+| Area | Expected constraint or evidence | Current state | Gap / decision needed |
+| --- | --- | --- | --- |
+| Internet-access justification | The business or test reason for external reach is explicit and narrow. |  |  |
+| Approved destinations | External destinations are allowlisted; live targets are prohibited unless explicitly approved. |  |  |
+| Sandbox and writable paths | Execution and artifact locations are constrained and reviewable. |  |  |
+| Credentials and identities | Evaluation identities are isolated, least-privileged, and disposable where possible. |  |  |
+| Stop conditions and kill switch | Humans can halt unsafe or drifting autonomous behavior quickly. |  |  |
+| Real-time monitoring | Alerts or live telemetry can surface external-action misuse during tests. |  |  |
+
 ## Abuse Cases
 
 | Abuse Case | Actor | Impact | Existing Controls | Gaps |
@@ -113,6 +126,7 @@
 | Retrieval poisoning |  |  |  |  |
 | Unsafe generated output |  |  |  |  |
 | Provider or plugin compromise |  |  |  |  |
+| Unsanctioned external action during evaluation |  |  |  |  |
 
 ## MAESTRO Threat Analysis
 

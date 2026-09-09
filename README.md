@@ -71,7 +71,31 @@ To use this harness in a target repository:
 4. Answer only high-value blocking questions. The agent should continue with labeled assumptions when a question is not blocking.
 5. For implementation work, use `templates/ai-code-assistant-request.md` to give coding agents explicit security, dependency, approval, test, and self-review expectations.
 
-Codex can use `AGENTS.md` and `.agents/skills/ai-appsec-harness/SKILL.md`. Claude Code can use `CLAUDE.md` and `.claude/skills/ai-appsec-harness/SKILL.md`.
+Codex can use `AGENTS.md`, `.agents/skills/ai-appsec-harness/SKILL.md`, or the installable `skills/ai-appsec-harness/SKILL.md`. Claude Code can use `CLAUDE.md` and `.claude/skills/ai-appsec-harness/SKILL.md`.
+
+## Install With `gh skill`
+
+The repo includes a standard Agent Skills layout so GitHub CLI can discover the Codex skill without relying on hidden directories.
+
+Install from GitHub:
+
+```bash
+gh skill install stellarus-dev/stellarus-ai-appsec-harness ai-appsec-harness --agent codex
+```
+
+Install from a local checkout while iterating:
+
+```bash
+gh skill install . ai-appsec-harness --from-local --agent codex --scope user
+```
+
+When testing from inside this repository, prefer `--scope user` or `--dir <temp-dir>` so GitHub CLI does not write back into the tracked `.agents/skills/` path.
+
+If you explicitly want GitHub CLI to look in hidden agent-specific directories instead of the standard `skills/` path, opt in with:
+
+```bash
+gh skill install stellarus-dev/stellarus-ai-appsec-harness --allow-hidden-dirs --agent codex
+```
 
 See [docs/agent-tool-import.md](docs/agent-tool-import.md) for import patterns, target-repo snippets, expected inputs, and guardrails.
 
@@ -139,6 +163,7 @@ Generated reports are not compliance certificates. They are evidence gap analyse
 - `examples/harness-import-intake.example.json` - sample intake for reviewing the harness import path itself.
 - `harness/` - no-dependency Python helpers for preflight validation/rendering and structured intake gap reports.
 - `agents/` - agent roles and prompts for threat modeling, evidence collection, CSA mapping, and attestation.
+- `skills/ai-appsec-harness/` - installable Agent Skills-compatible Codex skill for `gh skill install`.
 - `.agents/skills/ai-appsec-harness/` - Codex repo skill for AI AppSec review workflows.
 - `.claude/skills/ai-appsec-harness/` - Claude Code project skill for AI AppSec review workflows.
 - `tools/verify-harness-integrity.py` - local sanity check for import-sensitive harness files.

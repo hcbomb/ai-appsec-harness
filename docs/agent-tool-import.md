@@ -11,12 +11,35 @@ The importable workflow is the preferred human-in-the-loop path for pre-Security
 
 - `AGENTS.md` - project-level guidance for Codex and other agents that read `AGENTS.md`.
 - `CLAUDE.md` - Claude Code guidance that imports `AGENTS.md` and points Claude to the project skill.
+- `skills/ai-appsec-harness/SKILL.md` - standard installable Codex skill for `gh skill install`.
 - `.agents/skills/ai-appsec-harness/SKILL.md` - Codex repo skill for AI AppSec review workflows.
 - `.claude/skills/ai-appsec-harness/SKILL.md` - Claude Code project skill for the same workflow.
 - `agents/prompts/` - role prompts for intake, threat modeling, evidence mapping, CSA mapping, and attestation drafting.
 - `templates/` - reusable preflight, AI code assistant request, intake, threat model, engineering brief, and attestation artifacts.
 - `data/control-catalog.seed.json` - local operational controls aligned to AISVS-style evidence expectations and adjacent AI security frameworks.
 - `docs/` - method documentation for preflight, AI code assistant guidance, MAESTRO, STRIDE translation, AI Defense Matrix coverage, AISVS operationalization, reference curation, and weekly monitoring.
+
+## Install Options
+
+Use the standard skill path when you want a normal GitHub CLI install:
+
+```bash
+gh skill install stellarus-dev/stellarus-ai-appsec-harness ai-appsec-harness --agent codex
+```
+
+Use a local checkout while iterating on the skill:
+
+```bash
+gh skill install . ai-appsec-harness --from-local --agent codex --scope user
+```
+
+When testing from inside this repository, prefer `--scope user` or `--dir <temp-dir>` so GitHub CLI does not write back into the tracked `.agents/skills/` path.
+
+If you want GitHub CLI to scan hidden agent-specific directories instead of the standard `skills/` path, opt in explicitly:
+
+```bash
+gh skill install stellarus-dev/stellarus-ai-appsec-harness --allow-hidden-dirs --agent codex
+```
 
 ## Import Patterns
 

@@ -36,6 +36,9 @@ Review these sources as a monthly or secondary strategic sweep. Do not add them 
   - https://www.hiddenlayer.com/innovation-hub
 - NCSC secure AI system development and frontier AI cyber guidance
   - https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development
+- AI Security Podcast / The Inference Stack
+  - Podcast: https://www.aisecuritypodcast.com/
+  - Newsletter and practitioner commentary: https://www.ashishrajan.com/
 
 ## Weekly Review Goal
 
@@ -88,6 +91,7 @@ Then include:
 
 - Prefer primary sources over newsletter summaries when promoting a durable reference.
 - Do not add vendor hype unless it maps to a concrete AppSec, AI security, or governance use case.
+- Treat podcasts, interviews, and practitioner newsletters as discovery sources. Corroborate durable references, requirements, or control changes with primary technical sources.
 - Do not update controls from news alone. Add a candidate first, then validate against standards or primary technical material.
 - Keep public repo content organization-neutral.
 - Preserve source URL, retrieval date, and rationale for any promoted reference.

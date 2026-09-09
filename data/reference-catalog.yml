@@ -249,3 +249,11 @@ strategic_sweep_feeds:
     cadence: monthly_or_signal_driven
     use: Public guidance for secure AI lifecycle, secure-by-design expectations, AI cyber risk, and governance operating-model checks.
     promote_to_weekly_when: Repeated guidance updates materially affect secure AI lifecycle, governance, or cyber-risk operating practices.
+  - id: ai-security-podcast-inference-stack
+    name: AI Security Podcast / The Inference Stack
+    url: https://www.aisecuritypodcast.com/
+    additional_urls:
+      - https://www.ashishrajan.com/
+    cadence: monthly_or_signal_driven
+    use: Practitioner interviews and weekly AI/cloud/cybersecurity commentary for discovery of operational AI security patterns; corroborate durable references or requirements with primary technical sources.
+    promote_to_weekly_when: Repeated timely, technically specific items materially improve AI AppSec testing, evidence, detection, incident response, or engineering workflows.
